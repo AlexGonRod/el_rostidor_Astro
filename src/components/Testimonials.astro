@@ -9,37 +9,37 @@ const dishes = [
 		name: 'Ramses Ramirez Sanchez',
 		description:
 			'Vivo en Andorra y siempre que voy a Arenys encargo comida para llevar. Un lugar muy recomendado. Probarlo!!!',
-		image: '/src/assets/entrada.webp',
+		image: 'public/entrada.webp',
 	},
 	{
 		name: 'Victor Sanchez Vendrell',
 		description:
 			'Comida casera BUENISSIMA!!!! Y muy bien de precio!! Recomendado 200%',
-		image: '/src/assets/menjar.webp',
+		image: 'public/menjar.webp',
 	},
 	{
 		name: 'J',
 		description:
 			'Comercio vende comida para llevar. Hace menús también o lo que le encargues...Pere cocina muy bien...nos encanta las croquetas de jamón...la de setas....las bravas...entre otras cosas. Los canalones también.',
-		image: '/src/assets/corquetes.webp',
+		image: 'public/corquetes.webp',
 	},
 	{
 		name: 'Marc',
 		description:
 			'Cada domingo encargamos comida para comer en casa y todas las semanas se superan, grandes profesionales y atención exquisita, gracias por cocinar tan bien, a destacar la paella y el fricando de ternera sin olvidarme de sus deliciosos canelones!!!!',
-		image: '/src/assets/paella.webp',
+		image: 'public/paella.webp',
 	},
 	{
 		name: 'Roser Alvarez',
 		description:
 			'Es un sitio muy acojedor ,donde el trato es muy familiar.Si cuando llamas no tienen te lo hacen y eso es de agradecer.Nunca tienen un no por respuesta .Pere y rosa que estan al frente son personas encantadoras que hacen que repitas sin pensar-lo.',
-		image: '/src/assets/calamars.webp',
+		image: 'public/calamars.webp',
 	},
 	{
 		name: 'Ilias Ezzine',
 		description:
 			'Trato muy cercano y profesional, se preocupan todo el rato de que todo esté en orden ( incluidos los cocineros ) , por tardar un par de minutos ( que no es un problema ,ni mucho menos ) nos han regalado croquetas',
-		image: '/src/assets/xuxo.webp',
+		image: 'public/xuxo.webp',
 	},
 ];
 ---
@@ -55,7 +55,7 @@ const dishes = [
 		{
 			dishes.map((dish) => (
 				<article class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
-					<Image
+					<img
 						src={dish.image}
 						alt={dish.name}
 						width={400}
