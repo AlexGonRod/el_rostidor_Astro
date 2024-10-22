@@ -1,0 +1,41 @@
+---
+import { Icon } from 'astro-icon/components';
+const date = new Date();
+const year = date.getFullYear();
+---
+
+<footer class="bg-terciary py-6 mx-auto flex flex-col">
+	<div class="flex flex-row justify-center align-middle">
+		<a
+			rel="external"
+			referrerpolicy="no-referrer"
+			href="https://www.facebook.com/elrostidorarenysdemunt/"
+			aria-label="Nuestra cuenta de Facebook"
+			target="_blank"
+		>
+			<Icon
+				name="fe:facebook"
+				width="35"
+				height="35"
+				class="text-font-primary hover:text-primary-600 transition duration-300"
+			/></a
+		>
+		<a
+			rel="external"
+			referrerpolicy="no-referrer"
+			href="https://www.instagram.com/el_rostidor/"
+			aria-label="Nuestra cuenta de instagram"
+			target="_blank"
+		>
+			<Icon
+				name="line-md:instagram"
+				width="38"
+				height="35"
+				class="text-font-primary hover:text-primary-600 transition duration-300"
+			/></a
+		>
+	</div>
+	<span class="text-center pt-4 text-font-primary"
+		>© Copyright El rostidor. Tots els drets reservats. {year}
+	</span>
+</footer>

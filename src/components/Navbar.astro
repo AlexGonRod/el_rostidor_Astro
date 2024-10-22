@@ -1,0 +1,59 @@
+---
+const anchorClass =
+	'py-4 px-2 text-font-accent font-semibold hover:text-primary-500 hover:cursor-pointer transition';
+
+const links = [
+	{
+		href: '/',
+		title: 'Home',
+	},
+	{
+		href: '#about',
+		title: 'Sobre nosaltres',
+	},
+	{
+		href: '#menu',
+		title: 'Menu',
+	},
+	{
+		href: '#contact',
+		title: 'Contacte',
+	},
+];
+---
+
+<nav class="bg-white shadow-lg">
+	<div class="max-w-6xl mx-auto px-4">
+		<div class="flex justify-between">
+			<div class="flex space-x-7">
+				<div>
+					<a href="/" class="flex items-center py-4 px-2">
+						<span class="font-semibold text-font-accent text-lg"
+							>El Rostidor</span
+						>
+					</a>
+				</div>
+			</div>
+			<div class="hidden md:flex items-center space-x-3 font-sans">
+				{
+					links.map(({ href, title }) => (
+						<ul>
+							<li>
+								<a href={href} class={anchorClass}>
+									{title}
+								</a>
+							</li>
+						</ul>
+					))
+				}
+				<a href="/login">
+					<button
+						class="py-2 px-2 font-medium text-font-primary bg-primary-600 rounded hover:contrast-200 hover:text-gray-200 transition"
+					>
+						Log In
+					</button>
+				</a>
+			</div>
+		</div>
+	</div>
+</nav>

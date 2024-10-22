@@ -1,0 +1,46 @@
+---
+import Typography from "./wrappers/Typography.astro";
+import Section from "./wrappers/Section.astro";
+
+const benefits = [
+  {
+    title: "Productes de qualitat",
+    description: "El Rostidor, un establiment de menjar per emportar (take away), és una cuina tradicional d’alta qualitat amb productes frescos i de km 0.",
+    icon: "🍎"
+  },
+  {
+    title: "Menus",
+    description: "També disposem tant de menú setmanal com de cap de setmana i els Dijous tenim menú de paella o fideuá.",
+    icon: "🥗"
+  },
+  {
+    title: "Carta de plats",
+    description: "Trobaràs una extensa carta de plats (plats de temporada, plats de sempre...) amb preus assequible i per a tots els gustos.",
+    icon: "🍽"
+  },
+  {
+    title: "Bon preu",
+    description: "Fem pressupostos sense compromís, ens dius el que vols i t’informem.",
+    icon: "💲"
+  }
+];
+---
+
+<Section class=" bg-secondary">
+
+    <div class="mb-12">
+      <Typography variant="h3" >Perquè escollir-nos</Typography>
+      <Typography variant="h2">Descobreix què oferim?</Typography>
+    </div>
+
+    <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+      {benefits.map((benefit) => (
+        <div class="bg-white rounded-lg p-6 text-center shadow-md">
+          <div class="text-4xl mb-4">{benefit.icon}</div>
+          <Typography variant="h3">{benefit.title}</Typography>
+          <Typography variant="p">{benefit.description}</Typography>
+        </div>
+      ))}
+    </div>
+
+</Section>

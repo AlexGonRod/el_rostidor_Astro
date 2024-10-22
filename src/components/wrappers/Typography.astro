@@ -1,0 +1,16 @@
+---
+const { variant, class: className, size } = Astro.props;
+const Variant = variant || 'h2';
+const types: { [key: string]: string } = {
+	h3: `${size || 'text-xl'} text-font-accent uppercase font-sans my-4 font-bold`,
+	h2: `${size || 'text-4xl'} font-bold my-4 font-domine`,
+	p: 'text-gray-600 font-base prose text-left text-pretty my-2',
+	li: 'flex items-center font-base',
+};
+
+const classes = types[variant];
+---
+
+<Variant class:list={[classes, className]}>
+	<slot />
+</Variant>

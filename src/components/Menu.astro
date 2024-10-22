@@ -1,0 +1,90 @@
+---
+import Typography from './wrappers/Typography.astro';
+import Section from './wrappers/Section.astro';
+
+const leftMeals = [
+	'Ensaladilla',
+	'Rovellons a la brasas',
+	'Cargols a la llauna o guisats',
+	'Salpicó de marisc',
+	'Esqueixada',
+	'Croquetes',
+	'Bunyols de bacallà',
+	'Albergínies farcides',
+	'Truites variades',
+	'Canelons',
+	'Macarrons',
+	'Lasanyas',
+	'Callos',
+	'Calamar a la romana',
+	'Musclos marinera',
+	'Patates braves',
+];
+const rightMeals = [
+	'Pollastre i conill rostit 1/4',
+	'Mar i muntanya',
+	'Sarsuela',
+	'Peu de porc guisat',
+	'Paella',
+	'fideuà',
+	'Calamars farcit',
+	'Bacallà a la llauna o amb samfaina',
+	'Mandonguilles amb sépia',
+	'Mandonguilles',
+	'Fricandó',
+	'Galta a l’ast',
+	'Conill a l’ast',
+	'Pollastre a l’ast',
+	'Melós de vedella',
+	'Secret ibèric',
+];
+---
+
+<Section id="menu" class="bg-secondary">
+	<Typography variant="h3">El nostre menjar</Typography>
+	<Typography variant="h2">Descobrex la nostra carta</Typography>
+
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 prose">
+		<!-- Left Column Menu Items -->
+		<div class="bg-terciary rounded-lg p-8">
+			<ul class="space-y-6">
+				{
+					leftMeals.map((item) => (
+						<li class="flex justify-between items-center border-b border-gray-700 pb-4">
+							<div>
+								<Typography
+									variant="h3"
+									size="text-sm"
+									class="text-font-primary"
+								>
+									{item}
+								</Typography>
+							</div>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+
+		<!-- Right Column Menu Items -->
+		<div class="bg-terciary rounded-lg p-8">
+			<ul class="space-y-6">
+				{
+					rightMeals.map((item) => (
+						<li class="flex justify-between items-center border-b border-gray-700 pb-4">
+							<div>
+								<Typography
+									variant="h3"
+									size="text-sm"
+									class="text-font-primary"
+								>
+									{item}
+								</Typography>
+							</div>
+						</li>
+					))
+				}
+			</ul>
+		</div>
+	</div>
+</Section>

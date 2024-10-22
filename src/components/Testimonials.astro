@@ -1,0 +1,80 @@
+---
+import { Image } from 'astro:assets';
+import Typography from './wrappers/Typography.astro';
+import Section from './wrappers/Section.astro';
+import StarIcon from 'src/icons/StarIcon.astro';
+
+const dishes = [
+	{
+		name: 'Ramses Ramirez Sanchez',
+		description:
+			'Vivo en Andorra y siempre que voy a Arenys encargo comida para llevar. Un lugar muy recomendado. Probarlo!!!',
+		image: '/src/assets/entrada.webp',
+	},
+	{
+		name: 'Victor Sanchez Vendrell',
+		description:
+			'Comida casera BUENISSIMA!!!! Y muy bien de precio!! Recomendado 200%',
+		image: '/src/assets/menjar.webp',
+	},
+	{
+		name: 'J',
+		description:
+			'Comercio vende comida para llevar. Hace menús también o lo que le encargues...Pere cocina muy bien...nos encanta las croquetas de jamón...la de setas....las bravas...entre otras cosas. Los canalones también.',
+		image: '/src/assets/corquetes.webp',
+	},
+	{
+		name: 'Marc',
+		description:
+			'Cada domingo encargamos comida para comer en casa y todas las semanas se superan, grandes profesionales y atención exquisita, gracias por cocinar tan bien, a destacar la paella y el fricando de ternera sin olvidarme de sus deliciosos canelones!!!!',
+		image: '/src/assets/paella.webp',
+	},
+	{
+		name: 'Roser Alvarez',
+		description:
+			'Es un sitio muy acojedor ,donde el trato es muy familiar.Si cuando llamas no tienen te lo hacen y eso es de agradecer.Nunca tienen un no por respuesta .Pere y rosa que estan al frente son personas encantadoras que hacen que repitas sin pensar-lo.',
+		image: '/src/assets/calamars.webp',
+	},
+	{
+		name: 'Ilias Ezzine',
+		description:
+			'Trato muy cercano y profesional, se preocupan todo el rato de que todo esté en orden ( incluidos los cocineros ) , por tardar un par de minutos ( que no es un problema ,ni mucho menos ) nos han regalado croquetas',
+		image: '/src/assets/xuxo.webp',
+	},
+];
+---
+
+<Section class="bg-terciary">
+	<div class="text-center mb-8">
+		<Typography variant="h3">Testimonis</Typography>
+		<Typography variant="h2" class="text-font-primary"
+			>Què diuen de nosaltres?</Typography
+		>
+	</div>
+	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+		{
+			dishes.map((dish) => (
+				<article class="bg-gray-100 rounded-lg overflow-hidden shadow-md">
+					<Image
+						src={dish.image}
+						alt={dish.name}
+						width={400}
+						height={600}
+						class="w-full h-48 object-cover"
+					/>
+					<div class="p-4 prose">
+						<div class="flex items-center mb-2 justify-center">
+							{[...Array(5)].map(() => (
+								<StarIcon />
+							))}
+						</div>
+						<span class="text-xl font-semibold my-2">
+							{dish.name}
+						</span>
+						<Typography variant="p">{dish.description}</Typography>
+					</div>
+				</article>
+			))
+		}
+	</div>
+</Section>
