@@ -6,7 +6,6 @@ import {GET} from '../pages/api/images.json.ts'
 
 const response = await GET(Astro);
 const {images: _images} = await response.json();
-console.log(_images)
 
 
 const images = [
@@ -24,7 +23,7 @@ const images = [
 	<Typography variant="h2">Les nostres xarxes</Typography>
 	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 		{
-			_images.map(({ media_url, caption }) => (
+			_images.map(({ media_url, caption } : {media_url:string, caption: string}) => (
 				<div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
 					<Image
 						src={media_url}
