@@ -2,6 +2,12 @@
 import Typography from './wrappers/Typography.astro';
 import Section from './wrappers/Section.astro';
 import { Image } from 'astro:assets';
+import {GET} from '../pages/api/images.json.ts'
+
+const response = await GET(Astro);
+const {images: _images} = await response.json();
+console.log(_images)
+
 
 const images = [
 	{ src: '/images/rostidor.webp', alt: 'Restaurant interior' },
@@ -18,14 +24,14 @@ const images = [
 	<Typography variant="h2">Les nostres xarxes</Typography>
 	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 		{
-			images.map(({ src, alt }) => (
+			_images.map(({ media_url, caption }) => (
 				<div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-					<img
-						src={src}
-						alt={alt}
-						width={400}
-						height={600}
-						class="w-full h-64 object-cover"
+					<Image
+						src={media_url}
+						alt={caption}
+						width={300}
+						height={400}
+						class="w-full object-cover h-auto max-h-[400px]"
 					/>
 				</div>
 			))
