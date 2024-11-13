@@ -9,6 +9,7 @@ import netlify from '@astrojs/netlify';
 export default defineConfig({
   image: {
     domains: ["astro.build"],
+    remotePatterns: [{ hostname: "**.cdninstagram.com" }]
   },
   integrations: [tailwind(), icon({
     include: {
