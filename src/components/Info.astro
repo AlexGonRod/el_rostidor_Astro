@@ -6,8 +6,8 @@ import Section from './wrappers/Section.astro';
 
 <Section id="about" class="bg-white">
 	<div class="flex flex-col lg:flex-row items-center">
-		<div class="lg:w-1/2 mb-8 lg:mb-0 relative grid grid-cols-2 gap-2">
-			<div class="rounded-3xl overflow-hidden">
+		<div class="lg:w-1/2 mb-8 lg:mb-0 relative grid md:grid-cols-2 gap-2">
+			<div class="rounded-3xl overflow-hidden hidden md:flex">
 				<Image
 					loading={'eager'}
 					src="/images/rostidor.webp"
@@ -17,7 +17,7 @@ import Section from './wrappers/Section.astro';
 					class="w-full h-auto object-cover"
 				/>
 			</div>
-			<div class="rounded-3xl overflow-hidden">
+			<div class="rounded-3xl overflow-hidden hidden md:flex">
 				<Image
 					loading={'eager'}
 					src="/images/rostidor_interior.webp"
@@ -28,7 +28,7 @@ import Section from './wrappers/Section.astro';
 				/>
 			</div>
 			<div
-				class="absolute w-30 h-30 top-[-40px] right-[-10px] bg-yellow-400 rounded-full shadow-lg border-4"
+				class="md:absolute md:w-30 md:h-30 md:top-[-40px] md:right-[-10px] bg-yellow-400 rounded-full shadow-lg border-4 justify-center"
 			>
 				<Image
 					loading={'eager'}
