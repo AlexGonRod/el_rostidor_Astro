@@ -2,20 +2,19 @@
 import Typography from './wrappers/Typography.astro';
 import Section from './wrappers/Section.astro';
 import { Image } from 'astro:assets';
-import {GET} from '../pages/api/images.json.ts'
+import { GET } from '../pages/api/images.json.ts';
 
 const response = await GET(Astro);
-const {images: _images} = await response.json();
+const { images: _images } = await response.json();
 
-
-const images = [
-	{ src: '/images/rostidor.webp', alt: 'Restaurant interior' },
-	{ src: '/images/rostidor.webp', alt: 'Gourmet dish with yellow sauce' },
-	{ src: '/images/rostidor.webp', alt: 'Buffet spread' },
-	{ src: '/images/rostidor.webp', alt: 'Chef cooking in large pot' },
-	{ src: '/images/rostidor.webp', alt: 'Curry dish with naan bread' },
-	{ src: '/images/rostidor.webp', alt: 'Busy restaurant with diners' },
-];
+// const images = [
+// 	{ src: '/images/rostidor.webp', alt: 'Restaurant interior' },
+// 	{ src: '/images/rostidor.webp', alt: 'Gourmet dish with yellow sauce' },
+// 	{ src: '/images/rostidor.webp', alt: 'Buffet spread' },
+// 	{ src: '/images/rostidor.webp', alt: 'Chef cooking in large pot' },
+// 	{ src: '/images/rostidor.webp', alt: 'Curry dish with naan bread' },
+// 	{ src: '/images/rostidor.webp', alt: 'Busy restaurant with diners' },
+// ];
 ---
 
 <Section class="bg-white">
@@ -23,17 +22,36 @@ const images = [
 	<Typography variant="h2">Les nostres xarxes</Typography>
 	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
 		{
-			_images.map(({ media_url, caption } : {media_url:string, caption: string}) => (
-				<div class="overflow-hidden rounded-lg shadow-md hover:shadow-xl transition-shadow duration-300">
-					<Image
-						src={media_url}
-						alt={caption}
-						width={300}
-						height={400}
-						class="w-full object-cover h-auto max-h-[400px]"
-					/>
-				</div>
-			))
+			_images.map(
+				({
+					media_url,
+					caption,
+					thumbnail_url,
+					permalink,
+				}: {
+					media_url: string;
+					caption: string;
+					thumbnail_url: string;
+					permalink: string;
+				}) => (
+					<div class="overflow-hidden rounded-lg shadow-md hover:scale-110 hover:opacity-75 transition duration-300">
+						<a
+							aria-button
+							referrerpolicy="no-referrer"
+							href={permalink}
+							target="_blank"
+						>
+							<Image
+								src={thumbnail_url || media_url}
+								alt={caption}
+								width={300}
+								height={400}
+								class="w-full object-cover h-auto max-h-[400px]"
+							/>
+						</a>
+					</div>
+				),
+			)
 		}
 	</div>
 </Section>
