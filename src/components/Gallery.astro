@@ -6,52 +6,47 @@ import { GET } from '../pages/api/images.json.ts';
 
 const response = await GET(Astro);
 const { images: _images } = await response.json();
-
-// const images = [
-// 	{ src: '/images/rostidor.webp', alt: 'Restaurant interior' },
-// 	{ src: '/images/rostidor.webp', alt: 'Gourmet dish with yellow sauce' },
-// 	{ src: '/images/rostidor.webp', alt: 'Buffet spread' },
-// 	{ src: '/images/rostidor.webp', alt: 'Chef cooking in large pot' },
-// 	{ src: '/images/rostidor.webp', alt: 'Curry dish with naan bread' },
-// 	{ src: '/images/rostidor.webp', alt: 'Busy restaurant with diners' },
-// ];
 ---
 
 <Section class="bg-white">
 	<Typography variant="h3">Nosaltres al mon</Typography>
 	<Typography variant="h2">Les nostres xarxes</Typography>
-	<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
-		{
-			_images.map(
-				({
-					media_url,
-					caption,
-					thumbnail_url,
-					permalink,
-				}: {
-					media_url: string;
-					caption: string;
-					thumbnail_url: string;
-					permalink: string;
-				}) => (
-					<div class="overflow-hidden rounded-lg shadow-md hover:scale-110 hover:opacity-75 transition duration-300">
+	<div class="w-full inline-flex flex-nowrap overflow-x-auto">
+		<div
+			class="flex items-center justify-center md:justify-start gap-4 md:flex-wrap"
+			aria-hidden="true"
+		>
+			{
+				_images.map(
+					({
+						media_url,
+						caption,
+						thumbnail_url,
+						permalink,
+					}: {
+						media_url: string;
+						caption: string;
+						thumbnail_url: string;
+						permalink: string;
+					}) => (
+
 						<a
-							aria-button
 							referrerpolicy="no-referrer"
 							href={permalink}
 							target="_blank"
+							class="overflow-hidden rounded-lg shadow-md hover:scale-110 hover:opacity-75 transition duration-300"
 						>
 							<Image
 								src={thumbnail_url || media_url}
 								alt={caption}
 								width={300}
 								height={400}
-								class="w-full object-cover h-auto max-h-[400px]"
+								class=" object-cover md:h-[400px] rounded  md:max-w-[300px] aspect-square max-w-[250px] h-auto"
 							/>
 						</a>
-					</div>
-				),
-			)
-		}
+					),
+				)
+			}
+		</div>
 	</div>
 </Section>
