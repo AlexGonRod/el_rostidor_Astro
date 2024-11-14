@@ -15,7 +15,7 @@ export default {
 					500: "#c8a97e",
 					600: "#c6944e"
 				},
-				secondary: "#faf7f2",
+				secondary: "#f5e9d4",
 				terciary: "#111827",
 				accent: "#000000",
 				"font-accent": "#6b7280",
