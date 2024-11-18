@@ -8,7 +8,7 @@ const response = await GET(Astro);
 const { images: _images } = await response.json();
 ---
 
-<Section class="bg-white px-0">
+<Section id="imatges" class="bg-white px-0">
 	<Typography variant="h3">Nosaltres al mon</Typography>
 	<Typography variant="h2">Les nostres xarxes</Typography>
 	<div class="w-full h-[300px] inline-flex flex-nowrap overflow-x-scroll">

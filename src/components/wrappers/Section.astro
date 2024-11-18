@@ -1,4 +1,7 @@
-<section class:list={['px-4 pt-4 pb-8 ', Astro.props.class]}>
+---
+const {id, class: classes} = Astro.props
+---
+<section id={id || ''} class:list={[classes, 'px-4 pt-4 pb-8 ']}>
 	<div class="container mx-auto px-4 text-center">
 		<slot />
 	</div>
