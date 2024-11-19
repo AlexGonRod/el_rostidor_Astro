@@ -44,9 +44,10 @@ const rightMeals = [
 	<Typography variant="h3">El nostre menjar</Typography>
 	<Typography variant="h2">Descobrex la nostra carta</Typography>
 
-	<div class="grid grid-cols-1 lg:grid-cols-2 gap-8 prose">
-		<!-- Left Column Menu Items -->
+	<div class="grid grid-cols-1 lg:grid-cols-2 gap-4 prose">
+    <!-- Left Column Menu Items -->
 		<div class="bg-terciary rounded-lg p-8">
+      <Typography variant="h3" class="mb-8 mt-0">Entrants</Typography>
 			<ul class="space-y-6">
 				{
 					leftMeals.map((item) => (
@@ -68,6 +69,7 @@ const rightMeals = [
 
 		<!-- Right Column Menu Items -->
 		<div class="bg-terciary rounded-lg p-8">
+      <Typography variant="h3" class="mb-8 mt-0">Principals</Typography>
 			<ul class="space-y-6">
 				{
 					rightMeals.map((item) => (
@@ -76,7 +78,7 @@ const rightMeals = [
 								<Typography
 									variant="h3"
 									size="text-sm"
-									class="text-font-primary"
+									class="text-font-primary text-left"
 								>
 									{item}
 								</Typography>
