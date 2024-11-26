@@ -1,31 +1,37 @@
 ---
+import { geti18n } from '../lib/i18n';
+
+const { url } = Astro;
+const {pathname} = url
+const i18n = geti18n({ pathname });
+
 const anchorClass =
 	'py-4 px-2 text-font-accent font-semibold hover:text-primary-500 hover:cursor-pointer transition';
 
 const links = [
 	{
 		href: '/',
-		title: 'Home',
+		title: i18n.HEADER_HOME,
 	},
 	{
 		href: '#about',
-		title: 'Sobre nosaltres',
+		title: i18n.HEADER_ABOUT,
 	},
 	{
 		href: '#imatges',
-		title: 'Imatges',
+		title: i18n.HEADER_IMAGES,
 	},
 	{
 		href: '#menu',
-		title: 'Menu',
+		title: i18n.HEADER_MENU,
 	},
 	{
 		href: '#nostres-clients',
-		title: 'Els nostres clients',
+		title: i18n.HEADER_CLIENTS,
 	},
 	{
 		href: '#contacte',
-		title: 'Contacte',
+		title: i18n.HEADER_CONTACT,
 	},
 ];
 ---
@@ -54,6 +60,10 @@ const links = [
 						</ul>
 					))
 				}
+
+				<a href="/es" class={anchorClass}>ES</a>
+				<spam>|</spam>
+				<a href="/" class={anchorClass}>CA</a>
 				<!-- <a href="/login">
 					<button
 						class="py-2 px-2 font-medium text-font-primary bg-primary-600 rounded hover:contrast-200 hover:text-gray-200 transition"

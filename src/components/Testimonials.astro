@@ -3,6 +3,11 @@ import { Image } from 'astro:assets';
 import Typography from './wrappers/Typography.astro';
 import Section from './wrappers/Section.astro';
 import StarIcon from 'src/icons/StarIcon.astro';
+import { geti18n } from '../lib/i18n';
+
+const { url } = Astro;
+const { pathname } = url;
+const i18n = geti18n({ pathname });
 
 const dishes = [
 	{
@@ -46,9 +51,9 @@ const dishes = [
 
 <Section id="nostres-clients" class="bg-terciary">
 	<div class="text-center mb-8">
-		<Typography variant="h3">Testimonis</Typography>
+		<Typography variant="h3">{i18n.TESTIMONIALS_TITLE}</Typography>
 		<Typography variant="h2" class="text-font-primary"
-			>Què diuen de nosaltres?</Typography
+			>{i18n.TESTIMONIALS_SUBTITLE}</Typography
 		>
 	</div>
 	<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">

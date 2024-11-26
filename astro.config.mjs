@@ -16,7 +16,6 @@ export default defineConfig({
       mdi: ["*"],
     },
   })],
-
   output: "hybrid",
   adapter: netlify(),
 });

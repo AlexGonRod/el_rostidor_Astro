@@ -1,0 +1,53 @@
+{
+
+    "SEO_TITLE":"Benviguts al Rostidor d'Arenys de munt.",
+    "SEO_DESCRIPTION": "el lloc on trobat el teu menjar.",
+    "HEADER_HOME": "Home",
+    "HEADER_ABOUT": "Sobre nosaltres",
+    "HEADER_IMAGES": "Imatges",
+    "HEADER_MENU": "Menu",
+    "HEADER_CLIENTS": "Els nostres clients",
+    "HEADER_CONTACT": "Contacte",
+    "HERO_TITLE": "Benvinguts al rostidor d'Arenys",
+    "HERO_SUBTITLE": "Descobreix el lloc on comprar el teu menjar",
+    "HERO_BUTTON": "Veure el menu",
+    "ABOUT_TITLE": "Sobre nosaltres",
+    "ABOUT_SUBTITLE":"Descobreix qui som",
+    "ABOUT_TEXT1": "El 13 d’abril de 2002, el Rostidor obre les seves portes el vell mig de la Riera d’Arenys de Munt, de les mans de Pere Collet juntament amb els seus pares.",
+    "ABOUT_TEXT2": "En Pere nascut, gastronòmicament parlant, a l’Escola d’Hosteleria de Calella i Gremi de pastisseria de Barcelona i més de 20 anys d’experiència treballant amb coneguts restaurants com l’Hispania, el Sant Pau de Carme Ruscalleda, entre d’altres.",
+    "ABOUT_TEXT3": "Els pares, en Josep i la Rosa, han estat tota la vida en el sector i són uns bons amants i aficionats de la bona cuina, arribant a ser un puntal molt important en el negoci.",
+    "ABOUT_PREMI": "Actualment, El Rostidor, ha sigut guardonat amb el segell de Millor botiga de menjar per emportar 2021. Moltes gràcies a tots!!",
+    "US_TITLE": "Perquè escollir-nos",
+    "US_SUBTITLE": "Descobreix què oferim?",
+    "US_SECTION_TITLE": "Productes de qualitat",
+    "US_SECTION_TEXT": "El Rostidor, un establiment de menjar per emportar (take away), és una cuina tradicional d’alta qualitat amb productes frescos i de km 0.",
+    "US_SECTION_TITLE2": "Menus",
+    "US_SECTION_TEXT2": "També disposem tant de menú setmanal com de cap de setmana i els Dijous tenim menú de paella o fideuá.",
+    "US_SECTION_TITLE3": "Carta de plats",
+    "US_SECTION_TEXT3": "Trobaràs una extensa carta de plats (plats de temporada, plats de sempre...) amb preus assequible i per a tots els gustos.",
+    "US_SECTION_TITLE4": "Bon preu",
+    "US_SECTION_TEXT4": "Fem pressupostos sense compromís, ens dius el que vols i t’informem.",
+    "IMAGES_TITLE": "Nosaltres al mon",
+    "IMAGES_SUBTITLE": "Les nostres xarxes",
+    "MENU_TITLE": "El nostre menjar",
+    "MENU_SUBTITLE": "Descobreix la nostra carta",
+    "MENU": {
+        "SIDE": {
+            "TITLE": "Entrants",
+            "1": "Ensaladilla"
+        },
+        "FIRST": {
+            "TITLE": "Principals"
+        }
+    },
+    "TESTIMONIALS_TITLE": "Testimonis",
+    "TESTIMONIALS_SUBTITLE": "Què diuen de nosaltres?",
+    "CONTACT_TITLE": "Contacta",
+    "CONTACT_SUBTITLE": "Estigues al dia",
+    "CONTACT_INFO_TITLE":"Contacte",
+    "CONTACT_HOURS_TITLE":"Horaris",
+    "CONTACT_HOURS1": "Dimarts i dimecres encarrecs amb trucada previa",
+    "CONTACT_HOURS2": "Dijous i Divendres de 10:30 a 14:30",
+    "CONTACT_HOURS3": "Dissabtes, Diumenges i festius de 9 a 15",
+    "COPY": "Tots els drets reservats"
+}

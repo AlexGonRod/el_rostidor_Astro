@@ -2,6 +2,11 @@
 import { Image } from 'astro:assets';
 import Typography from './wrappers/Typography.astro';
 import Section from './wrappers/Section.astro';
+import { geti18n } from '../lib/i18n';
+
+const { url } = Astro;
+const { pathname } = url;
+const i18n = geti18n({ pathname });
 ---
 
 <Section id="about" class="bg-white">
@@ -41,28 +46,19 @@ import Section from './wrappers/Section.astro';
 			</div>
 		</div>
 		<div class="lg:w-1/2 lg:pl-16">
-			<Typography variant="h3">Sobre nosaltres</Typography>
-			<Typography variant="h2">Descobreix qui som</Typography>
+			<Typography variant="h3">{i18n.ABOUT_TITLE}</Typography>
+			<Typography variant="h2">{i18n.ABOUT_SUBTITLE}</Typography>
 			<Typography variant="p">
-				El 13 d’abril de 2002, el Rostidor obre les seves portes el vell
-				mig de la Riera d’Arenys de Munt, de les mans de Pere Collet
-				juntament amb els seus pares.
+				{i18n.ABOUT_TEXT1}
 			</Typography>
 			<Typography variant="p">
-				En Pere nascut, gastronòmicament parlant, a l’Escola
-				d’Hosteleria de Calella i Gremi de pastisseria de Barcelona i
-				més de 20 anys d’experiència treballant amb coneguts restaurants
-				com l’Hispania, el Sant Pau de Carme Ruscalleda, entre d’altres.
+				{i18n.ABOUT_TEXT2}
 			</Typography>
 			<Typography variant="p">
-				Els pares, en Josep i la Rosa, han estat tota la vida en el
-				sector i són uns bons amants i aficionats de la bona cuina,
-				arribant a ser un puntal molt important en el negoci.
+				{i18n.ABOUT_TEXT3}
 			</Typography>
 			<Typography variant="p" class="text-primary-500">
-				Actualment, El Rostidor, ha sigut guardonat amb el segell de
-				"Millor botiga de menjar per emportar 2021" Moltes gràcies a
-				tots!!
+				{i18n.ABOUT_PREMI}
 			</Typography>
 		</div>
 	</div>

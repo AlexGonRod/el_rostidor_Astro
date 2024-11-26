@@ -1,0 +1,53 @@
+{
+
+    "SEO_TITLE":"Bienvenidos al Rostidor de Arenys de munt.",
+    "SEO_DESCRIPTION": "donde encontrar tu comida.",
+    "HEADER_HOME": "Home",
+    "HEADER_ABOUT": "Sobre nosotros",
+    "HEADER_IMAGES": "Imágenes",
+    "HEADER_MENU": "Menú",
+    "HEADER_CLIENTS": "Nuestros clientes",
+    "HEADER_CONTACT": "Contacto",
+    "HERO_TITLE": "Bienvenidos al Rostidor de Arenys",
+    "HERO_SUBTITLE": "Descubre donde comprar tu comida.",
+    "HERO_BUTTON": "Ver el menú",
+    "ABOUT_TITLE": "Sobre nosotros",
+    "ABOUT_SUBTITLE":"Descubre quienes somos",
+    "ABOUT_TEXT1": "El 13 de abril de 2002, el Rostidor abre sus puertas en el centro de la Riera de Arenys de Munt, de las manos de Pere Collet junto con sus padres.",
+    "ABOUT_TEXT2": "Pere, nacido gastronómicamente hablando, en la Escuela de Hostelería de Calella i Gremio de pastelería de Barcelona, con más de 20 años de experiencia trabajando en reconocidos restaurantes como el Hispania, el Sant Pau de Carme Ruscalleda, entre otros.",
+    "ABOUT_TEXT3": "Sus padres, Josep i Rosa, han estado toda la vida en el sector i son unos grandes amantes i aficionados de la buena cocina, legando a ser un puntal muy importante en el negocio.",
+    "ABOUT_PREMI": "Actualmente, El Rostidor, ha sido galardonado con el sello de Mejor tienda de comida para llevar 2021. ¡¡Muchas gracias a todos!!",
+    "US_TITLE": "Porqué escogernos",
+    "US_SUBTITLE": "Descobre qué ofrecemos",
+    "US_SECTION_TITLE": "Productos de calidad",
+    "US_SECTION_TEXT": "El Rostidor, un establecimiento de comida para llevar (take away), es una cocina tradicional de alta calidad con producteos frescos y de km 0.",
+    "US_SECTION_TITLE2": "Menus",
+    "US_SECTION_TEXT2": "También disponemos tanto de menú semanal como de fin de setmana, y los Jueves tenemos menú de paella o fideuá.",
+    "US_SECTION_TITLE3": "Carta de platos",
+    "US_SECTION_TEXT3": "Encontraras una extensa carta de platos (platos de temporada, platos de siempre...) con precios asequibles y para todos los gustos.",
+    "US_SECTION_TITLE4": "Buen precio",
+    "US_SECTION_TEXT4": "Hacemos presupuestos sin compromiso, nos dices lo que quieres y te informamos.",
+    "IMAGES_TITLE": "Nosotros en el mundo",
+    "IMAGES_SUBTITLE": "Nuestras redes",
+    "MENU_TITLE": "Nuestra comida",
+    "MENU_SUBTITLE": "Descobre nuestra carta",
+    "MENU": {
+        "SIDE": {
+            "TITLE": "Entrantes",
+            "1": "Ensaladilla"
+        },
+        "FIRST": {
+            "TITLE": "Principales"
+        }
+    },
+    "TESTIMONIALS_TITLE": "Testimonios",
+    "TESTIMONIALS_SUBTITLE": "¿Qué dicen de nosaltros?",
+    "CONTACT_TITLE": "Contacta",
+    "CONTACT_SUBTITLE": "Estate al dia",
+    "CONTACT_INFO_TITLE":"Contacto",
+    "CONTACT_HOURS_TITLE":"Horarios",
+    "CONTACT_HOURS1": "Martes y Miércoles encargos con llamada previa",
+    "CONTACT_HOURS2": "Jueves y Viernes de 10:30 a 14:30",
+    "CONTACT_HOURS3": "Sábados, Domingos y festivos de 9 a 15",
+    "COPY": "Todos los derechos reservados"
+}

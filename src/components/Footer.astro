@@ -2,6 +2,11 @@
 import { Icon } from 'astro-icon/components';
 const date = new Date();
 const year = date.getFullYear();
+import { geti18n } from '../lib/i18n';
+
+const { url } = Astro;
+const {pathname} = url
+const i18n = geti18n({ pathname });
 ---
 
 <footer class="bg-terciary py-6 mx-auto flex flex-col">
@@ -36,6 +41,6 @@ const year = date.getFullYear();
 		>
 	</div>
 	<span class="text-center pt-4 text-font-primary"
-		>© Copyright El rostidor. Tots els drets reservats. {year}
+		>© Copyright El rostidor. {i18n.COPY} {year}
 	</span>
 </footer>
