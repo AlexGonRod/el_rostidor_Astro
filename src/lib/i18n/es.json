@@ -30,18 +30,53 @@
     "IMAGES_TITLE": "Nosotros en el mundo",
     "IMAGES_SUBTITLE": "Nuestras redes",
     "MENU_TITLE": "Nuestra comida",
-    "MENU_SUBTITLE": "Descobre nuestra carta",
+    "MENU_SUBTITLE": "Descubre nuestra carta",
     "MENU": {
         "SIDE": {
-            "TITLE": "Entrantes",
-            "1": "Ensaladilla"
+            "DISHES": [
+                "Ensaladilla",
+                "Setas a la brasa",
+                "Caracoles a la lata o guisados",
+                "Salpicón de marisco",
+                "Esqueixada",
+                "Croquetas",
+                "Buñuelos de bacalao",
+                "Berenjenas rellenas",
+                "Tortllas variades",
+                "Canelones",
+                "Macarrones",
+                "Lasaña",
+                "Callos",
+                "Calamar a la romana",
+                "Mejillones marinera",
+                "Patatas bravas"
+            ],
+            "TITLE": "Entrantes"
         },
         "FIRST": {
+            "DISHES": [
+                "Pollo y conejo rustido 1/4",
+                "Mar y montaña",
+                "Zarzuela",
+                "Pie de cerdo guisado",
+                "Paella",
+                "Fideuá",
+                "Calamares rellenos",
+                "Bacalao a la lata o con sanfaina",
+                "Albóndigas con sepia",
+                "Albóndigas",
+                "Fricandó",
+                "Galta a l’ast",
+                "Conejo a l’ast",
+                "Pollo a l’ast",
+                "Meloso de ternera",
+                "Secreto ibérico"
+            ],
             "TITLE": "Principales"
         }
     },
     "TESTIMONIALS_TITLE": "Testimonios",
-    "TESTIMONIALS_SUBTITLE": "¿Qué dicen de nosaltros?",
+    "TESTIMONIALS_SUBTITLE": "¿Qué dicen de nosotros?",
     "CONTACT_TITLE": "Contacta",
     "CONTACT_SUBTITLE": "Estate al dia",
     "CONTACT_INFO_TITLE":"Contacto",

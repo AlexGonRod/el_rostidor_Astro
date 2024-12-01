@@ -6,6 +6,7 @@ import { geti18n } from '../lib/i18n';
 const { url } = Astro;
 const { pathname } = url;
 const i18n = geti18n({ pathname });
+// console.log(JSON.stringify(i18n.MENU.FIRST));
 
 const leftMeals = [
 	'Ensaladilla',
@@ -57,7 +58,7 @@ const rightMeals = [
 			>
 			<ul class="space-y-6">
 				{
-					leftMeals.map((item) => (
+					i18n.MENU.SIDE.DISHES.map((item) => (
 						<li class="flex justify-between items-center border-b border-gray-700 pb-4">
 							<div>
 								<Typography
@@ -81,7 +82,7 @@ const rightMeals = [
 			>
 			<ul class="space-y-6">
 				{
-					rightMeals.map((item) => (
+					i18n.MENU.FIRST.DISHES.map((item) => (
 						<li class="flex justify-between items-center border-b border-gray-700 pb-4">
 							<div>
 								<Typography

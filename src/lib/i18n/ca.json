@@ -34,10 +34,45 @@
     "MENU": {
         "SIDE": {
             "TITLE": "Entrants",
-            "1": "Ensaladilla"
+            "DISHES": [
+                "Ensaladilla",
+                "Rovellons a la brasa",
+                "Cargols a la llauna o guisats",
+                "Salpicó de marisc",
+                "Esqueixada",
+                "Croquetes",
+                "Bunyols de bacallà",
+                "Albergínies farcides",
+                "Truites variades",
+                "Canelons",
+                "Macarrons",
+                "Lasanya",
+                "Callos",
+                "Calamar a la romana",
+                "Musclos marinera",
+                "Patates braves"
+            ]
         },
         "FIRST": {
-            "TITLE": "Principals"
+            "TITLE": "Principals",
+            "DISHES": [
+                "Pollastre i conill rostit 1/4",
+                "Mar i muntanya",
+                "Sarsuela",
+                "Peu de porc guisat",
+                "Paella",
+                "Fideuà",
+                "Calamars farcit",
+                "Bacallà a la llauna o amb samfaina",
+                "Mandonguilles amb sépia",
+                "Mandonguilles",
+                "Fricandó",
+                "Galta a l’ast",
+                "Conill a l’ast",
+                "Pollastre a l’ast",
+                "Melós de vedella",
+                "Secret ibèric"
+            ]
         }
     },
     "TESTIMONIALS_TITLE": "Testimonis",
