@@ -6,44 +6,7 @@ import { geti18n } from '../lib/i18n';
 const { url } = Astro;
 const { pathname } = url;
 const i18n = geti18n({ pathname });
-// console.log(JSON.stringify(i18n.MENU.FIRST));
 
-const leftMeals = [
-	'Ensaladilla',
-	'Rovellons a la brasas',
-	'Cargols a la llauna o guisats',
-	'Salpicó de marisc',
-	'Esqueixada',
-	'Croquetes',
-	'Bunyols de bacallà',
-	'Albergínies farcides',
-	'Truites variades',
-	'Canelons',
-	'Macarrons',
-	'Lasanyas',
-	'Callos',
-	'Calamar a la romana',
-	'Musclos marinera',
-	'Patates braves',
-];
-const rightMeals = [
-	'Pollastre i conill rostit 1/4',
-	'Mar i muntanya',
-	'Sarsuela',
-	'Peu de porc guisat',
-	'Paella',
-	'fideuà',
-	'Calamars farcit',
-	'Bacallà a la llauna o amb samfaina',
-	'Mandonguilles amb sépia',
-	'Mandonguilles',
-	'Fricandó',
-	'Galta a l’ast',
-	'Conill a l’ast',
-	'Pollastre a l’ast',
-	'Melós de vedella',
-	'Secret ibèric',
-];
 ---
 
 <Section id="menu" class="bg-secondary">
