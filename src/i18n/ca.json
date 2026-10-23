@@ -59,7 +59,7 @@
     "thursday": {
       "label": "Només dijous",
       "title": "Paella o fideuà",
-      "text": "Cada dijous, de 10:30 a 14:30.",
+      "text": "De dimecres a diumenge",
       "notice": "Encarrega-la abans de [hora límit] i la tindràs a punt."
     },
     "pendingItems": ["Primer plat", "Segon plat", "Postres"]

@@ -18,13 +18,13 @@ const copy = {
   ca: {
     week: { title: 'Menú de la setmana', subtitle: 'De dimecres a divendres' },
     weekend: { title: 'Menú de cap de setmana', subtitle: 'Dissabtes, diumenges i festius' },
-    thursday: { label: 'Només dijous', title: 'Paella o fideuà', schedule: 'Cada dijous, de 10:30 a 14:30.', notice: /Encarrega-la abans de/ },
+    thursday: { label: 'Només dijous', title: 'Paella o fideuà', schedule: 'De dimecres a diumenge', notice: /Encarrega-la abans de/ },
     old: /Reserva la teva/,
   },
   es: {
     week: { title: 'Menú de la semana', subtitle: 'De miércoles a viernes' },
     weekend: { title: 'Menú de fin de semana', subtitle: 'Sábados, domingos y festivos' },
-    thursday: { label: 'Solo los jueves', title: 'Paella o fideuà', schedule: 'Cada jueves, de 10:30 a 14:30.', notice: /Encárgala antes de/ },
+    thursday: { label: 'Solo los jueves', title: 'Paella o fideuà', schedule: 'De miércoles a domingo', notice: /Encárgala antes de/ },
     old: /Reserva la tuya/,
   },
 } as const;

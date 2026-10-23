@@ -59,7 +59,7 @@
     "thursday": {
       "label": "Solo los jueves",
       "title": "Paella o fideuà",
-      "text": "Cada jueves, de 10:30 a 14:30.",
+      "text": "De miércoles a domingo",
       "notice": "Encárgala antes de [hora límite] y la tendrás lista."
     },
     "pendingItems": ["Primer plato", "Segundo plato", "Postre"]
