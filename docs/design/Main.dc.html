@@ -1,0 +1,390 @@
+<!doctype html>
+<html lang="ca">
+<head>
+<meta charset="utf-8">
+<title>El Rostidor, nova home</title>
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&amp;family=DM+Sans:wght@400;500;700&amp;display=swap" rel="stylesheet">
+<style>
+body{margin:0}
+a{color:inherit;text-decoration:none}
+.ph{background:repeating-linear-gradient(135deg,#ECE6E0 0 14px,#E3DCD5 14px 28px);color:#5E564F;display:flex;align-items:center;justify-content:center;text-align:center;font-size:13px;letter-spacing:.05em;text-transform:uppercase;padding:16px;box-sizing:border-box}
+.btn-p{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;background:#B8321F;color:#fff;font-weight:700;font-size:16px;border-radius:6px;border:0;cursor:pointer}
+.btn-p:hover{background:#962716}
+.btn-s{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;background:transparent;color:#1E1A17;font-weight:700;font-size:16px;border-radius:6px;border:2px solid #1E1A17;cursor:pointer}
+.btn-s:hover{background:#1E1A17;color:#fff}
+.eyebrow{font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#B8321F;margin:0 0 12px}
+.h2{font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1.1;margin:0 0 16px;letter-spacing:-.01em}
+.navlink{font-weight:500;font-size:16px;padding:8px 4px}
+.navlink:hover{color:#B8321F}
+.card{background:#fff;border:1px solid #E4DDD6;border-radius:10px;overflow:hidden}
+details{border-bottom:1px solid #E4DDD6;padding:20px 0}
+summary{cursor:pointer;font-weight:700;font-size:18px;list-style:none;display:flex;justify-content:space-between;gap:16px}
+summary::-webkit-details-marker{display:none}
+details p{margin:12px 0 0;color:#5E564F;line-height:1.6}
+</style>
+</helmet>
+<div style="width:100%;font-family:'DM Sans',sans-serif;color:#1E1A17;background:#1E1A17;line-height:1.5">
+
+<!-- Barra d'utilitat -->
+<div style="background:#1E1A17;color:#F6F2EE;font-size:14px">
+<div style="max-width:1200px;margin:0 auto;padding:10px 40px;display:flex;flex-wrap:wrap;gap:8px 28px;justify-content:space-between;align-items:center;box-sizing:border-box">
+<div style="display:flex;flex-wrap:wrap;gap:8px 24px;align-items:center">
+<span style="display:inline-flex;align-items:center;gap:8px;font-weight:700"><span style="width:10px;height:10px;border-radius:50%;background:#3FB868;display:inline-block"></span>Obert ara · fins a les 14:30</span>
+<span>Rambla Sant Martí, 46 · Arenys de Munt</span>
+<a href="tel:937937107" style="font-weight:700">93 793 71 07</a>
+</div>
+<div style="display:flex;gap:12px;font-weight:700"><a href="#">CA</a><span aria-hidden="true">|</span><a href="#" style="opacity:.7">ES</a></div>
+</div>
+</div>
+
+<div style="background:#fff">
+
+<!-- Capçalera -->
+<header style="position:sticky;top:0;z-index:10;background:#fff;border-bottom:1px solid #E4DDD6">
+<div style="max-width:1200px;margin:0 auto;padding:14px 40px;display:flex;flex-wrap:wrap;gap:12px 32px;align-items:center;justify-content:space-between;box-sizing:border-box">
+<a href="#inici" style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;letter-spacing:-.02em">El Rostidor</a>
+<nav aria-label="Principal" style="display:flex;flex-wrap:wrap;gap:8px 28px;align-items:center">
+<a class="navlink" href="#carta">Carta</a>
+<a class="navlink" href="#menus">Menús</a>
+<a class="navlink" href="#celebracions">Celebracions</a>
+<a class="navlink" href="#nosaltres">Nosaltres</a>
+<a class="navlink" href="#contacte">Contacte</a>
+<a class="btn-p" href="#encarrega" style="min-height:44px;padding:0 22px">Encarrega</a>
+</nav>
+</div>
+</header>
+
+<!-- Hero -->
+<section id="inici" style="max-width:1200px;margin:0 auto;padding:64px 40px;display:flex;flex-wrap:wrap;gap:40px;align-items:center;box-sizing:border-box">
+<div style="flex:1 1 460px;min-width:0">
+<p class="eyebrow">Menjar per emportar · Arenys de Munt</p>
+<h1 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:64px;line-height:1.02;letter-spacing:-.02em;margin:0 0 20px">Cuina casolana d'Arenys, per emportar.</h1>
+<p style="font-size:20px;color:#5E564F;margin:0 0 32px;max-width:520px">Pollastre a l'ast, paella i plats de sempre, fets amb producte fresc i de km 0. Encarrega'l avui i passa a recollir-lo.</p>
+<div style="display:flex;flex-wrap:wrap;gap:16px;margin-bottom:36px">
+<a class="btn-p" href="#encarrega">Encarrega ara</a>
+<a class="btn-s" href="#carta">Veure la carta</a>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px 32px;font-size:15px;font-weight:500">
+<span>Des del 2002</span>
+<span>Producte de km 0</span>
+<span>Millor botiga de menjar per emportar 2021</span>
+</div>
+</div>
+<div class="ph" style="flex:1 1 420px;min-height:520px;border-radius:12px">[Foto: pollastres girant a l'ast, vapor, llum càlida]</div>
+</section>
+
+<!-- Menús -->
+<section id="menus" style="background:#F6F2EE">
+<div style="max-width:1200px;margin:0 auto;padding:72px 40px;box-sizing:border-box">
+<p class="eyebrow">Menús</p>
+<h2 class="h2">Què hi ha per dinar aquesta setmana</h2>
+<p style="font-size:18px;color:#5E564F;margin:0 0 36px;max-width:640px">Menú de setmana, menú de cap de setmana i, els dijous, paella o fideuà. Actualitzat cada setmana.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+<div class="card" style="flex:1 1 360px;padding:32px;min-width:0">
+<h3 style="font-family:'Bricolage Grotesque',sans-serif;font-size:24px;margin:0 0 4px">Menú de la setmana</h3>
+<p style="margin:0 0 20px;color:#5E564F">De dimecres a divendres</p>
+<ul style="list-style:none;margin:0 0 24px;padding:0;display:grid;gap:10px">
+<li style="padding-bottom:10px;border-bottom:1px solid #E4DDD6">[Primer plat, a omplir cada setmana]</li>
+<li style="padding-bottom:10px;border-bottom:1px solid #E4DDD6">[Segon plat]</li>
+<li style="padding-bottom:10px;border-bottom:1px solid #E4DDD6">[Postres]</li>
+</ul>
+<div style="display:flex"><a class="btn-s" href="#encarrega" style="min-height:44px;padding:0 22px">Encarrega</a></div>
+</div>
+<div class="card" style="flex:1 1 360px;padding:32px;min-width:0">
+<h3 style="font-family:'Bricolage Grotesque',sans-serif;font-size:24px;margin:0 0 4px">Menú de cap de setmana</h3>
+<p style="margin:0 0 20px;color:#5E564F">Dissabtes, diumenges i festius</p>
+<ul style="list-style:none;margin:0 0 24px;padding:0;display:grid;gap:10px">
+<li style="padding-bottom:10px;border-bottom:1px solid #E4DDD6">[Primer plat]</li>
+<li style="padding-bottom:10px;border-bottom:1px solid #E4DDD6">[Segon plat]</li>
+<li style="padding-bottom:10px;border-bottom:1px solid #E4DDD6">[Postres]</li>
+</ul>
+<div style="display:flex"><a class="btn-s" href="#encarrega" style="min-height:44px;padding:0 22px">Encarrega</a></div>
+</div>
+<div style="flex:1 1 360px;padding:32px;min-width:0;background:#B8321F;color:#fff;border-radius:10px;display:flex;flex-direction:column;justify-content:space-between;gap:24px">
+<div>
+<p style="margin:0 0 8px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase">Només dijous</p>
+<h3 style="font-family:'Bricolage Grotesque',sans-serif;font-size:36px;line-height:1.1;margin:0 0 12px">Paella o fideuà</h3>
+<p style="margin:0 0 16px;font-size:17px">Cada dijous, de 10:30 a 14:30.</p>
+<p style="margin:0;font-size:17px;font-weight:700;padding:12px 16px;border-radius:6px;background:rgba(0,0,0,.22)">Encarrega-la abans de [hora límit] i la tindràs a punt.</p>
+</div>
+<div style="display:flex"><a href="#encarrega" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;background:#fff;color:#B8321F;font-weight:700;border-radius:6px">Encarrega</a></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Carta -->
+<section id="carta" style="max-width:1200px;margin:0 auto;padding:72px 40px;box-sizing:border-box">
+<p class="eyebrow">La carta</p>
+<h2 class="h2">Plats de temporada i plats de sempre</h2>
+<p style="font-size:18px;color:#5E564F;margin:0 0 28px;max-width:640px">Tria per categories. Si busques alguna cosa que no hi és, pregunta: sovint ho podem preparar.</p>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-bottom:32px">
+<sc-for list="{{ tabs }}" as="tab" hint-placeholder-count="2">
+<button onClick="{{ tab.pick }}" style="{{ tab.style }}">{{ tab.label }}</button>
+</sc-for>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+<sc-for list="{{ dishes }}" as="dish" hint-placeholder-count="8">
+<div class="card" style="flex:1 1 240px;max-width:100%;min-width:0">
+<div class="ph" style="height:160px;border-radius:0">[Foto del plat]</div>
+<div style="padding:18px 20px 20px">
+<p style="margin:0 0 6px;font-size:12px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:#B8321F;min-height:18px">{{ dish.tag }}</p>
+<h3 style="font-family:'Bricolage Grotesque',sans-serif;font-size:20px;margin:0">{{ dish.name }}</h3>
+</div>
+</div>
+</sc-for>
+</div>
+<p style="margin:28px 0 0;font-size:14px;color:#5E564F">Informació d'al·lèrgens disponible al mostrador. [Afegir icones: sense gluten · vegetarià]</p>
+</section>
+
+<!-- Celebracions -->
+<section id="celebracions" style="background:#1E1A17;color:#F6F2EE">
+<div style="max-width:1200px;margin:0 auto;padding:72px 40px;display:flex;flex-wrap:wrap;gap:40px;align-items:center;box-sizing:border-box">
+<div style="flex:1 1 440px;min-width:0">
+<p class="eyebrow" style="color:#F0A08F">Encàrrecs i celebracions</p>
+<h2 class="h2">Tu poses l'ocasió, nosaltres el menjar</h2>
+<p style="font-size:18px;margin:0 0 24px;max-width:520px;color:#E4DDD6">Comunions, aniversaris, dinars d'empresa i reunions familiars. Ens expliques què vols i t'enviem un pressupost sense compromís.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px;margin-bottom:32px">
+<span style="border:1px solid #6B625B;border-radius:999px;padding:6px 16px;font-size:15px">Comunions</span>
+<span style="border:1px solid #6B625B;border-radius:999px;padding:6px 16px;font-size:15px">Aniversaris</span>
+<span style="border:1px solid #6B625B;border-radius:999px;padding:6px 16px;font-size:15px">Empreses</span>
+<span style="border:1px solid #6B625B;border-radius:999px;padding:6px 16px;font-size:15px">Reunions familiars</span>
+</div>
+<a class="btn-p" href="#encarrega">Demana pressupost</a>
+</div>
+<div class="ph" style="flex:1 1 380px;min-height:340px;border-radius:12px">[Foto: safates i plats per a grup]</div>
+</div>
+</section>
+
+<!-- Com encarregar -->
+<section id="encarrega" style="max-width:1200px;margin:0 auto;padding:72px 40px;box-sizing:border-box">
+<p class="eyebrow">Com encarregar</p>
+<h2 class="h2">Tres passos i a casa</h2>
+<div style="display:flex;flex-wrap:wrap;gap:24px;margin:32px 0 40px">
+<div style="flex:1 1 260px;min-width:0;padding:28px;background:#F6F2EE;border-radius:10px">
+<p style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-size:44px;font-weight:800;color:#B8321F;line-height:1">1</p>
+<h3 style="margin:0 0 8px;font-size:20px">Tria què t'agrada</h3>
+<p style="margin:0;color:#5E564F">Mira la carta i els menús, o demana'ns consell.</p>
+</div>
+<div style="flex:1 1 260px;min-width:0;padding:28px;background:#F6F2EE;border-radius:10px">
+<p style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-size:44px;font-weight:800;color:#B8321F;line-height:1">2</p>
+<h3 style="margin:0 0 8px;font-size:20px">Encarrega per telèfon o WhatsApp</h3>
+<p style="margin:0;color:#5E564F">Dilluns i dimarts, tancat. Els dimecres, només sota encàrrec.</p>
+</div>
+<div style="flex:1 1 260px;min-width:0;padding:28px;background:#F6F2EE;border-radius:10px">
+<p style="margin:0 0 8px;font-family:'Bricolage Grotesque',sans-serif;font-size:44px;font-weight:800;color:#B8321F;line-height:1">3</p>
+<h3 style="margin:0 0 8px;font-size:20px">Passa a recollir-ho</h3>
+<p style="margin:0;color:#5E564F">Rambla Sant Martí, 46. Ho tindràs a punt a l'hora acordada.</p>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<a class="btn-p" href="tel:937937107">Trucar al 93 793 71 07</a>
+<a class="btn-s" href="https://wa.me/34659331213?text=Hola%2C%20El%20Rostidor!%20Voldria%20fer%20un%20enc%C3%A0rrec%20per%20recollir.">WhatsApp</a>
+</div>
+</section>
+
+<!-- Nosaltres -->
+<section id="nosaltres" style="background:#F6F2EE">
+<div style="max-width:1200px;margin:0 auto;padding:72px 40px;display:flex;flex-wrap:wrap;gap:48px;align-items:center;box-sizing:border-box">
+<div class="ph" style="flex:1 1 380px;min-height:460px;border-radius:12px">[Foto: Pere, Josep i Rosa a l'obrador]</div>
+<div style="flex:1 1 460px;min-width:0">
+<p class="eyebrow">Qui som</p>
+<h2 class="h2">Una cuina de família, al vell mig d'Arenys</h2>
+<p style="font-size:18px;color:#5E564F;margin:0 0 24px">El 13 d'abril de 2002, en Pere Collet obre El Rostidor a la Riera d'Arenys de Munt amb els seus pares, en Josep i la Rosa. Passió per la cuina de sempre i més de 20 anys d'ofici en restaurants com l'Hispania o el Sant Pau.</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px;border-top:1px solid #CFC6BD;padding-top:24px">
+<div style="flex:1 1 120px"><strong style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:28px">2002</strong><span style="color:#5E564F;font-size:15px">Obrim portes</span></div>
+<div style="flex:1 1 120px"><strong style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:28px">2021</strong><span style="color:#5E564F;font-size:15px">Millor botiga de menjar per emportar</span></div>
+<div style="flex:1 1 120px"><strong style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-size:28px">Km 0</strong><span style="color:#5E564F;font-size:15px">Producte fresc i de proximitat</span></div>
+</div>
+</div>
+</div>
+</section>
+
+<!-- Opinions -->
+<section id="opinions" style="max-width:1200px;margin:0 auto;padding:72px 40px;box-sizing:border-box">
+<p class="eyebrow">Opinions</p>
+<h2 class="h2">Això diuen els qui ja ens coneixen</h2>
+<p style="font-size:18px;margin:0 0 32px;color:#5E564F"><strong style="color:#1E1A17">[4,X] ★</strong> · [N] ressenyes a Google</p>
+<div style="display:flex;flex-wrap:wrap;gap:24px">
+<figure style="flex:1 1 300px;min-width:0;margin:0;padding:28px;border:1px solid #E4DDD6;border-radius:10px">
+<blockquote style="margin:0 0 20px;font-size:18px;line-height:1.5">Cada domingo encargamos comida para comer en casa y todas las semanas se superan, grandes profesionales y atención exquisita.</blockquote>
+<figcaption style="font-size:14px;color:#5E564F"><strong style="color:#1E1A17">Marc</strong> · Ressenya de Google (original en castellà)</figcaption>
+</figure>
+<figure style="flex:1 1 300px;min-width:0;margin:0;padding:28px;border:1px solid #E4DDD6;border-radius:10px">
+<blockquote style="margin:0 0 20px;font-size:18px;line-height:1.5">El trato es muy familiar. Si cuando llamas no tienen te lo hacen y eso es de agradecer. Nunca tienen un no por respuesta.</blockquote>
+<figcaption style="font-size:14px;color:#5E564F"><strong style="color:#1E1A17">Roser Alvarez</strong> · Ressenya de Google (original en castellà)</figcaption>
+</figure>
+<figure style="flex:1 1 300px;min-width:0;margin:0;padding:28px;border:1px solid #E4DDD6;border-radius:10px">
+<blockquote style="margin:0 0 20px;font-size:18px;line-height:1.5">Comida casera buenísima y muy bien de precio.</blockquote>
+<figcaption style="font-size:14px;color:#5E564F"><strong style="color:#1E1A17">Victor Sanchez Vendrell</strong> · Ressenya de Google (original en castellà)</figcaption>
+</figure>
+</div>
+<p style="margin:24px 0 0"><a href="#" style="font-weight:700;color:#B8321F">Llegir totes les ressenyes a Google →</a></p>
+</section>
+
+<!-- FAQ -->
+<section id="faq" style="background:#F6F2EE">
+<div style="max-width:860px;margin:0 auto;padding:72px 40px;box-sizing:border-box">
+<p class="eyebrow">Preguntes freqüents</p>
+<h2 class="h2">Abans de trucar</h2>
+<details open="">
+<summary>Fins quan puc fer un encàrrec?<span aria-hidden="true">+</span></summary>
+<p>[Indicar antelació, p. ex. fins a les X h del dia anterior]. Per a grups i celebracions, com més aviat millor.</p>
+</details>
+<details>
+<summary>Feu servei a domicili?<span aria-hidden="true">+</span></summary>
+<p>[Confirmar: sí / no / només amb comandes grans]. L'encàrrec es recull a la Rambla Sant Martí, 46.</p>
+</details>
+<details>
+<summary>Com es poden escalfar els plats?<span aria-hidden="true">+</span></summary>
+<p>[Instruccions breus per a pollastre, paella i guisats: forn, microones, temps recomanat].</p>
+</details>
+<details>
+<summary>Teniu opcions per a al·lèrgies o intoleràncies?<span aria-hidden="true">+</span></summary>
+<p>Pregunta'ns pels al·lèrgens de cada plat abans d'encarregar. [Afegir quins plats són sense gluten o vegetarians].</p>
+</details>
+</div>
+</section>
+
+<!-- Contacte -->
+<section id="contacte" style="max-width:1200px;margin:0 auto;padding:72px 40px;box-sizing:border-box">
+<p class="eyebrow">Contacte</p>
+<h2 class="h2">Passa a veure'ns o truca'ns</h2>
+<div style="display:flex;flex-wrap:wrap;gap:40px;margin-top:32px">
+<div style="flex:1 1 380px;min-width:0">
+<h3 style="font-size:20px;margin:0 0 16px">Horaris</h3>
+<table style="width:100%;border-collapse:collapse;font-size:16px">
+<tbody>
+<tr style="border-bottom:1px solid #E4DDD6"><td style="padding:12px 0">Dilluns</td><td style="padding:12px 0;text-align:right">Tancat</td></tr>
+<tr style="border-bottom:1px solid #E4DDD6"><td style="padding:12px 0">Dimarts</td><td style="padding:12px 0;text-align:right">Tancat</td></tr>
+<tr style="border-bottom:1px solid #E4DDD6"><td style="padding:12px 0">Dimecres</td><td style="padding:12px 0;text-align:right">Només encàrrecs, trucant abans</td></tr>
+<tr style="border-bottom:1px solid #E4DDD6"><td style="padding:12px 0">Dijous</td><td style="padding:12px 0;text-align:right">10:30 a 14:30</td></tr>
+<tr style="border-bottom:1px solid #E4DDD6"><td style="padding:12px 0">Divendres</td><td style="padding:12px 0;text-align:right">10:30 a 14:30</td></tr>
+<tr style="border-bottom:1px solid #E4DDD6"><td style="padding:12px 0">Dissabte</td><td style="padding:12px 0;text-align:right">9:00 a 15:00</td></tr>
+<tr><td style="padding:12px 0">Diumenge i festius</td><td style="padding:12px 0;text-align:right">9:00 a 15:00</td></tr>
+</tbody>
+</table>
+<div style="margin-top:28px;display:grid;gap:6px"><span>Rambla Sant Martí, 46, Arenys de Munt</span><a href="tel:937937107" style="font-weight: 700">93 793 71 07</a><span>WhatsApp: 659 33 12 13</span></div>
+<div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:24px">
+<a class="btn-p" href="tel:937937107" style="min-height:48px">Trucar</a>
+<a class="btn-s" href="https://wa.me/34659331213?text=Hola%2C%20El%20Rostidor!%20Voldria%20fer%20un%20enc%C3%A0rrec%20per%20recollir." style="min-height:48px">WhatsApp</a>
+<a class="btn-s" href="#" style="min-height:48px">Com arribar</a>
+</div>
+</div>
+<div class="ph" style="flex:1 1 420px;min-height:420px;border-radius:12px">[Mapa de Google incrustat + botó Com arribar]</div>
+</div>
+</section>
+
+<!-- Banda de cloenda -->
+<section style="background:#B8321F;color:#fff">
+<div style="max-width:1200px;margin:0 auto;padding:64px 40px;display:flex;flex-wrap:wrap;gap:24px 40px;justify-content:space-between;align-items:center;box-sizing:border-box">
+<div style="flex:1 1 420px;min-width:0">
+<h2 style="font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:40px;line-height:1.1;margin:0 0 8px;letter-spacing:-.01em">Encarrega el dinar d'avui</h2>
+<p style="margin:0;font-size:18px">Truca'ns o escriu-nos i ho tindràs a punt per recollir a l'hora que et vagi bé.</p>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:16px">
+<a href="tel:937937107" style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;background:#fff;color:#B8321F;font-weight:700;font-size:16px;border-radius:6px">Trucar al 93 793 71 07</a>
+<a href="https://wa.me/34659331213?text=Hola%2C%20El%20Rostidor!%20Voldria%20fer%20un%20enc%C3%A0rrec%20per%20recollir." style="display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border:2px solid #fff;color:#fff;font-weight:700;font-size:16px;border-radius:6px">WhatsApp</a>
+</div>
+</div>
+</section>
+
+</div>
+
+<!-- Peu -->
+<footer style="background:#1E1A17;color:#F6F2EE">
+<div style="max-width:1200px;margin:0 auto;padding:64px 40px 32px;box-sizing:border-box">
+<div style="display:flex;flex-wrap:wrap;gap:40px;margin-bottom:48px">
+<div style="flex:1.4 1 280px;min-width:0">
+<span style="display:block;font-family:'Bricolage Grotesque',sans-serif;font-weight:800;font-size:28px;letter-spacing:-.02em;margin-bottom:12px">El Rostidor</span>
+<p style="margin:0 0 20px;color:#CFC6BD;max-width:320px">Cuina casolana per emportar a Arenys de Munt, des del 2002.</p>
+<div style="display:flex;flex-wrap:wrap;gap:10px">
+<a href="#" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid #6B625B;border-radius:999px;font-weight:700;font-size:14px">Instagram</a>
+<a href="#" style="display:inline-flex;align-items:center;min-height:44px;padding:0 18px;border:1px solid #6B625B;border-radius:999px;font-weight:700;font-size:14px">Facebook</a>
+</div>
+</div>
+<div style="flex:1 1 160px;min-width:0">
+<h3 style="margin:0 0 16px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#F0A08F">Navega</h3>
+<div style="display:grid;gap:10px;font-size:15px">
+<a href="#carta">Carta</a><a href="#menus">Menús</a><a href="#celebracions">Celebracions</a><a href="#nosaltres">Nosaltres</a><a href="#contacte">Contacte</a>
+</div>
+</div>
+<div style="flex:1 1 220px;min-width:0">
+<h3 style="margin:0 0 16px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#F0A08F">Horaris</h3>
+<div style="display:grid;gap:10px;font-size:15px;color:#E4DDD6">
+<span>Dl i dt: tancat</span>
+<span>Dc: només encàrrecs</span>
+<span>Dj i dv: 10:30 a 14:30</span>
+<span>Ds, dg i festius: 9:00 a 15:00</span>
+</div>
+</div>
+<div style="flex:1 1 240px;min-width:0">
+<h3 style="margin:0 0 16px;font-size:13px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#F0A08F">Contacte</h3>
+<div style="display:grid;gap:10px;font-size:15px">
+<span style="color:#E4DDD6">Rambla Sant Martí, 46<br>Arenys de Munt</span>
+<a href="tel:937937107" style="font-weight:700">93 793 71 07</a>
+<a href="mailto:elrostidorarenysdemunt@gmail.com" style="overflow-wrap:anywhere">elrostidorarenysdemunt@gmail.com</a>
+</div>
+</div>
+</div>
+<div style="display:flex;flex-wrap:wrap;gap:12px 32px;justify-content:space-between;border-top:1px solid #3A332E;padding-top:24px;font-size:14px;color:#CFC6BD">
+<span>© 2026 El Rostidor. Tots els drets reservats.</span>
+<div style="display:flex;flex-wrap:wrap;gap:8px 24px"><a href="#">Avís legal</a><a href="#">Privacitat</a><a href="#">Cookies</a></div>
+</div>
+</div>
+</footer>
+
+</div>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props='{"$preview":{"width":1360,"height":6900}}'>
+class Component extends DCLogic {
+  constructor(props) {
+    super(props);
+    this.state = { tab: 'entrants' };
+  }
+  renderVals() {
+    const tab = this.state.tab;
+    const data = {
+      entrants: [
+        { name: 'Croquetes de pernil', tag: 'Més demanat' },
+        { name: 'Croquetes de ceps', tag: 'Més demanat' },
+        { name: 'Canelons', tag: 'Més demanat' },
+        { name: 'Patates braves', tag: '' },
+        { name: 'Esqueixada', tag: '' },
+        { name: 'Calamar a la romana', tag: '' },
+        { name: 'Ensaladilla', tag: '' },
+        { name: 'Bunyols de bacallà', tag: '' }
+      ],
+      principals: [
+        { name: 'Pollastre a l\'ast (1/4)', tag: 'Especialitat' },
+        { name: 'Paella', tag: 'Més demanat' },
+        { name: 'Fricandó', tag: 'Més demanat' },
+        { name: 'Galta a l\'ast', tag: '' },
+        { name: 'Conill a l\'ast', tag: '' },
+        { name: 'Mandonguilles amb sípia', tag: '' },
+        { name: 'Sarsuela', tag: '' },
+        { name: 'Peu de porc guisat', tag: '' }
+      ]
+    };
+    const on = 'min-height:44px;padding:0 24px;border-radius:999px;border:2px solid #1E1A17;background:#1E1A17;color:#fff;font:700 16px DM Sans,sans-serif;cursor:pointer';
+    const off = 'min-height:44px;padding:0 24px;border-radius:999px;border:2px solid #CFC6BD;background:#fff;color:#1E1A17;font:700 16px DM Sans,sans-serif;cursor:pointer';
+    const tabs = [
+      { key: 'entrants', label: 'Entrants i tapes' },
+      { key: 'principals', label: 'Plats principals' }
+    ].map((t) => ({
+      label: t.label,
+      style: tab === t.key ? on : off,
+      pick: () => this.setState({ tab: t.key })
+    }));
+    return { tabs, dishes: data[tab] };
+  }
+}
+</script>
+</body>
+</html>

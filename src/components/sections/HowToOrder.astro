@@ -1,0 +1,34 @@
+---
+import { business } from '../../data/business';
+import { dictionaries, fmt, type Lang } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+import WhatsAppButton from '../ui/WhatsAppButton.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+
+<section id="encarrega" aria-labelledby="howto-title">
+  <div class="wrap py-12 lg:py-18">
+    <SectionHeading id="howto-title" eyebrow={t.howto.eyebrow} title={t.howto.title} />
+    <ol class="mb-10 flex flex-wrap gap-6">
+      {
+        t.howto.steps.map((step, index) => (
+          <li class="min-w-0 flex-[1_1_16rem] rounded-[0.625rem] bg-soft p-7">
+            <p aria-hidden="true" class="mb-2 font-display text-5xl leading-none font-extrabold text-accent">{index + 1}</p>
+            <h3 class="mb-2 text-xl font-bold">{step.title}</h3>
+            <p class="text-muted">{step.text}</p>
+          </li>
+        ))
+      }
+    </ol>
+    <div class="flex flex-wrap gap-4">
+      <Button href={`tel:${business.phone}`}>{fmt(t.cta.callNumber, { phone: business.phoneDisplay })}</Button>
+      <WhatsAppButton lang={lang} variant="secondary" />
+    </div>
+  </div>
+</section>

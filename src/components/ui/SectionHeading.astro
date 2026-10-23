@@ -1,0 +1,33 @@
+---
+import { withPlaceholders } from '../../i18n/utils';
+
+interface Props {
+  id?: string;
+  eyebrow: string;
+  title: string;
+  lead?: string;
+  dark?: boolean;
+  class?: string;
+}
+
+const { id, eyebrow, title, lead, dark = false, class: className } = Astro.props;
+---
+
+<div class:list={['mb-8 lg:mb-10', className]}>
+  <p
+    class:list={[
+      'mb-3 text-eyebrow font-bold uppercase tracking-[0.12em]',
+      dark ? 'text-accent-light' : 'text-accent',
+    ]}
+  >
+    {eyebrow}
+  </p>
+  <h2 id={id} class="mb-4 font-display text-3xl leading-[1.1] font-extrabold tracking-tight lg:text-h2">
+    {title}
+  </h2>
+  {
+    lead && (
+      <p class:list={['max-w-2xl text-lg', dark ? 'text-on-dark-muted' : 'text-muted']} set:html={withPlaceholders(lead)} />
+    )
+  }
+</div>

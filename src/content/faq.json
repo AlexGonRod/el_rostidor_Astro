@@ -1,0 +1,46 @@
+{
+  "orders": {
+    "order": 1,
+    "question": {
+      "ca": "Fins quan puc fer un encàrrec?",
+      "es": "¿Hasta cuándo puedo hacer un encargo?"
+    },
+    "answer": {
+      "ca": "[Indicar antelació, p. ex. fins a les X h del dia anterior]. Per a grups i celebracions, com més aviat millor.",
+      "es": "[Indicar antelación, p. ej. hasta las X h del día anterior]. Para grupos y celebraciones, cuanto antes mejor."
+    }
+  },
+  "delivery": {
+    "order": 2,
+    "question": {
+      "ca": "Feu servei a domicili?",
+      "es": "¿Hacéis servicio a domicilio?"
+    },
+    "answer": {
+      "ca": "[Confirmar: sí / no / només amb comandes grans]. L'encàrrec es recull a la Rambla Sant Martí, 46.",
+      "es": "[Confirmar: sí / no / solo con pedidos grandes]. El encargo se recoge en la Rambla Sant Martí, 46."
+    }
+  },
+  "reheat": {
+    "order": 3,
+    "question": {
+      "ca": "Com es poden escalfar els plats?",
+      "es": "¿Cómo se pueden recalentar los platos?"
+    },
+    "answer": {
+      "ca": "[Instruccions breus per a pollastre, paella i guisats: forn, microones, temps recomanat].",
+      "es": "[Instrucciones breves para pollo, paella y guisos: horno, microondas, tiempo recomendado]."
+    }
+  },
+  "allergens": {
+    "order": 4,
+    "question": {
+      "ca": "Teniu opcions per a al·lèrgies o intoleràncies?",
+      "es": "¿Tenéis opciones para alergias o intolerancias?"
+    },
+    "answer": {
+      "ca": "Pregunta'ns pels al·lèrgens de cada plat abans d'encarregar. [Afegir quins plats són sense gluten o vegetarians].",
+      "es": "Pregúntanos por los alérgenos de cada plato antes de encargar. [Añadir qué platos son sin gluten o vegetarianos]."
+    }
+  }
+}

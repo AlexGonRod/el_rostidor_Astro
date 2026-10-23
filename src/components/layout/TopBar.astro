@@ -1,0 +1,49 @@
+---
+import { business } from '../../data/business';
+import { dictionaries, homePath, langs, type Lang } from '../../i18n/utils';
+import OpenNow from '../ui/OpenNow.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+
+<div class="on-dark bg-ink text-sm text-on-dark">
+  <div class="wrap flex flex-wrap items-center justify-between gap-x-7 gap-y-2 py-0">
+    <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
+      <OpenNow lang={lang} />
+      <span class="hidden md:inline">{t.topbar.address}</span>
+      <a href={`tel:${business.phone}`} class="hidden font-bold md:inline">{business.phoneDisplay}</a>
+    </div>
+    <nav aria-label={t.a11y.language} class="flex items-center gap-3 font-bold">
+      {
+        langs.map((code, index) => (
+          <>
+            {index > 0 && <span aria-hidden="true">|</span>}
+            <a
+              href={homePath(code)}
+              hreflang={code}
+              lang={code}
+              data-lang-switch
+              aria-current={code === lang ? 'true' : undefined}
+              class:list={['inline-flex min-h-11 min-w-11 items-center justify-center', code === lang ? '' : 'opacity-70 hover:opacity-100']}
+            >
+              {code.toUpperCase()}
+            </a>
+          </>
+        ))
+      }
+    </nav>
+  </div>
+</div>
+
+<script>
+  // El selector CA/ES conserva la sección en la que estás (ancla).
+  document.querySelectorAll<HTMLAnchorElement>('[data-lang-switch]').forEach((link) => {
+    link.addEventListener('click', () => {
+      link.href = link.href.split('#')[0] + window.location.hash;
+    });
+  });
+</script>

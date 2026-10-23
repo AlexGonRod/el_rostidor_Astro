@@ -1,0 +1,29 @@
+---
+import { business } from '../../data/business';
+import { dictionaries, fmt, type Lang } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+import WhatsAppButton from '../ui/WhatsAppButton.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+
+<section class="on-dark bg-accent text-white" aria-labelledby="closing-title">
+  <div class="wrap flex flex-wrap items-center justify-between gap-x-10 gap-y-6 py-12 lg:py-16">
+    <div class="min-w-0 flex-1 basis-[26rem]">
+      <h2 id="closing-title" class="mb-2 font-display text-3xl leading-[1.1] font-extrabold tracking-tight lg:text-h2">
+        {t.closing.title}
+      </h2>
+      <p class="text-lg">{t.closing.text}</p>
+    </div>
+    <div class="flex flex-wrap gap-4">
+      <Button href={`tel:${business.phone}`} variant="light">
+        {fmt(t.cta.callNumber, { phone: business.phoneDisplay })}
+      </Button>
+      <WhatsAppButton lang={lang} variant="outline-light" />
+    </div>
+  </div>
+</section>

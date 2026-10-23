@@ -1,0 +1,84 @@
+---
+import { business, whatsappUrl } from '../../data/business';
+import { hours, weekOrder } from '../../data/hours';
+import { dictionaries, fmt, withPlaceholders, type Lang } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+import WhatsAppButton from '../ui/WhatsAppButton.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+
+const time = (value: string) => value.replace(/^0/, '');
+
+const wa = whatsappUrl(t.cta.whatsappMessage);
+
+const rows = weekOrder.map((day) => {
+  const rule = hours[day];
+  const name = t.dayNames[day] + (day === 0 ? t.contact.holidays : '');
+  const value =
+    rule.kind === 'open'
+      ? `${time(rule.open)} a ${time(rule.close)}`
+      : rule.kind === 'orders'
+        ? t.contact.ordersOnly
+        : rule.kind === 'closed'
+          ? t.contact.closed
+          : t.openNow.unknown;
+  return { name, value };
+});
+---
+
+<section id="contacte" aria-labelledby="contact-title">
+  <div class="wrap py-12 lg:py-18">
+    <SectionHeading id="contact-title" eyebrow={t.contact.eyebrow} title={t.contact.title} />
+    <div class="flex flex-wrap gap-10">
+      <div class="min-w-0 flex-[1_1_24rem]">
+        <h3 class="mb-4 text-xl font-bold">{t.contact.hoursTitle}</h3>
+        <table class="w-full border-collapse">
+          <tbody>
+            {
+              rows.map((row) => (
+                <tr class="border-b border-line">
+                  <th scope="row" class="py-3 text-left font-normal">{row.name}</th>
+                  <td class="py-3 text-right" set:html={withPlaceholders(row.value)} />
+                </tr>
+              ))
+            }
+          </tbody>
+        </table>
+
+        <address class="mt-7 grid gap-0.5 not-italic">
+          <span>{business.address.street}, {business.address.city}</span>
+          <a href={`tel:${business.phone}`} class="inline-flex min-h-11 items-center font-bold">{business.phoneDisplay}</a>
+          {
+            wa && (
+              <a href={wa} rel="noopener" class="inline-flex min-h-11 items-center hover:underline">
+                {fmt(t.contact.whatsappLine, { number: business.whatsappDisplay })}
+              </a>
+            )
+          }
+          <a href={`mailto:${business.email}`} class="inline-flex min-h-11 items-center [overflow-wrap:anywhere] hover:underline">{business.email}</a>
+        </address>
+
+        <div class="mt-6 flex flex-wrap gap-3">
+          <Button href={`tel:${business.phone}`} size="sm">{t.cta.call}</Button>
+          <WhatsAppButton lang={lang} size="sm" />
+          <Button href={business.directionsUrl} variant="secondary" size="sm">{t.cta.directions}</Button>
+        </div>
+      </div>
+
+      <div class="min-w-0 flex-[1_1_26rem]">
+        <iframe
+          src={business.mapEmbedUrl}
+          title={t.contact.mapTitle}
+          loading="lazy"
+          referrerpolicy="no-referrer-when-downgrade"
+          class="h-full min-h-80 w-full rounded-xl border-0 lg:min-h-105"
+        ></iframe>
+      </div>
+    </div>
+  </div>
+</section>

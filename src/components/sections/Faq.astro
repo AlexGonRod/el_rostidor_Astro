@@ -1,0 +1,29 @@
+---
+import { getCollection } from 'astro:content';
+import { dictionaries, withPlaceholders, type Lang } from '../../i18n/utils';
+import SectionHeading from '../ui/SectionHeading.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+const items = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
+---
+
+<section id="faq" class="bg-soft" aria-labelledby="faq-title">
+  <div class="mx-auto max-w-215 px-4 py-12 lg:px-10 lg:py-18">
+    <SectionHeading id="faq-title" eyebrow={t.faq.eyebrow} title={t.faq.title} />
+    {
+      items.map(({ data }, index) => (
+        <details class="border-b border-line first:border-t" open={index === 0}>
+          <summary class="flex cursor-pointer min-h-11 items-center justify-between gap-4 py-5 text-lg font-bold">
+            {data.question[lang]}
+            <span aria-hidden="true" class="text-2xl leading-none text-accent">+</span>
+          </summary>
+          <p class="-mt-2 pb-5 leading-relaxed text-muted" set:html={withPlaceholders(data.answer[lang])} />
+        </details>
+      ))
+    }
+  </div>
+</section>

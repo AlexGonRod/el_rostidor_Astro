@@ -1,0 +1,30 @@
+---
+import type { HTMLAttributes } from 'astro/types';
+
+interface Props extends HTMLAttributes<'a'> {
+  variant?: 'primary' | 'secondary' | 'light' | 'outline-light';
+  size?: 'md' | 'sm';
+}
+
+const { variant = 'primary', size = 'md', class: className, ...rest } = Astro.props;
+
+const variants = {
+  primary: 'bg-accent text-white hover:bg-accent-dark',
+  secondary: 'border-2 border-ink text-ink hover:bg-ink hover:text-white',
+  light: 'bg-white text-accent hover:bg-soft',
+  'outline-light': 'border-2 border-white text-white hover:bg-white hover:text-accent',
+};
+const sizes = { md: 'min-h-13 px-7', sm: 'min-h-11 px-5' };
+---
+
+<a
+  class:list={[
+    'inline-flex items-center justify-center rounded-md text-center text-base font-bold transition-colors',
+    variants[variant],
+    sizes[size],
+    className,
+  ]}
+  {...rest}
+>
+  <slot />
+</a>

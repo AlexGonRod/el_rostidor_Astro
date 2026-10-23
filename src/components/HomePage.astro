@@ -1,0 +1,42 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import type { Lang } from '../i18n/utils';
+import ClosingCta from './layout/ClosingCta.astro';
+import Footer from './layout/Footer.astro';
+import Header from './layout/Header.astro';
+import MobileActionBar from './layout/MobileActionBar.astro';
+import TopBar from './layout/TopBar.astro';
+import About from './sections/About.astro';
+import Carta from './sections/Carta.astro';
+import Celebrations from './sections/Celebrations.astro';
+import Contact from './sections/Contact.astro';
+import Faq from './sections/Faq.astro';
+import Hero from './sections/Hero.astro';
+import HowToOrder from './sections/HowToOrder.astro';
+import Reviews from './sections/Reviews.astro';
+import WeeklyMenus from './sections/WeeklyMenus.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+---
+
+<BaseLayout lang={lang}>
+  <TopBar lang={lang} />
+  <Header lang={lang} />
+  <main id="contingut">
+    <Hero lang={lang} />
+    <WeeklyMenus lang={lang} />
+    <Carta lang={lang} />
+    <Celebrations lang={lang} />
+    <HowToOrder lang={lang} />
+    <About lang={lang} />
+    <Reviews lang={lang} />
+    <Faq lang={lang} />
+    <Contact lang={lang} />
+  </main>
+  <ClosingCta lang={lang} />
+  <Footer lang={lang} />
+  <MobileActionBar lang={lang} />
+</BaseLayout>

@@ -1,0 +1,57 @@
+---
+import { dictionaries, homePath, type Lang } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+
+const links = [
+  { href: '#carta', label: t.nav.carta },
+  { href: '#menus', label: t.nav.menus },
+  { href: '#celebracions', label: t.nav.celebrations },
+  { href: '#nosaltres', label: t.nav.about },
+  { href: '#contacte', label: t.nav.contact },
+];
+---
+
+<header class="sticky top-0 z-30 border-b border-line bg-white">
+  <div class="wrap flex items-center justify-between gap-4 py-3">
+    <a href={homePath(lang)} class="inline-flex min-h-11 items-center font-display text-2xl font-extrabold tracking-tight lg:text-[1.75rem]">
+      El Rostidor
+    </a>
+
+    <nav aria-label={t.a11y.mainNav} class="hidden items-center gap-7 lg:flex">
+      {links.map((link) => <a href={link.href} class="px-1 py-2 font-medium hover:text-accent">{link.label}</a>)}
+      <Button href="#encarrega" size="sm">{t.nav.order}</Button>
+    </nav>
+
+    <div class="flex items-center gap-2 lg:hidden">
+      <Button href="#encarrega" size="sm">{t.nav.order}</Button>
+      <details class="relative" data-mobile-menu>
+        <summary
+          aria-label={t.a11y.openMenu}
+          class="flex size-11 cursor-pointer items-center justify-center rounded-md hover:bg-soft"
+        >
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M4 7h16M4 12h16M4 17h16"></path>
+          </svg>
+        </summary>
+        <nav
+          aria-label={t.a11y.mainNav}
+          class="absolute top-12 right-0 grid w-64 gap-1 rounded-lg border border-line bg-white p-2 shadow-lg"
+        >
+          {links.map((link) => <a href={link.href} class="rounded-md px-3 py-3 font-medium hover:bg-soft">{link.label}</a>)}
+        </nav>
+      </details>
+    </div>
+  </div>
+</header>
+
+<script>
+  document.querySelectorAll<HTMLDetailsElement>('[data-mobile-menu]').forEach((menu) => {
+    menu.querySelectorAll('a').forEach((link) => link.addEventListener('click', () => menu.removeAttribute('open')));
+  });
+</script>

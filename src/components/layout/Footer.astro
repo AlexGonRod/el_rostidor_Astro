@@ -1,0 +1,67 @@
+---
+import { business } from '../../data/business';
+import { dictionaries, fmt, type Lang } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+
+const navLinks = [
+  { href: '#carta', label: t.nav.carta },
+  { href: '#menus', label: t.nav.menus },
+  { href: '#celebracions', label: t.nav.celebrations },
+  { href: '#nosaltres', label: t.nav.about },
+  { href: '#contacte', label: t.nav.contact },
+];
+const heading = 'mb-4 text-eyebrow font-bold uppercase tracking-[0.12em] text-accent-light';
+const pill =
+  'inline-flex min-h-11 items-center rounded-full border border-on-dark-muted/40 px-5 text-sm font-bold hover:border-on-dark';
+---
+
+<footer class="on-dark bg-ink text-on-dark">
+  <div class="wrap pt-16 pb-8">
+    <div class="mb-12 flex flex-wrap gap-10">
+      <div class="min-w-0 flex-[1.4_1_17rem]">
+        <span class="mb-3 block font-display text-3xl font-extrabold tracking-tight">El Rostidor</span>
+        <p class="mb-5 max-w-xs text-on-dark-muted">{t.footer.tagline}</p>
+        <div class="flex flex-wrap gap-2.5">
+          <a href={business.social.instagram} class={pill} rel="noopener">Instagram</a>
+          <a href={business.social.facebook} class={pill} rel="noopener">Facebook</a>
+        </div>
+      </div>
+
+      <nav aria-label={t.a11y.footerNav} class="min-w-0 flex-[1_1_10rem]">
+        <h3 class={heading}>{t.footer.navTitle}</h3>
+        <ul class="grid text-[0.9375rem]">
+          {navLinks.map((link) => <li><a href={link.href} class="inline-flex min-h-11 min-w-11 items-center hover:underline">{link.label}</a></li>)}
+        </ul>
+      </nav>
+
+      <div class="min-w-0 flex-[1_1_14rem]">
+        <h3 class={heading}>{t.footer.hoursTitle}</h3>
+        <ul class="grid gap-2.5 text-[0.9375rem] text-on-dark-muted">
+          {t.footer.hoursLines.map((line) => <li>{line}</li>)}
+        </ul>
+      </div>
+
+      <div class="min-w-0 flex-[1_1_15rem]">
+        <h3 class={heading}>{t.footer.contactTitle}</h3>
+        <ul class="grid gap-1 text-[0.9375rem]">
+          <li class="mb-1 text-on-dark-muted">{business.address.street}<br />{business.address.city}</li>
+          <li><a href={`tel:${business.phone}`} class="inline-flex min-h-11 items-center font-bold">{business.phoneDisplay}</a></li>
+          <li><a href={`mailto:${business.email}`} class="inline-flex min-h-11 items-center [overflow-wrap:anywhere] hover:underline">{business.email}</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="flex flex-wrap items-center justify-between gap-x-8 gap-y-1 border-t border-line-dark pt-6 text-sm text-on-dark-muted">
+      <span>{fmt(t.footer.rights, { year: new Date().getFullYear() })}</span>
+      <ul class="flex flex-wrap gap-x-6">
+        <!-- PENDIENTE: enlazar las páginas legales cuando el cliente aporte los textos -->
+        {t.footer.legal.map((label) => <li><a href="#" data-placeholder class="inline-flex min-h-11 items-center hover:underline">{label}</a></li>)}
+      </ul>
+    </div>
+  </div>
+</footer>

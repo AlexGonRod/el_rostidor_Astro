@@ -1,0 +1,32 @@
+---
+import { dictionaries, withPlaceholders, type Lang } from '../../i18n/utils';
+import Placeholder from '../ui/Placeholder.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+
+<section id="nosaltres" class="bg-soft" aria-labelledby="about-title">
+  <div class="wrap flex flex-wrap items-center gap-12 py-12 lg:py-18">
+    <!-- PENDIENTE: foto real de la familia. Es el mayor diferenciador del negocio. -->
+    <Placeholder label={t.about.photo} class="min-h-80 min-w-0 flex-[1_1_24rem] self-stretch rounded-xl lg:min-h-115" />
+    <div class="min-w-0 flex-[1_1_28rem]">
+      <SectionHeading id="about-title" eyebrow={t.about.eyebrow} title={t.about.title} class="!mb-5" />
+      <p class="mb-6 text-lg text-muted">{t.about.text}</p>
+      <dl class="flex flex-wrap gap-6 border-t border-on-dark-muted pt-6">
+        {
+          t.about.milestones.map((item) => (
+            <div class="min-w-28 flex-[1_1_7.5rem]">
+              <dt class="font-display text-3xl font-bold" set:html={withPlaceholders(item.value)} />
+              <dd class="text-[0.9375rem] text-muted">{item.label}</dd>
+            </div>
+          ))
+        }
+      </dl>
+    </div>
+  </div>
+</section>

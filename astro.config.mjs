@@ -1,21 +1,20 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import tailwind from '@astrojs/tailwind';
-import icon from 'astro-icon';
-
-import netlify from '@astrojs/netlify';
+import sitemap from '@astrojs/sitemap';
+import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  image: {
-    domains: ["astro.build"],
-    remotePatterns: [{ hostname: "**.cdninstagram.com" }]
+  site: 'https://elrostidor.com',
+  integrations: [
+    sitemap({
+      i18n: {
+        defaultLocale: 'ca',
+        locales: { ca: 'ca-ES', es: 'es-ES' },
+      },
+    }),
+  ],
+  vite: {
+    plugins: [tailwindcss()],
   },
-  integrations: [tailwind(), icon({
-    include: {
-      mdi: ["*"],
-    },
-  })],
-  output: "hybrid",
-  adapter: netlify(),
 });

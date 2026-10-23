@@ -1,0 +1,91 @@
+---
+import '@fontsource/bricolage-grotesque/latin-700.css';
+import '@fontsource/bricolage-grotesque/latin-800.css';
+import '@fontsource/dm-sans/latin-400.css';
+import '@fontsource/dm-sans/latin-500.css';
+import '@fontsource/dm-sans/latin-700.css';
+import '../styles/global.css';
+
+import { business } from '../data/business';
+import { hours, schemaDay } from '../data/hours';
+import { dictionaries, type Lang } from '../i18n/utils';
+
+interface Props {
+  lang: Lang;
+}
+
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+const site = Astro.site!;
+
+const canonical = new URL(Astro.url.pathname, site).href;
+const urlCa = new URL('/', site).href;
+const urlEs = new URL('/es/', site).href;
+
+// Datos estructurados (AGENTS.md sección 9). Solo se incluyen los días con horario de apertura confirmado.
+const openingHoursSpecification = Object.entries(hours)
+  .filter(([, rule]) => rule.kind === 'open')
+  .map(([day, rule]) => ({
+    '@type': 'OpeningHoursSpecification',
+    dayOfWeek: schemaDay[Number(day)],
+    opens: rule.kind === 'open' ? rule.open : undefined,
+    closes: rule.kind === 'open' ? rule.close : undefined,
+  }));
+
+const jsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'FoodEstablishment',
+  name: business.name,
+  url: urlCa,
+  telephone: business.phoneE164,
+  email: business.email,
+  foundingDate: business.foundingDate,
+  servesCuisine: ['Catalana', 'Casolana'],
+  address: {
+    '@type': 'PostalAddress',
+    streetAddress: business.address.street,
+    addressLocality: business.address.city,
+    addressRegion: business.address.region,
+    addressCountry: business.address.country,
+  },
+  geo: { '@type': 'GeoCoordinates', latitude: business.geo.lat, longitude: business.geo.lng },
+  openingHoursSpecification,
+  sameAs: Object.values(business.social),
+};
+---
+
+<!doctype html>
+<html lang={lang}>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>{t.meta.title}</title>
+    <meta name="description" content={t.meta.description} />
+    <meta name="theme-color" content="#B8321F" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <link rel="canonical" href={canonical} />
+    <link rel="alternate" hreflang="ca" href={urlCa} />
+    <link rel="alternate" hreflang="es" href={urlEs} />
+    <link rel="alternate" hreflang="x-default" href={urlCa} />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content={business.name} />
+    <meta property="og:title" content={t.meta.title} />
+    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:url" content={canonical} />
+    <meta property="og:locale" content={t.meta.locale} />
+    <meta name="twitter:card" content="summary_large_image" />
+    <!-- PENDIENTE: og:image y twitter:image cuando exista public/og-image.jpg (1200×630) -->
+
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  </head>
+  <body class="pb-20 lg:pb-0">
+    <a
+      href="#contingut"
+      class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:shadow-lg"
+    >
+      {t.a11y.skip}
+    </a>
+    <slot />
+  </body>
+</html>

@@ -1,0 +1,136 @@
+{
+  "meta": {
+    "title": "El Rostidor · Menjar per emportar a Arenys de Munt",
+    "description": "Cuina casolana per emportar a Arenys de Munt: pollastre a l'ast, paella, menús setmanals i plats de sempre. Encarrega per telèfon i passa a recollir.",
+    "locale": "ca_ES"
+  },
+  "a11y": {
+    "skip": "Saltar al contingut",
+    "mainNav": "Navegació principal",
+    "footerNav": "Navegació del peu",
+    "quickActions": "Accions ràpides",
+    "openMenu": "Obrir el menú",
+    "language": "Idioma"
+  },
+  "topbar": { "address": "Rambla Sant Martí, 46 · Arenys de Munt" },
+  "openNow": {
+    "idle": "Horaris i encàrrecs",
+    "open": "Obert ara · fins a les {time}",
+    "closed": "Tancat · obrim {day} a les {time}",
+    "closedDay": "Tancat avui · obrim {day} a les {time}",
+    "orders": "Només encàrrecs · truca abans",
+    "unknown": "Consulta els horaris",
+    "today": "avui"
+  },
+  "days": ["diumenge", "dilluns", "dimarts", "dimecres", "dijous", "divendres", "dissabte"],
+  "dayNames": ["Diumenge", "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte"],
+  "nav": {
+    "carta": "Carta",
+    "menus": "Menús",
+    "celebrations": "Celebracions",
+    "about": "Nosaltres",
+    "contact": "Contacte",
+    "order": "Encarrega"
+  },
+  "cta": {
+    "order": "Encarrega",
+    "orderNow": "Encarrega ara",
+    "seeCarta": "Veure la carta",
+    "call": "Trucar",
+    "callNumber": "Trucar al {phone}",
+    "whatsapp": "WhatsApp",
+    "quote": "Demana pressupost",
+    "directions": "Com arribar",
+    "whatsappMessage": "Hola, El Rostidor! Voldria fer un encàrrec per recollir."
+  },
+  "hero": {
+    "eyebrow": "Menjar per emportar · Arenys de Munt",
+    "title": "Cuina casolana d'Arenys, per emportar.",
+    "lead": "Pollastre a l'ast, paella i plats de sempre, fets amb producte fresc i de km 0. Encarrega'l avui i passa a recollir-lo.",
+    "badges": ["Des del 2002", "Producte de km 0", "Millor botiga de menjar per emportar 2021"],
+    "photo": "Foto: pollastres girant a l'ast, vapor, llum càlida"
+  },
+  "menus": {
+    "eyebrow": "Menús",
+    "title": "Què hi ha per dinar aquesta setmana",
+    "lead": "Menú de setmana, menú de cap de setmana i, els dijous, paella o fideuà. Actualitzat cada setmana.",
+    "week": { "title": "Menú de la setmana", "subtitle": "De dimecres a divendres" },
+    "weekend": { "title": "Menú de cap de setmana", "subtitle": "Dissabtes, diumenges i festius" },
+    "thursday": {
+      "label": "Només dijous",
+      "title": "Paella o fideuà",
+      "text": "Cada dijous, de 10:30 a 14:30.",
+      "notice": "Encarrega-la abans de [hora límit] i la tindràs a punt."
+    },
+    "pendingItems": ["Primer plat", "Segon plat", "Postres"]
+  },
+  "carta": {
+    "eyebrow": "La carta",
+    "title": "Plats de temporada i plats de sempre",
+    "lead": "Tria per categories. Si busques alguna cosa que no hi és, pregunta: sovint ho podem preparar.",
+    "tabs": { "entrants": "Entrants i tapes", "principals": "Plats principals" },
+    "rest": "Més plats",
+    "allergens": "Informació d'al·lèrgens disponible al mostrador. [Afegir icones: sense gluten · vegetarià]",
+    "tags": { "popular": "Més demanat", "specialty": "Especialitat", "seasonal": "De temporada" },
+    "photo": "Foto del plat"
+  },
+  "celebrations": {
+    "eyebrow": "Encàrrecs i celebracions",
+    "title": "Tu poses l'ocasió, nosaltres el menjar",
+    "text": "Comunions, aniversaris, dinars d'empresa i reunions familiars. Ens expliques què vols i t'enviem un pressupost sense compromís.",
+    "chips": ["Comunions", "Aniversaris", "Empreses", "Reunions familiars"],
+    "photo": "Foto: safates i plats per a grup"
+  },
+  "howto": {
+    "eyebrow": "Com encarregar",
+    "title": "Tres passos i a casa",
+    "steps": [
+      { "title": "Tria què t'agrada", "text": "Mira la carta i els menús, o demana'ns consell." },
+      { "title": "Encarrega per telèfon o WhatsApp", "text": "Dilluns i dimarts, tancat. Els dimecres, només sota encàrrec." },
+      { "title": "Passa a recollir-ho", "text": "Rambla Sant Martí, 46. Ho tindràs a punt a l'hora acordada." }
+    ]
+  },
+  "about": {
+    "eyebrow": "Qui som",
+    "title": "Una cuina de família, al vell mig d'Arenys",
+    "text": "El 13 d'abril de 2002, en Pere Collet obre El Rostidor a la Riera d'Arenys de Munt amb els seus pares, en Josep i la Rosa. Passió per la cuina de sempre i més de 20 anys d'ofici en restaurants com l'Hispania o el Sant Pau.",
+    "milestones": [
+      { "value": "2002", "label": "Obrim portes" },
+      { "value": "2021", "label": "Millor botiga de menjar per emportar" },
+      { "value": "Km 0", "label": "Producte fresc i de proximitat" }
+    ],
+    "photo": "Foto: Pere, Josep i Rosa a l'obrador"
+  },
+  "reviews": {
+    "eyebrow": "Opinions",
+    "title": "Això diuen els qui ja ens coneixen",
+    "rating": "[4,X] ★ · [N] ressenyes a Google",
+    "source": "Ressenya de Google",
+    "originalEs": "original en castellà",
+    "all": "Llegir totes les ressenyes a Google →"
+  },
+  "faq": { "eyebrow": "Preguntes freqüents", "title": "Abans de trucar" },
+  "contact": {
+    "eyebrow": "Contacte",
+    "title": "Passa a veure'ns o truca'ns",
+    "hoursTitle": "Horaris",
+    "ordersOnly": "Només encàrrecs, trucant abans",
+    "closed": "Tancat",
+    "whatsappLine": "WhatsApp: {number}",
+    "holidays": " i festius",
+    "mapTitle": "Mapa de la ubicació d'El Rostidor"
+  },
+  "closing": {
+    "title": "Encarrega el dinar d'avui",
+    "text": "Truca'ns o escriu-nos i ho tindràs a punt per recollir a l'hora que et vagi bé."
+  },
+  "footer": {
+    "tagline": "Cuina casolana per emportar a Arenys de Munt, des del 2002.",
+    "navTitle": "Navega",
+    "hoursTitle": "Horaris",
+    "contactTitle": "Contacte",
+    "hoursLines": ["Dl i dt: tancat", "Dc: només encàrrecs", "Dj i dv: 10:30 a 14:30", "Ds, dg i festius: 9:00 a 15:00"],
+    "rights": "© {year} El Rostidor. Tots els drets reservats.",
+    "legal": ["Avís legal", "Privacitat", "Cookies"]
+  }
+}

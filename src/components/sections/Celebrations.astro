@@ -1,0 +1,25 @@
+---
+import { dictionaries, type Lang } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+import Placeholder from '../ui/Placeholder.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+
+<section id="celebracions" class="on-dark bg-ink text-on-dark" aria-labelledby="celebrations-title">
+  <div class="wrap flex flex-wrap items-center gap-10 py-12 lg:py-18">
+    <div class="min-w-0 flex-[1_1_27rem]">
+      <SectionHeading id="celebrations-title" dark eyebrow={t.celebrations.eyebrow} title={t.celebrations.title} lead={t.celebrations.text} class="!mb-6" />
+      <ul class="mb-8 flex flex-wrap gap-2.5">
+        {t.celebrations.chips.map((chip) => <li class="rounded-full border border-on-dark-muted/50 px-4 py-1.5 text-[0.9375rem]">{chip}</li>)}
+      </ul>
+      <Button href="#contacte">{t.cta.quote}</Button>
+    </div>
+    <Placeholder label={t.celebrations.photo} class="min-h-72 min-w-0 flex-[1_1_24rem] self-stretch rounded-xl" />
+  </div>
+</section>

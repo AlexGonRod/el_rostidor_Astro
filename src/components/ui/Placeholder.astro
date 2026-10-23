@@ -1,0 +1,23 @@
+---
+/**
+ * Marcador de imagen: se usa SOLO hasta tener la foto real (AGENTS.md 4.4).
+ * Lleva data-placeholder para que `npm run check:placeholders` lo cuente.
+ */
+interface Props {
+  label: string;
+  class?: string;
+}
+const { label, class: className } = Astro.props;
+---
+
+<div
+  data-placeholder
+  role="img"
+  aria-label={label}
+  class:list={[
+    'placeholder-stripes flex items-center justify-center p-4 text-center text-[0.8125rem] tracking-wider text-muted uppercase',
+    className,
+  ]}
+>
+  <span aria-hidden="true">[{label}]</span>
+</div>

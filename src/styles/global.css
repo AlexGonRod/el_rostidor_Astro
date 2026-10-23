@@ -1,14 +1,104 @@
-/* Import Tailwind CSS */
-@import 'tailwindcss/base';
-@import 'tailwindcss/components';
-@import 'tailwindcss/utilities';
+@import "tailwindcss";
 
+/* ------------------------------------------------------------------
+   Tokens de diseño de El Rostidor (ver AGENTS.md, sección 4).
+   Los colores, fuentes y tamaños se definen aquí y solo aquí.
+------------------------------------------------------------------- */
+@theme {
+  --color-ink: #1e1a17;
+  --color-muted: #5e564f;
+  --color-line: #e4ddd6;
+  --color-soft: #f6f2ee;
+  --color-accent: #b8321f;
+  --color-accent-dark: #962716;
+  --color-accent-light: #f0a08f;
+  --color-open: #3fb868;
+  --color-on-dark: #f6f2ee;
+  --color-on-dark-muted: #cfc6bd;
+  --color-line-dark: #3a332e;
+  --color-ph-a: #ece6e0;
+  --color-ph-b: #e3dcd5;
 
-/* Base Styles */
-@layer base {
+  --font-display: "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans", ui-sans-serif, system-ui, sans-serif;
 
-  body {
-    @apply bg-white text-gray-900 leading-normal;
+  --text-hero: 4rem;
+  --text-hero--line-height: 1.02;
+  --text-h2: 2.5rem;
+  --text-h2--line-height: 1.1;
+  --text-eyebrow: 0.8125rem;
+  --text-eyebrow--line-height: 1.2;
+}
+
+/* Contenedor de página: 1200 px, 16 px en móvil y 40 px en escritorio */
+@utility wrap {
+  margin-inline: auto;
+  max-width: 75rem;
+  padding-inline: 1rem;
+  @media (min-width: 64rem) {
+    padding-inline: 2.5rem;
   }
+}
 
+/* Rayas de los marcadores de imagen (hasta tener la foto real) */
+@utility placeholder-stripes {
+  background: repeating-linear-gradient(
+    135deg,
+    var(--color-ph-a) 0 14px,
+    var(--color-ph-b) 14px 28px
+  );
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 6rem;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    font-family: var(--font-sans);
+    color: var(--color-ink);
+    background: #fff;
+    line-height: 1.5;
+  }
+  :focus-visible {
+    outline: 3px solid var(--color-accent);
+    outline-offset: 3px;
+  }
+  .on-dark :focus-visible {
+    outline-color: var(--color-accent-light);
+  }
+  details > summary {
+    list-style: none;
+  }
+  details > summary::-webkit-details-marker {
+    display: none;
+  }
+}
+
+/* Datos pendientes (texto entre corchetes) legibles también sobre fondos oscuros o rojos.
+   Va fuera de @layer a propósito: debe ganar a las utilidades text-accent / bg-accent/10. */
+.on-dark span[data-placeholder] {
+  color: inherit;
+  background-color: rgb(255 255 255 / 0.22);
+}
+
+/* Sobre la tarjeta roja (accent) el velo blanco aclaraba el fondo del marcador y dejaba el
+   texto en 4,0:1 (QA-001). Un velo oscuro lo mantiene por encima de 4,5:1. Mismo motivo que
+   la regla anterior para ir fuera de @layer; va después para ganar a .on-dark. */
+.on-accent span[data-placeholder] {
+  color: var(--color-on-dark);
+  background-color: rgb(0 0 0 / 0.22);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+  }
 }

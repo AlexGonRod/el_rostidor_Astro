@@ -1,0 +1,111 @@
+---
+import { getCollection } from 'astro:content';
+import { dictionaries, withPlaceholders, type Lang } from '../../i18n/utils';
+import DishCard from '../ui/DishCard.astro';
+import SectionHeading from '../ui/SectionHeading.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+
+const dishes = (await getCollection('carta')).sort((a, b) => a.data.order - b.data.order);
+const categories = (['entrants', 'principals'] as const).map((key) => {
+  const all = dishes.filter((dish) => dish.data.category === key);
+  return {
+    key,
+    label: t.carta.tabs[key],
+    featured: all.filter((dish) => dish.data.featured),
+    rest: all.filter((dish) => !dish.data.featured),
+  };
+});
+---
+
+<section id="carta" aria-labelledby="carta-title" data-carta>
+  <div class="wrap py-12 lg:py-18">
+    <SectionHeading id="carta-title" eyebrow={t.carta.eyebrow} title={t.carta.title} lead={t.carta.lead} />
+
+    <!-- Sin JS se ven todas las categorías; con JS el script muestra estas pestañas y filtra. -->
+    <div data-carta-tabs class="mb-8 hidden flex-wrap gap-3" role="group" aria-label={t.carta.title}>
+      {
+        categories.map((category) => (
+          <button
+            type="button"
+            data-carta-tab={category.key}
+            aria-pressed="false"
+            class="min-h-11 cursor-pointer rounded-full border-2 border-line px-6 text-base font-bold transition-colors hover:border-ink aria-pressed:border-ink aria-pressed:bg-ink aria-pressed:text-white"
+          >
+            {category.label}
+          </button>
+        ))
+      }
+    </div>
+
+    <div class="grid gap-14">
+      {
+        categories.map((category) => (
+          <div data-carta-group={category.key}>
+            <h3 data-carta-heading class="mb-6 font-display text-2xl font-bold">
+              {category.label}
+            </h3>
+            <div class="grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
+              {category.featured.map((dish) => (
+                <DishCard
+                  lang={lang}
+                  name={dish.data.name}
+                  tag={dish.data.tag}
+                  photo={dish.data.photo}
+                />
+              ))}
+            </div>
+
+            {category.rest.length > 0 && (
+              <>
+                <h4 class="mt-10 mb-2 text-eyebrow font-bold tracking-[0.12em] text-muted uppercase">{t.carta.rest}</h4>
+                <ul class="grid gap-x-10 sm:grid-cols-2">
+                  {category.rest.map((dish) => (
+                    <li class="border-b border-line py-3">
+                      {dish.data.name}
+                      {dish.data.tag && (
+                        <span class="ml-2 text-xs font-bold tracking-[0.08em] text-accent uppercase">
+                          {t.carta.tags[dish.data.tag]}
+                        </span>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </>
+            )}
+          </div>
+        ))
+      }
+    </div>
+
+    <p class="mt-7 text-sm text-muted" set:html={withPlaceholders(t.carta.allergens)} />
+  </div>
+</section>
+
+<script>
+  const root = document.querySelector<HTMLElement>('[data-carta]');
+  if (root) {
+    const bar = root.querySelector<HTMLElement>('[data-carta-tabs]');
+    const tabs = Array.from(root.querySelectorAll<HTMLButtonElement>('[data-carta-tab]'));
+    const groups = Array.from(root.querySelectorAll<HTMLElement>('[data-carta-group]'));
+    const headings = root.querySelectorAll<HTMLElement>('[data-carta-heading]');
+
+    const select = (key: string) => {
+      tabs.forEach((tab) => tab.setAttribute('aria-pressed', String(tab.dataset.cartaTab === key)));
+      groups.forEach((group) => group.classList.toggle('hidden', group.dataset.cartaGroup !== key));
+    };
+
+    if (bar && tabs.length) {
+      bar.classList.remove('hidden');
+      bar.classList.add('flex');
+      // El encabezado de cada categoría pasa a ser solo para lectores de pantalla.
+      headings.forEach((heading) => heading.classList.add('sr-only'));
+      tabs.forEach((tab) => tab.addEventListener('click', () => select(tab.dataset.cartaTab!)));
+      select(tabs[0].dataset.cartaTab!);
+    }
+  }
+</script>

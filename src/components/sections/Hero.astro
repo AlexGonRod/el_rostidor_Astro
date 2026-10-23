@@ -1,0 +1,30 @@
+---
+import { dictionaries, withPlaceholders, type Lang } from '../../i18n/utils';
+import Button from '../ui/Button.astro';
+import Placeholder from '../ui/Placeholder.astro';
+
+interface Props {
+  lang: Lang;
+}
+const { lang } = Astro.props;
+const t = dictionaries[lang];
+---
+
+<section id="inici" class="wrap grid items-center gap-10 py-10 lg:grid-cols-2 lg:gap-12 lg:py-16">
+  <div class="min-w-0">
+    <p class="mb-3 text-eyebrow font-bold uppercase tracking-[0.12em] text-accent">{t.hero.eyebrow}</p>
+    <h1 class="mb-5 font-display text-4xl leading-[1.05] font-extrabold tracking-tight lg:text-hero lg:leading-[1.02]">
+      {t.hero.title}
+    </h1>
+    <p class="mb-8 max-w-xl text-base text-muted lg:text-xl">{t.hero.lead}</p>
+    <div class="mb-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
+      <Button href="#encarrega">{t.cta.orderNow}</Button>
+      <Button href="#carta" variant="secondary">{t.cta.seeCarta}</Button>
+    </div>
+    <ul class="flex flex-wrap gap-x-8 gap-y-3 text-[0.9375rem] font-medium">
+      {t.hero.badges.map((badge) => <li set:html={withPlaceholders(badge)} />)}
+    </ul>
+  </div>
+  <!-- PENDIENTE: foto real del hero. Sustituir por <Image> con loading="eager" y fetchpriority="high". -->
+  <Placeholder label={t.hero.photo} class="h-44 rounded-xl lg:h-auto lg:min-h-130" />
+</section>

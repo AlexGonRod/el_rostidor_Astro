@@ -1,0 +1,59 @@
+---
+/**
+ * Indicador "Obert ara / Tancat".
+ * El HTML estático muestra un texto neutro; el script calcula el estado
+ * en la zona horaria Europe/Madrid con src/lib/open-now.ts y src/data/hours.ts.
+ */
+import { hours, timezone } from '../../data/hours';
+import { dictionaries, type Lang } from '../../i18n/utils';
+
+interface Props {
+  lang: Lang;
+  class?: string;
+}
+const { lang, class: className } = Astro.props;
+const t = dictionaries[lang];
+
+const config = JSON.stringify({
+  timezone,
+  hours,
+  text: t.openNow,
+  days: t.days,
+});
+---
+
+<span
+  data-open-now
+  data-state="idle"
+  data-config={config}
+  class:list={['group inline-flex items-center gap-2 font-bold', className]}
+>
+  <span aria-hidden="true" class="inline-block size-2.5 rounded-full bg-current/40 group-data-[state=open]:bg-open"
+  ></span>
+  <span data-open-now-text aria-live="polite">{t.openNow.idle}</span>
+</span>
+
+<script>
+  import { computeOpenState, formatOpenLabel, type OpenNowText } from '../../lib/open-now';
+  import type { DayRule } from '../../data/hours';
+
+  interface Config {
+    timezone: string;
+    hours: Record<number, DayRule>;
+    text: OpenNowText;
+    days: string[];
+  }
+
+  function update() {
+    document.querySelectorAll<HTMLElement>('[data-open-now]').forEach((el) => {
+      const config = JSON.parse(el.dataset.config ?? '{}') as Config;
+      const result = computeOpenState(config.hours, new Date(), config.timezone);
+      el.dataset.state = result.state;
+      const textEl = el.querySelector('[data-open-now-text]');
+      if (textEl) textEl.textContent = formatOpenLabel(result, config.text, config.days);
+    });
+  }
+
+  update();
+  setInterval(update, 60_000);
+</script>

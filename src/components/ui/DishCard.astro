@@ -1,0 +1,36 @@
+---
+import { Image } from 'astro:assets';
+import { dictionaries, type Lang } from '../../i18n/utils';
+import Placeholder from './Placeholder.astro';
+
+interface Props {
+  lang: Lang;
+  name: string;
+  tag?: 'popular' | 'specialty' | 'seasonal';
+  photo?: string;
+}
+const { lang, name, tag, photo } = Astro.props;
+const t = dictionaries[lang];
+
+// Las fotos reales van en src/assets/dishes/ y se enlazan con el campo `photo` del plato.
+const photos = import.meta.glob<{ default: ImageMetadata }>('/src/assets/dishes/*.{jpg,jpeg,png,webp}', {
+  eager: true,
+});
+const image = photo ? photos[`/src/assets/dishes/${photo}`]?.default : undefined;
+---
+
+<div class="min-w-0 overflow-hidden rounded-[0.625rem] border border-line bg-white">
+  {
+    image ? (
+      <Image src={image} alt={name} widths={[320, 480, 640]} sizes="(min-width: 1024px) 18rem, 90vw" class="h-40 w-full object-cover" />
+    ) : (
+      <Placeholder label={t.carta.photo} class="h-40" />
+    )
+  }
+  <div class="px-5 py-4">
+    <p class="mb-1.5 min-h-[1.125rem] text-xs font-bold tracking-[0.08em] text-accent uppercase">
+      {tag ? t.carta.tags[tag] : ''}
+    </p>
+    <h4 class="font-display text-xl font-bold">{name}</h4>
+  </div>
+</div>
