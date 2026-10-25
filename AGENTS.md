@@ -171,7 +171,7 @@ Regla: cualquier texto sobre `accent` usa blanco o `on-dark`; si lleva velo, sie
 - **Tarjeta**: fondo blanco, borde `line`, radio 10 px, `overflow: hidden`.
 - **Tag de plato**: 12 px, mayúsculas, 700, color `accent` ("Més demanat", "Especialitat", "De temporada").
 - **Tarjeta de menú** (semana / fin de semana): título H3 (display 24 px), subtítulo (`muted`), lista de 3 líneas con separador `line`, y **solo un botón secundario «Encarrega»** (alto mínimo 44 px) alineado a la izquierda. Sin precio.
-- **Tarjeta del jueves** (fondo `accent`, radio 10 px, padding 32 px; ver 7.4): de arriba abajo, etiqueta «Només dijous» (13 px, mayúsculas, 700), H3 «Paella o fideuà» (display 36 px), línea de horario (17 px), **aviso de hora límite** en pastilla con velo oscuro (17 px, 700, padding 12 × 16 px, radio 6 px) y **botón claro «Encarrega»** (fondo blanco, texto `accent`, alto mínimo 52 px). Jerarquía sin precio: el énfasis fuerte es el título; el aviso es el segundo nivel; el botón cierra. Contrastes en 4.1.1.
+- **Tarjeta del jueves** (fondo `accent`, radio 10 px, padding 32 px; ver 7.4): de arriba abajo, H3 «Paella o fideuà» (display 36 px), línea de horario (17 px), **aviso de «un dia abans»** en pastilla con velo oscuro (17 px, 700, padding 12 × 16 px, radio 6 px) y **botón claro «Encarrega»** (fondo blanco, texto `accent`, alto mínimo 52 px). Jerarquía sin precio: el énfasis fuerte es el título; el aviso es el segundo nivel; el botón cierra. Contrastes en 4.1.1.
 - **Tarjeta de plato**: foto o placeholder (160 px de alto), tag opcional (reserva 18 px de alto aunque no haya tag, para alinear) y nombre H3 (display 20 px). **Sin precio.** El nombre ocupa el último renglón de la tarjeta (sin margen inferior extra).
 - **Botón WhatsApp**: mismas variantes que «Trucar» en su contexto (secundario sobre blanco, `outline-light` sobre `accent`, icono de la barra móvil), etiqueta visible «WhatsApp», icono SVG de burbuja con `aria-hidden="true"`, alto mínimo 44 px. Nunca verde de marca de WhatsApp (no hay colores nuevos).
 - **Indicador de estado («Obert ara»)**: texto 14–16 px en 700 + punto de 10 px. Cinco estados: `open` (punto verde `open` decorativo; el texto es siempre `ink` o `on-dark`, nunca verde), `closed` (cerrado fuera de horas, punto neutro), `closedDay` (cerrado todo el día, punto neutro), `orders` (solo encargos, punto neutro) y `unknown` (reserva). La información va siempre en el texto, nunca solo en el color del punto.
@@ -365,18 +365,18 @@ Criterios: las filas «Tancat»/«Cerrado» se escriben con texto (no solo atenu
 ### 7.4 Menús semanales (sin precios)
 
 - Se editan en la colección `menus` (campos: tipo, platos, vigencia). **No hay campo de precio** (decisión del cliente, 6.4). El cliente debe poder actualizarlos cada semana sin tocar componentes.
-- **Tarjeta de menú (semana y fin de semana):** título, subtítulo, 3 líneas de platos y botón «Encarrega». Sin cifra, sin «€» ni «/ ració». Subtítulos: semana CA «Només dijous» / ES «Solo los jueves» (decisión del cliente, 2026-10-25: el menú de la semana es solo de los jueves y sus platos son *Truita de patates* / *Tortilla de patatas*, *Paella o fideuà* y el postre, pendiente en `[Postres]` / `[Postre]`; la paella o fideuà aparece también en la tarjeta roja del jueves, que no cambia); fin de semana CA «Dissabtes, diumenges i festius» / ES «Sábados, domingos y festivos».
+- **Tarjeta de menú (semana y fin de semana):** título, subtítulo, 3 líneas de platos y botón «Encarrega». Sin cifra, sin «€» ni «/ ració». Subtítulos: semana CA «Només dijous» / ES «Solo los jueves» (decisión del cliente, 2026-10-25: el menú de la semana es solo de los jueves y sus platos son *Truita de patates* / *Tortilla de patatas*, *Paella o fideuà* y el postre, pendiente en `[Postres]` / `[Postre]`; la paella o fideuà aparece también en la tarjeta roja del jueves, que ya no lleva etiqueta); fin de semana CA «Dissabtes, diumenges i festius» / ES «Sábados, domingos y festivos».
 - **Tarjeta roja del jueves («Paella o fideuà»)**, fondo `accent`:
-  - Etiqueta: CA «Només dijous» / ES «Solo los jueves».
+  - Sin etiqueta de día: la etiqueta «Només dijous» / «Solo los jueves» se retiró el 2026-10-25 por indicación de la persona; el día lo dice el propio título del bloque y el subtítulo del menú de la semana.
   - Título: «Paella o fideuà».
-  - Línea de horario: CA «Cada dijous, de 10:30 a 14:30.» / ES «Cada jueves, de 10:30 a 14:30.»
-  - **Aviso** (pastilla con velo oscuro, ver 4.1.1): CA «Encarrega-la abans de [hora límit] i la tindràs a punt.» / ES «Encárgala antes de [hora límite] y la tendrás lista.» El marcador `[hora límit]` / `[hora límite]` sigue siendo dato pendiente hasta que el cliente dé la hora.
+  - Línea de horario: CA «Cada dijous, de 10:30 a 14:30.» / ES «Cada jueves, de 10:30 a 14:30.» (valor vigente en el código: CA «De dimecres a diumenge» / ES «De miércoles a domingo»; pendiente de confirmar, ver registro).
+  - **Aviso** (pastilla con velo oscuro, ver 4.1.1): CA «Encarrega-la un dia abans i la tindràs a punt.» / ES «Encárgala un día antes y la tendrás lista.» Dato del cliente (2026-10-25): resuelve el antiguo marcador `[hora límit]` / `[hora límite]`.
   - CTA: botón claro **«Encarrega»** (ca y es) a `#encarrega`. Sustituye a «Reserva la teva» por indicación del cliente; la clave `cta.reserve` queda sin uso.
   - Se elimina todo precio y «/ ració» (`menus.thursday.perServing`).
 - **Criterios observables:**
   1. En las tres tarjetas, ningún texto visible contiene `€`, dígitos seguidos de `€`, `[X,XX]`, «/ ració» ni «/ ración».
-  2. La tarjeta del jueves contiene, en este orden, etiqueta, H3, línea de horario, aviso y un único enlace «Encarrega».
-  3. El contraste del aviso es ≥ 4,5:1 con el marcador `[hora límit]` presente (calculado: 8,44:1 sobre el velo) y sin él (blanco sobre `accent`: 5,98:1). Ya lo cubre QA-001; el contrato sigue localizando el aviso por su texto visible.
+  2. La tarjeta del jueves contiene, en este orden, H3, línea de horario, aviso y un único enlace «Encarrega», y **no** contiene «Només dijous» / «Solo los jueves».
+  3. El contraste del aviso es ≥ 4,5:1 (blanco sobre el velo oscuro de `accent`: 8,44:1). Ya lo cubre QA-001; el contrato sigue localizando el aviso por su texto visible.
   4. El texto «Encarrega» de la tarjeta del jueves mide ≥ 44 px de alto y su contraste (texto `accent` sobre blanco) es 5,98:1.
   5. Sin datos de menú (platos vacíos), las líneas se muestran como `[Primer plat]` / `[Segon plat]` / `[Postres]` marcados como pendientes; la tarjeta mantiene el botón.
   6. A 320 px no hay desbordamiento horizontal y el botón no queda fuera de la tarjeta.
@@ -455,7 +455,7 @@ Mientras no estén resueltos, se mantienen como placeholders (ver 6.3.1).
 
 1. ~~Precios~~ **Cancelado** por decisión del cliente (2026-10-21): no se muestran precios. Si cambiara de opinión, hay que rediseñar tarjetas de plato y menús.
 2. Fotos reales: pollos en el ast (hero), platos estrella, la familia (Pere, Josep y Rosa) en el obrador, safates para celebraciones.
-3. Menú de fin de semana (platos, cada semana); **postre del menú del jueves** (el cliente dio los dos primeros platos el 2026-10-25 y no el postre: `[Postres]` / `[Postre]`); **hora límite de encargo de la paella/fideuà del jueves** (marcador `[hora límit]`).
+3. Menú de fin de semana (platos, cada semana); **postre del menú del jueves** (el cliente dio los dos primeros platos el 2026-10-25 y no el postre: `[Postres]` / `[Postre]`); **confirmar la línea de horario de la tarjeta roja del jueves** (el código dice «De dimecres a diumenge» / «De miércoles a domingo»; 7.4 propone «Cada dijous, de 10:30 a 14:30.»).
 4. Calendario de festivos y qué hace el local cuando un festivo cae en lunes o martes (hoy se muestra «cerrado»).
 5. **Reseñas de Google: pedir al cliente** (a) que confirme que el enlace a su ficha de Google Business es correcto, (b) la puntuación y el número total de reseñas actuales, y (c) que acepta citar las 3 reseñas de 7.6 (Jose Manuel Mesa Romero, CAROL Hernandez, Raquel Ramírez). Sin (b), la puntuación queda como marcador y bloquea la publicación.
 6. Logotipo del sello del premio (opcional).
@@ -470,6 +470,11 @@ Mientras no estén resueltos, se mantienen como placeholders (ver 6.3.1).
 - Año del premio: 2021.
 - Horario del lunes: cerrado; martes: cerrado (antes «solo encargos»); miércoles: solo encargos.
 - Precios: no se muestran.
+
+**Resueltos (2026-10-25, datos del cliente)**
+
+- Hora límite de encargo de la paella/fideuà del jueves: **un día antes** («Encarrega-la un dia abans i la tindràs a punt.» / «Encárgala un día antes y la tendrás lista.»). Ya no es marcador.
+- Menú de la semana: solo jueves, con *Truita de patates* / *Tortilla de patatas* y *Paella o fideuà*; el postre sigue pendiente.
 
 ## 13. Definición de "terminado"
 
@@ -582,6 +587,7 @@ Flujo estándar: `ux-ui-designer` → puerta de diseño → `tdd-test-author` (r
 | 2026-10-22 | El orquestador reescribe la prioridad 2 de la sección 1 y el comentario de `carta.json` de la sección 3 (sin precios). Se omite la parada de aprobación tras el diseño: el cambio lo dictó el cliente y es reversible; las suposiciones quedan en el registro para revisión del usuario | Evitar un viaje de ida y vuelta por un cambio pequeño; todo queda en git con etiqueta `gate-diseño-2` |
 | 2026-10-22 | Implementación del cambio del cliente: `DayRule` `closed` y estado `closedDay` en `src/lib/open-now.ts`; `hours.ts` con lunes y martes cerrados; `business.whatsapp = '34659331213'`, `whatsappDisplay` y `googleListingUrl`; nuevo `ui/WhatsAppButton.astro` (4 sitios + línea de texto en Contacto); `price` y `formatPrice` eliminados; aviso del jueves en pastilla (`menus.thursday.notice`) y botón «Encarrega» (`cta.reserve` eliminada, `cta.whatsappMessage` añadida); `aria-live="polite"` en el texto del indicador; premio 2021; 3 reseñas reales y enlace a la ficha | Poner en verde el contrato gate-rojo-3. Desviación: el botón de las tarjetas sigue siendo «Encarga» en castellano (valor de `cta.order`; el contrato admite ambos). **Conflicto fuera del contrato:** `tests/e2e/open-now-browser.spec.ts` (QA) espera `unknown` el lunes y `orders` el martes; con el horario nuevo fallan 8 casos (obsoletos, ya anunciados en la sección 16) |
 | 2026-10-25 | El menú de la semana pasa a ser solo de los jueves: subtítulo «Només dijous» / «Solo los jueves» y platos *Truita de patates* / *Tortilla de patatas*, *Paella o fideuà* y el postre pendiente (`[Postres]` / `[Postre]`). La tarjeta roja del jueves no cambia | Dato del cliente; sustituye la suposición B («De dimecres a divendres»). La paella o fideuà aparece en las dos tarjetas a propósito (la roja sigue siendo el bloque destacado de encargo). Contrato actualizado (`no-price.spec.ts`, `[P7]`) y candado re-fijado; `[P10]` se acota a cada tarjeta porque el menú de la semana ya tiene platos reales, y la regresión de QA corrige el texto del horario del jueves, que ya estaba en rojo en `v2` desde `bd106b4`. Tarea crew `tsk_01M5T1TXEQYZ4B83A3EFCJNN72` |
+| 2026-10-25 | Red card del jueves: se retira la etiqueta «Només dijous» / «Solo los jueves» y el aviso pasa a «Encarrega-la un dia abans i la tindràs a punt.» / «Encárgala un día antes y la tendrás lista.» | Indicación de la persona. El día ya lo dicen el título del bloque y el subtítulo del menú de la semana; el aviso resuelve el pendiente `[hora límit]`. Contrato actualizado (`no-price.spec.ts` `[P8]`, `qa-001-contrast.spec.ts`) y regresión de QA (`client-changes-regression.spec.ts`) con una aserción nueva de que la tarjeta roja no lleva etiqueta; candado re-fijado. Tarea crew `tsk_01M5THASHSR5W1P7GGGBQANKVW` |
 
 ## 16. Pruebas (TDD y QA)
 
@@ -657,7 +663,7 @@ export type DayRule =
 - Tarjetas de menú: se localizan por el texto de su H3 («Menú de la setmana», «Menú de cap de setmana», «Paella o fideuà») y su ancestro más cercano con un enlace; el botón se llama «Encarrega» (en castellano se admite también «Encarga», el valor actual de `cta.order`) y lleva `href="#encarrega"`.
 - Tabla de horarios: `<table>` de `#contacte` con 7 `<tr>`, cada una con una celda de cabecera (`th`) y una de valor (`td`), de lunes a domingo.
 - Reseñas: `<blockquote>` dentro de `#opinions` (texto) y su `figure`/`li` ancestro (autor y aviso «(original en castellà)»). Insignia del hero: `<li>` dentro de `#inici`; hitos: `<dt>`/`<dd>` dentro de `#nosaltres`.
-- Selector QA-001: el aviso se localiza por su texto visible (`[hora límit]` en `/`, `[hora límite]` en `/es/`); no exige atributos `data-*` ni clases.
+- Selector QA-001: el aviso se localiza por su texto visible («Encarrega-la un dia abans i la tindràs a punt.» en `/`, «Encárgala un día antes y la tendrás lista.» en `/es/`); no exige atributos `data-*` ni clases.
 
 ### Matriz criterio → test
 
@@ -675,7 +681,7 @@ export type DayRule =
 | QA-002 Áreas táctiles >= 44 x 44 px en móvil: todos los enlaces, botones y resúmenes visibles (ca y es, solo móvil) | `tests/e2e/contract/qa-002-touch-targets.spec.ts` | E2E |
 | QA-003 Ningún `a[href="#"]` sin `data-placeholder` en la home (ca y es) | `tests/e2e/contract/qa-003-placeholder-links.spec.ts` | E2E |
 | QA-003 El comprobador de pendientes detecta enlaces `href="#"` sin marcar (`scanHtml` y `check:release` con `DIST_DIR`) | `tests/unit/contract/check-placeholders.test.ts` | Unitario |
-| QA-001 Contraste >= 4,5:1 de `[hora límit]` en la tarjeta roja del jueves (ca y es, escritorio y móvil) | `tests/e2e/contract/qa-001-contrast.spec.ts` | E2E |
+| QA-001 Contraste >= 4,5:1 del aviso («Encarrega-la un dia abans…» / «Encárgala un día antes…») en la tarjeta roja del jueves (ca y es, escritorio y móvil) | `tests/e2e/contract/qa-001-contrast.spec.ts` | E2E |
 | P1 El campo `price` desaparece de `carta.json` y `menus.json` | `tests/unit/contract/no-price.test.ts` | Unitario |
 | P2 El esquema Zod no define `price` | `tests/unit/contract/no-price.test.ts` | Unitario |
 | P3 Diccionarios y JSON sin `€`, `[X,XX]`, `/ ració`, `perServing` | `tests/unit/contract/no-price.test.ts` | Unitario |
@@ -683,7 +689,7 @@ export type DayRule =
 | P5 Ninguna página muestra `€`, `[X,XX]`, `/ ració` ni cifra con moneda (7.4 criterio 1) | `tests/e2e/contract/no-price.spec.ts` | E2E |
 | P6 La carta no muestra precio (tarjetas y lista «Més plats») (7.2) | `tests/e2e/contract/no-price.spec.ts` | E2E |
 | P7 Tarjetas de menú: subtítulo («Només dijous» / «Solo los jueves» en la semana), 3 líneas, un único «Encarrega» >= 44 px (7.4) | `tests/e2e/contract/no-price.spec.ts` | E2E |
-| P8 Tarjeta del jueves: etiqueta, H3, horario, aviso (bloque propio) y un único «Encarrega», en orden; sin «Reserva la teva» (7.4 criterios 2 y 4) | `tests/e2e/contract/no-price.spec.ts` | E2E |
+| P8 Tarjeta del jueves: H3, horario, aviso (bloque propio) y un único «Encarrega», en orden; sin etiqueta de día y sin «Reserva la teva» (7.4 criterios 2 y 4) | `tests/e2e/contract/no-price.spec.ts` | E2E |
 | P9 A 320 px las tarjetas no desbordan (7.4 criterio 6; caracterización, ya en verde) | `tests/e2e/contract/no-price.spec.ts` | E2E |
 | P10 Líneas de menú vacías -> marcadores pendientes con `data-placeholder`; con platos, los platos (7.4 criterio 5; caracterización, ya en verde) | `tests/e2e/contract/no-price.spec.ts` | E2E |
 | WA-1 `business.whatsapp` y `whatsappUrl` (URLs exactas 7.3) | `tests/unit/contract/whatsapp.test.ts` | Unitario |
@@ -704,7 +710,7 @@ export type DayRule =
 | RV-2 «(original en castellà)» solo en la versión catalana (caracterización, ya en verde) | `tests/e2e/contract/award-reviews.spec.ts` | E2E |
 | RV-4, RV-5 Enlace a la ficha `https://www.google.com/maps?cid=17428563639894031302`, `rel="noopener"`, sin `data-placeholder`; ningún `href="#"` en Opiniones | `tests/e2e/contract/award-reviews.spec.ts` | E2E |
 
-No automatizables (para QA o diseño): estética y jerarquía visual de la tarjeta del jueves sin precio (7.4), equilibrio de las tarjetas a 360, 768 y 1280 px, lectura con lector de pantalla, que la tabla y el chip se lean como una sola información (7.1), el estilo `outline-light` del botón de la banda de cierre y que el icono de WhatsApp no use el verde de marca. Fuera del contrato: la puntuación y el n.º de reseñas de Google (siguen pendientes), la hora límite de la paella, el calendario de festivos, el resto de criterios de la home.
+No automatizables (para QA o diseño): estética y jerarquía visual de la tarjeta del jueves sin precio (7.4), equilibrio de las tarjetas a 360, 768 y 1280 px, lectura con lector de pantalla, que la tabla y el chip se lean como una sola información (7.1), el estilo `outline-light` del botón de la banda de cierre y que el icono de WhatsApp no use el verde de marca. Fuera del contrato: la puntuación y el n.º de reseñas de Google (siguen pendientes), la hora de la línea de horario de la tarjeta roja del jueves (pendiente de confirmar), el calendario de festivos, el resto de criterios de la home.
 
 ### Comandos y entorno de pruebas
 
