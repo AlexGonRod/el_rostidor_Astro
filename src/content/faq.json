@@ -21,26 +21,15 @@
       "es": "No. El encargo se recoge en la Rambla Sant Martí, 46."
     }
   },
-  "reheat": {
-    "order": 3,
-    "question": {
-      "ca": "Com es poden escalfar els plats?",
-      "es": "¿Cómo se pueden recalentar los platos?"
-    },
-    "answer": {
-      "ca": "[Instruccions breus per a pollastre, paella i guisats: forn, microones, temps recomanat].",
-      "es": "[Instrucciones breves para pollo, paella y guisos: horno, microondas, tiempo recomendado]."
-    }
-  },
   "allergens": {
-    "order": 4,
+    "order": 3,
     "question": {
       "ca": "Teniu opcions per a al·lèrgies o intoleràncies?",
       "es": "¿Tenéis opciones para alergias o intolerancias?"
     },
     "answer": {
-      "ca": "Pregunta'ns pels al·lèrgens de cada plat abans d'encarregar. [Afegir quins plats són sense gluten o vegetarians].",
-      "es": "Pregúntanos por los alérgenos de cada plato antes de encargar. [Añadir qué platos son sin gluten o vegetarianos]."
+      "ca": "Pregunta'ns pels al·lèrgens de cada plat abans d'encarregar.",
+      "es": "Pregúntanos por los alérgenos de cada plato antes de encargar."
     }
   }
 }
