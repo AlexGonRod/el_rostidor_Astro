@@ -53,7 +53,7 @@ const categories = (['entrants', 'principals'] as const).map((key) => {
               {category.featured.map((dish) => (
                 <DishCard
                   lang={lang}
-                  name={dish.data.name}
+                  name={dish.data.name[lang]}
                   tag={dish.data.tag}
                   photo={dish.data.photo}
                 />
@@ -66,7 +66,7 @@ const categories = (['entrants', 'principals'] as const).map((key) => {
                 <ul class="grid gap-x-10 sm:grid-cols-2">
                   {category.rest.map((dish) => (
                     <li class="border-b border-line py-3">
-                      {dish.data.name}
+                      {dish.data.name[lang]}
                       {dish.data.tag && (
                         <span class="ml-2 text-xs font-bold tracking-[0.08em] text-accent uppercase">
                           {t.carta.tags[dish.data.tag]}

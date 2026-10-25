@@ -10,7 +10,8 @@ const carta = defineCollection({
   schema: z.object({
     /** Orden de aparición dentro de su categoría (el loader de archivo ordena por id). */
     order: z.number(),
-    name: z.string(),
+    /** Nombre del plato en los dos idiomas del sitio (ca y es). */
+    name: bilingual,
     category: z.enum(['entrants', 'principals']),
     tag: z.enum(['popular', 'specialty', 'seasonal']).optional(),
     /** Los destacados se muestran como tarjeta con foto; el resto, en la lista compacta. */
