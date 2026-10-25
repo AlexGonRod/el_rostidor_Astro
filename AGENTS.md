@@ -531,6 +531,8 @@ Una tarea de UI no está terminada hasta que:
 
 ### Cómo decide el orquestador qué skill lanzar
 
+**Regla dura (2026-10-25, indicación de la persona):** el orquestador **no toca código**. Todo cambio en `src/`, `scripts/`, `tests/` o `public/` —aunque sea una línea de contenido, un texto o un JSON— pasa por una tarea de `crew` con su developer y su tester independiente. El orquestador escribe el brief, revisa, firma y mergea; no edita ni commitea el producto. La única escritura directa que le queda es este documento (`AGENTS.md`) y las decisiones y la memoria del proyecto.
+
 | Petición del usuario | Skill | Después |
 |---|---|---|
 | Auditar, analizar o proponer mejoras de algo existente | `ux-ui-designer` (auditoría) | — |
@@ -590,6 +592,7 @@ Flujo estándar: `ux-ui-designer` → puerta de diseño → `tdd-test-author` (r
 | 2026-10-25 | El menú de la semana pasa a ser solo de los jueves: subtítulo «Només dijous» / «Solo los jueves» y platos *Truita de patates* / *Tortilla de patatas*, *Paella o fideuà* y el postre pendiente (`[Postres]` / `[Postre]`). La tarjeta roja del jueves no cambia | Dato del cliente; sustituye la suposición B («De dimecres a divendres»). La paella o fideuà aparece en las dos tarjetas a propósito (la roja sigue siendo el bloque destacado de encargo). Contrato actualizado (`no-price.spec.ts`, `[P7]`) y candado re-fijado; `[P10]` se acota a cada tarjeta porque el menú de la semana ya tiene platos reales, y la regresión de QA corrige el texto del horario del jueves, que ya estaba en rojo en `v2` desde `bd106b4`. Tarea crew `tsk_01M5T1TXEQYZ4B83A3EFCJNN72` |
 | 2026-10-25 | Red card del jueves: se retira la etiqueta «Només dijous» / «Solo los jueves» y el aviso pasa a «Encarrega-la un dia abans i la tindràs a punt.» / «Encárgala un día antes y la tendrás lista.» | Indicación de la persona. El día ya lo dicen el título del bloque y el subtítulo del menú de la semana; el aviso resuelve el pendiente `[hora límit]`. Contrato actualizado (`no-price.spec.ts` `[P8]`, `qa-001-contrast.spec.ts`) y regresión de QA (`client-changes-regression.spec.ts`) con una aserción nueva de que la tarjeta roja no lleva etiqueta; candado re-fijado. Tarea crew `tsk_01M5THASHSR5W1P7GGGBQANKVW` |
 | 2026-10-25 | Postre del menú del jueves: la línea pasa a «Postre» / «Postre» (sin corchetes ni marcador), porque el postre en sí no está definido. La línea de horario de la tarjeta roja («De dimecres a diumenge» / «De miércoles a domingo») se confirma como correcta | Indicación de la persona. `check:placeholders` deja de contar el postre; el contrato `[P10]` ya compara las líneas con `menus.json`, así que no cambia y el candado queda igual |
+| 2026-10-25 | El orquestador no toca código: cualquier cambio en `src/`, `scripts/`, `tests/` o `public/` pasa por una tarea de crew con developer y tester independientes, aunque sea una línea de contenido | Indicación de la persona: el orquestador escribe el brief, revisa, firma y mergea; la escritura directa queda limitada a `AGENTS.md` y a la memoria del proyecto |
 
 ## 16. Pruebas (TDD y QA)
 
