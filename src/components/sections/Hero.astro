@@ -1,7 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { dictionaries, withPlaceholders, type Lang } from '../../i18n/utils';
 import Button from '../ui/Button.astro';
-import Placeholder from '../ui/Placeholder.astro';
+import heroPhoto from '../../assets/rostidor.webp';
 
 interface Props {
   lang: Lang;
@@ -25,6 +26,15 @@ const t = dictionaries[lang];
       {t.hero.badges.map((badge) => <li set:html={withPlaceholders(badge)} />)}
     </ul>
   </div>
-  <!-- PENDIENTE: foto real del hero. Sustituir por <Image> con loading="eager" y fetchpriority="high". -->
-  <Placeholder label={t.hero.photo} class="h-44 rounded-xl lg:h-auto lg:min-h-130" />
+  <div class="relative h-44 overflow-hidden rounded-xl lg:h-auto lg:min-h-130">
+    <Image
+      src={heroPhoto}
+      alt={t.hero.photo}
+      widths={[480, 768, 1024]}
+      sizes="(min-width: 1024px) 570px, 100vw"
+      loading="eager"
+      fetchpriority="high"
+      class="absolute inset-0 h-full w-full object-cover"
+    />
+  </div>
 </section>
