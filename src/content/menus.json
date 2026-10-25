@@ -3,7 +3,7 @@
     "items": [
       { "ca": "Truita de patates", "es": "Tortilla de patatas" },
       { "ca": "Paella o fideuà", "es": "Paella o fideuà" },
-      { "ca": "[Postres]", "es": "[Postre]" }
+      { "ca": "Postre", "es": "Postre" }
     ]
   },
   "weekend": { "items": [] },
