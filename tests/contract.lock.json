@@ -6,7 +6,7 @@
   "tests/unit/contract/whatsapp.test.ts": "07284f249702a94afa6b11fd2ba9995abd5ab011c12cea1640d98b27598a68dd",
   "tests/e2e/contract/award-reviews.spec.ts": "ab0e4d3d8e990b277ecc859e7d8059ac4c8cd281c42e2f272e179895360ab964",
   "tests/e2e/contract/hours-closed-days.spec.ts": "159475f8032fc8e9972501e91ad456af9be0733b1c437f93a8809473a38a3003",
-  "tests/e2e/contract/no-price.spec.ts": "27b723810623e09e8dc27cddea8650f498090011e6cee1c1b230bd22ddb4d755",
+  "tests/e2e/contract/no-price.spec.ts": "3167c340af47e95b5f3da0843756ef7c93494ab6faff1a016b660f86fadbafdf",
   "tests/e2e/contract/qa-001-contrast.spec.ts": "a468d6811ba1ce922ba06926297f16efb0ece2515c4b244f8639e12e875cf82a",
   "tests/e2e/contract/qa-002-touch-targets.spec.ts": "1725e8ca3f463f79505c0a19e0041fbc77bb47eb54cad1748544a4ff321b0958",
   "tests/e2e/contract/qa-003-placeholder-links.spec.ts": "61616be883450287dee7953f666b08d4cca43b46570e1852949ecd6ff4f87a5f",

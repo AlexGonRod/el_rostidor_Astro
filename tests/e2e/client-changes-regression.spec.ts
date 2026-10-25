@@ -71,10 +71,10 @@ for (const { lang, path } of langs) {
       expect(text).not.toMatch(/\b(cerrar|tancar|cierra|tanca|cerramos|tanquem)\b/i);
     });
 
-    test('el subtítulo del menú de la semana es el definido (suposición B) y no habla de martes', async ({ page }) => {
+    test('el subtítulo del menú de la semana es «Només dijous» / «Solo los jueves» y no habla de martes', async ({ page }) => {
       await page.goto(path);
       const card = page.getByRole('heading', { level: 3, name: /Menú de la (setmana|semana)/ }).locator('xpath=ancestor::*[.//a][1]');
-      await expect(card).toContainText(lang === 'ca' ? 'De dimecres a divendres' : 'De miércoles a viernes');
+      await expect(card).toContainText(lang === 'ca' ? 'Només dijous' : 'Solo los jueves');
       await expect(card).not.toContainText(/dimarts|martes/i);
     });
 
@@ -211,9 +211,9 @@ for (const { lang, path } of langs) {
         expect(res.btnH).toBeGreaterThanOrEqual(44);
         expect(res.btnInside).toBe(true);
         expect(res.overflow).toBeLessThanOrEqual(0);
-        const order = res.texts.findIndex((t) => /Només dijous|Solo los jueves/.test(t)) < res.texts.findIndex((t) => /Cada (dijous|jueves)/.test(t));
+        const order = res.texts.findIndex((t) => /Només dijous|Solo los jueves/.test(t)) < res.texts.findIndex((t) => /De dimecres a diumenge|De miércoles a domingo/.test(t));
         expect(order).toBe(true);
-        expect(res.texts.findIndex((t) => /Cada (dijous|jueves)/.test(t))).toBeLessThan(res.texts.findIndex((t) => /Encarrega-la|Encárgala|^\[hora/.test(t)));
+        expect(res.texts.findIndex((t) => /De dimecres a diumenge|De miércoles a domingo/.test(t))).toBeLessThan(res.texts.findIndex((t) => /Encarrega-la|Encárgala|^\[hora/.test(t)));
         await shot(page, `c3-${lang}-${w}-jueves`, card);
       });
 

@@ -16,13 +16,13 @@ const pages: { lang: Lang; path: string }[] = [
 
 const copy = {
   ca: {
-    week: { title: 'Menú de la setmana', subtitle: 'De dimecres a divendres' },
+    week: { title: 'Menú de la setmana', subtitle: 'Només dijous' },
     weekend: { title: 'Menú de cap de setmana', subtitle: 'Dissabtes, diumenges i festius' },
     thursday: { label: 'Només dijous', title: 'Paella o fideuà', schedule: 'De dimecres a diumenge', notice: /Encarrega-la abans de/ },
     old: /Reserva la teva/,
   },
   es: {
-    week: { title: 'Menú de la semana', subtitle: 'De miércoles a viernes' },
+    week: { title: 'Menú de la semana', subtitle: 'Solo los jueves' },
     weekend: { title: 'Menú de fin de semana', subtitle: 'Sábados, domingos y festivos' },
     thursday: { label: 'Solo los jueves', title: 'Paella o fideuà', schedule: 'De miércoles a domingo', notice: /Encárgala antes de/ },
     old: /Reserva la tuya/,
@@ -52,6 +52,7 @@ async function readCard(page: Page, heading: string) {
       box: box(card),
       links: [...card.querySelectorAll<HTMLAnchorElement>('a[href]')].map((a) => ({ name: (a.textContent ?? '').trim(), href: a.getAttribute('href'), box: box(a) })),
       lines: [...card.querySelectorAll('li')].map((li) => (li.textContent ?? '').replace(/\s+/g, ' ').trim()),
+      pending: card.querySelectorAll('[data-placeholder]').length,
     };
   }, heading);
 }
@@ -183,8 +184,8 @@ test('[P10] las líneas de los menús salen de menus.json: vacío, marcadores pe
       if (items.length === 0) {
         expect(card!.lines, `${lang} ${key} marcadores`).toHaveLength(3);
         for (const line of card!.lines) expect(line).toMatch(/^\[[^\]]+\]$/);
-        const marked = await page.locator('#menus [data-placeholder]').count();
-        expect(marked, 'los marcadores de plato llevan data-placeholder').toBeGreaterThanOrEqual(6);
+        // Acotado a la tarjeta (antes contaba 6 en toda la sección): el menú de la semana ya tiene platos reales.
+        expect(card!.pending, 'los marcadores de plato llevan data-placeholder').toBe(card!.lines.length);
       } else {
         expect(card!.lines).toEqual(items.map((item) => item[lang]));
       }

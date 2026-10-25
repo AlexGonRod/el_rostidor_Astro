@@ -1,5 +1,11 @@
 {
-  "week": { "items": [] },
+  "week": {
+    "items": [
+      { "ca": "Truita de patates", "es": "Tortilla de patatas" },
+      { "ca": "Paella o fideuà", "es": "Paella o fideuà" },
+      { "ca": "[Postres]", "es": "[Postre]" }
+    ]
+  },
   "weekend": { "items": [] },
   "thursday": { "items": [] }
 }

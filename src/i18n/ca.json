@@ -54,7 +54,7 @@
     "eyebrow": "Menús",
     "title": "Què hi ha per dinar aquesta setmana",
     "lead": "Menú de setmana, menú de cap de setmana i, els dijous, paella o fideuà. Actualitzat cada setmana.",
-    "week": { "title": "Menú de la setmana", "subtitle": "De dimecres a divendres" },
+    "week": { "title": "Menú de la setmana", "subtitle": "Només dijous" },
     "weekend": { "title": "Menú de cap de setmana", "subtitle": "Dissabtes, diumenges i festius" },
     "thursday": {
       "label": "Només dijous",

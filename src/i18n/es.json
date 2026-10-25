@@ -54,7 +54,7 @@
     "eyebrow": "Menús",
     "title": "Qué hay para comer esta semana",
     "lead": "Menú de semana, menú de fin de semana y, los jueves, paella o fideuà. Actualizado cada semana.",
-    "week": { "title": "Menú de la semana", "subtitle": "De miércoles a viernes" },
+    "week": { "title": "Menú de la semana", "subtitle": "Solo los jueves" },
     "weekend": { "title": "Menú de fin de semana", "subtitle": "Sábados, domingos y festivos" },
     "thursday": {
       "label": "Solo los jueves",
