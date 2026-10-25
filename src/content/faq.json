@@ -6,8 +6,8 @@
       "es": "¿Hasta cuándo puedo hacer un encargo?"
     },
     "answer": {
-      "ca": "Per plats o menú, podeu encarregar abans de les 12h. Per a grups i celebracions millor fer-ho almenys un dia abans.",
-      "es": "Para platos o menú, podéis encargar antes de las 12 h. Para grupos y celebraciones, mejor hacerlo al menos un día antes."
+      "ca": "Per plats o menú, podeu encarregar abans de les 12h del mateix dia. Per a grups i celebracions millor fer-ho almenys un dia abans.",
+      "es": "Para platos o menú, podéis encargar antes de las 12 h del mismo día. Para grupos y celebraciones, mejor hacerlo al menos un día antes."
     }
   },
   "delivery": {
