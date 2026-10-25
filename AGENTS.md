@@ -187,7 +187,7 @@ Cada sección tiene un `id` estable que se usa en el menú, la barra móvil y lo
 | 0 | Barra superior | — | Indicador de estado (7.1: "Obert ara · fins a les 14:30", "Tancat avui · obrim dijous a les 10:30", …), dirección, teléfono, selector CA/ES |
 | 1 | Cabecera (sticky) | — | Wordmark, navegación, botón **Encarrega** |
 | 2 | Hero | `inici` | H1, subtítulo, CTA "Encarrega ara" y "Veure la carta", 3 sellos de confianza, foto grande |
-| 3 | Menús | `menus` | Menú de la semana, menú de fin de semana, bloque destacado "Paella o fideuà" (jueves). **Sin precios**; cada tarjeta termina en «Encarrega» |
+| 3 | Menús | `menus` | Menú de la semana (**solo jueves**, 2026-10-25), menú de fin de semana, bloque destacado "Paella o fideuà" (jueves). **Sin precios**; cada tarjeta termina en «Encarrega» |
 | 4 | Carta | `carta` | Pestañas por categoría, tarjetas con foto, nombre y tag (**sin precio**), nota de alérgenos |
 | 5 | Celebraciones | `celebracions` | Comuniones, aniversarios, empresas, reuniones familiares + "Demana pressupost" |
 | 6 | Cómo encargar | `encarrega` | 3 pasos, botones Llamar y WhatsApp (el paso 2 informa: lunes y martes cerrado, miércoles solo encargos) |
@@ -253,7 +253,8 @@ Estos datos son reales y salen de la web actual. No cambiarlos sin confirmación
 **No inventes datos.** Lo que no se conoce se marca entre corchetes y se lista en la sección 12 (Pendientes):
 
 - Precios: **no se muestran en ningún sitio** (decisión del cliente, 2026-10-21; ver 6.4). Ya no hay marcador `[X,XX] €`.
-- Platos del menú semanal: `[Primer plat]`, `[Segon plat]`, `[Postres]`.
+- Platos del menú semanal: `[Primer plat]`, `[Segon plat]`, `[Postres]` (el menú de la semana ya tiene sus dos primeros platos; el fin de semana sigue vacío).
+- Postre del menú del jueves: `[Postres]` / `[Postre]` (el cliente dio los dos primeros platos el 2026-10-25 y no el postre).
 - Nota y nº de reseñas de Google: `[4,X] ★ · [N] ressenyes`.
 - Hora límite de encargo de la paella, respuestas definitivas de la FAQ, puntuación y enlace de Google. Resueltos el 2026-10-21 (ya sin marcador): número de WhatsApp, horario del lunes (cerrado) y año del premio (2021).
 
@@ -364,7 +365,7 @@ Criterios: las filas «Tancat»/«Cerrado» se escriben con texto (no solo atenu
 ### 7.4 Menús semanales (sin precios)
 
 - Se editan en la colección `menus` (campos: tipo, platos, vigencia). **No hay campo de precio** (decisión del cliente, 6.4). El cliente debe poder actualizarlos cada semana sin tocar componentes.
-- **Tarjeta de menú (semana y fin de semana):** título, subtítulo, 3 líneas de platos y botón «Encarrega». Sin cifra, sin «€» ni «/ ració». Subtítulos: semana CA «De dimecres a divendres» / ES «De miércoles a viernes» (**suposición B**: con el martes cerrado el rango «de martes a viernes» ya no es cierto; el cliente debe confirmarlo, pendiente 3); fin de semana CA «Dissabtes, diumenges i festius» / ES «Sábados, domingos y festivos».
+- **Tarjeta de menú (semana y fin de semana):** título, subtítulo, 3 líneas de platos y botón «Encarrega». Sin cifra, sin «€» ni «/ ració». Subtítulos: semana CA «Només dijous» / ES «Solo los jueves» (decisión del cliente, 2026-10-25: el menú de la semana es solo de los jueves y sus platos son *Truita de patates* / *Tortilla de patatas*, *Paella o fideuà* y el postre, pendiente en `[Postres]` / `[Postre]`; la paella o fideuà aparece también en la tarjeta roja del jueves, que no cambia); fin de semana CA «Dissabtes, diumenges i festius» / ES «Sábados, domingos y festivos».
 - **Tarjeta roja del jueves («Paella o fideuà»)**, fondo `accent`:
   - Etiqueta: CA «Només dijous» / ES «Solo los jueves».
   - Título: «Paella o fideuà».
@@ -454,7 +455,7 @@ Mientras no estén resueltos, se mantienen como placeholders (ver 6.3.1).
 
 1. ~~Precios~~ **Cancelado** por decisión del cliente (2026-10-21): no se muestran precios. Si cambiara de opinión, hay que rediseñar tarjetas de plato y menús.
 2. Fotos reales: pollos en el ast (hero), platos estrella, la familia (Pere, Josep y Rosa) en el obrador, safates para celebraciones.
-3. Menú de la semana y menú de fin de semana (platos, cada semana); **hora límite de encargo de la paella/fideuà del jueves** (marcador `[hora límit]`); confirmar el subtítulo «De dimecres a divendres» del menú de la semana (suposición B, ahora que el martes está cerrado).
+3. Menú de fin de semana (platos, cada semana); **postre del menú del jueves** (el cliente dio los dos primeros platos el 2026-10-25 y no el postre: `[Postres]` / `[Postre]`); **hora límite de encargo de la paella/fideuà del jueves** (marcador `[hora límit]`).
 4. Calendario de festivos y qué hace el local cuando un festivo cae en lunes o martes (hoy se muestra «cerrado»).
 5. **Reseñas de Google: pedir al cliente** (a) que confirme que el enlace a su ficha de Google Business es correcto, (b) la puntuación y el número total de reseñas actuales, y (c) que acepta citar las 3 reseñas de 7.6 (Jose Manuel Mesa Romero, CAROL Hernandez, Raquel Ramírez). Sin (b), la puntuación queda como marcador y bloquea la publicación.
 6. Logotipo del sello del premio (opcional).
@@ -580,6 +581,7 @@ Flujo estándar: `ux-ui-designer` → puerta de diseño → `tdd-test-author` (r
 | 2026-10-21 | QA-004 corregido: en `WeeklyMenus.astro` el precio de las tarjetas de menú lleva `whitespace-nowrap`, el contenedor precio/botón pasa a `flex-wrap` con `gap-x-4 gap-y-3` y, en la tarjeta del jueves, `[X,XX] €` y `/ ració` son dos tramos `nowrap` que pueden separarse entre sí | A 320 px en ca el «€» bajaba junto al botón. Ahora precio y moneda no se parten y el botón se recoloca debajo sin desbordar; sin cambios de tokens ni de diseño a >= 360 px. Comprobado con el marcador y con un precio de prueba (`12,50 €`) solo en local, sin dejarlo en el código |
 | 2026-10-22 | El orquestador reescribe la prioridad 2 de la sección 1 y el comentario de `carta.json` de la sección 3 (sin precios). Se omite la parada de aprobación tras el diseño: el cambio lo dictó el cliente y es reversible; las suposiciones quedan en el registro para revisión del usuario | Evitar un viaje de ida y vuelta por un cambio pequeño; todo queda en git con etiqueta `gate-diseño-2` |
 | 2026-10-22 | Implementación del cambio del cliente: `DayRule` `closed` y estado `closedDay` en `src/lib/open-now.ts`; `hours.ts` con lunes y martes cerrados; `business.whatsapp = '34659331213'`, `whatsappDisplay` y `googleListingUrl`; nuevo `ui/WhatsAppButton.astro` (4 sitios + línea de texto en Contacto); `price` y `formatPrice` eliminados; aviso del jueves en pastilla (`menus.thursday.notice`) y botón «Encarrega» (`cta.reserve` eliminada, `cta.whatsappMessage` añadida); `aria-live="polite"` en el texto del indicador; premio 2021; 3 reseñas reales y enlace a la ficha | Poner en verde el contrato gate-rojo-3. Desviación: el botón de las tarjetas sigue siendo «Encarga» en castellano (valor de `cta.order`; el contrato admite ambos). **Conflicto fuera del contrato:** `tests/e2e/open-now-browser.spec.ts` (QA) espera `unknown` el lunes y `orders` el martes; con el horario nuevo fallan 8 casos (obsoletos, ya anunciados en la sección 16) |
+| 2026-10-25 | El menú de la semana pasa a ser solo de los jueves: subtítulo «Només dijous» / «Solo los jueves» y platos *Truita de patates* / *Tortilla de patatas*, *Paella o fideuà* y el postre pendiente (`[Postres]` / `[Postre]`). La tarjeta roja del jueves no cambia | Dato del cliente; sustituye la suposición B («De dimecres a divendres»). La paella o fideuà aparece en las dos tarjetas a propósito (la roja sigue siendo el bloque destacado de encargo). Contrato actualizado (`no-price.spec.ts`, `[P7]`) y candado re-fijado; `[P10]` se acota a cada tarjeta porque el menú de la semana ya tiene platos reales, y la regresión de QA corrige el texto del horario del jueves, que ya estaba en rojo en `v2` desde `bd106b4`. Tarea crew `tsk_01M5T1TXEQYZ4B83A3EFCJNN72` |
 
 ## 16. Pruebas (TDD y QA)
 
@@ -680,7 +682,7 @@ export type DayRule =
 | P4 `formatPrice`, `[X,XX]` y la prop `price` desaparecen del código | `tests/unit/contract/no-price.test.ts` | Unitario |
 | P5 Ninguna página muestra `€`, `[X,XX]`, `/ ració` ni cifra con moneda (7.4 criterio 1) | `tests/e2e/contract/no-price.spec.ts` | E2E |
 | P6 La carta no muestra precio (tarjetas y lista «Més plats») (7.2) | `tests/e2e/contract/no-price.spec.ts` | E2E |
-| P7 Tarjetas de menú: subtítulo (suposición B), 3 líneas, un único «Encarrega» >= 44 px (7.4) | `tests/e2e/contract/no-price.spec.ts` | E2E |
+| P7 Tarjetas de menú: subtítulo («Només dijous» / «Solo los jueves» en la semana), 3 líneas, un único «Encarrega» >= 44 px (7.4) | `tests/e2e/contract/no-price.spec.ts` | E2E |
 | P8 Tarjeta del jueves: etiqueta, H3, horario, aviso (bloque propio) y un único «Encarrega», en orden; sin «Reserva la teva» (7.4 criterios 2 y 4) | `tests/e2e/contract/no-price.spec.ts` | E2E |
 | P9 A 320 px las tarjetas no desbordan (7.4 criterio 6; caracterización, ya en verde) | `tests/e2e/contract/no-price.spec.ts` | E2E |
 | P10 Líneas de menú vacías -> marcadores pendientes con `data-placeholder`; con platos, los platos (7.4 criterio 5; caracterización, ya en verde) | `tests/e2e/contract/no-price.spec.ts` | E2E |
