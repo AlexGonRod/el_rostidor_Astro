@@ -1,13 +1,14 @@
 /**
- * [QA-001] Contraste del aviso pendiente «[hora límit]» / «[hora límite]» en la tarjeta roja
- * de la paella o fideuà del jueves. AGENTS.md 4.1: contraste AA mínimo 4,5:1 para texto normal.
- * Estado inicial: defecto (4,0:1). El test se localiza por texto visible, sin clases ni data-*.
+ * [QA-001] Contraste del aviso de la tarjeta roja de la paella o fideuà del jueves
+ * («Encarrega-la un dia abans i la tindràs a punt.» / «Encárgala un día antes y la tendrás lista.»).
+ * AGENTS.md 4.1: contraste AA mínimo 4,5:1 para texto normal. El test se localiza por texto visible,
+ * sin clases ni data-*.
  */
 import { test, expect, type Locator } from '@playwright/test';
 
 const cases = [
-  { lang: 'ca', path: '/', text: '[hora límit]' },
-  { lang: 'es', path: '/es/', text: '[hora límite]' },
+  { lang: 'ca', path: '/', text: 'Encarrega-la un dia abans i la tindràs a punt.' },
+  { lang: 'es', path: '/es/', text: 'Encárgala un día antes y la tendrás lista.' },
 ];
 
 /** Contraste WCAG entre el color del texto y el fondo efectivo (compone fondos translúcidos de los ancestros). */

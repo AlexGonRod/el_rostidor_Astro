@@ -160,7 +160,7 @@ for (const { lang, path } of langs) {
     test.describe(`(${lang}) ${w}px`, () => {
       test.skip(({ isMobile }) => isMobile, 'el ancho se fija en el proyecto desktop');
 
-      test('tarjeta del jueves: orden etiqueta, H3, horario, aviso, un único «Encarrega»; contraste real de la pastilla ≥ 4,5:1 y sin desbordar', async ({ page }) => {
+      test('tarjeta del jueves: orden H3, horario, aviso, un único «Encarrega» y sin etiqueta; contraste real de la pastilla ≥ 4,5:1 y sin desbordar', async ({ page }) => {
         await gotoAt(page, path, w);
         const h3 = page.getByRole('heading', { level: 3, name: 'Paella o fideuà' });
         const card = h3.locator('xpath=ancestor::*[.//a][1]');
@@ -211,9 +211,15 @@ for (const { lang, path } of langs) {
         expect(res.btnH).toBeGreaterThanOrEqual(44);
         expect(res.btnInside).toBe(true);
         expect(res.overflow).toBeLessThanOrEqual(0);
-        const order = res.texts.findIndex((t) => /Només dijous|Solo los jueves/.test(t)) < res.texts.findIndex((t) => /De dimecres a diumenge|De miércoles a domingo/.test(t));
-        expect(order).toBe(true);
-        expect(res.texts.findIndex((t) => /De dimecres a diumenge|De miércoles a domingo/.test(t))).toBeLessThan(res.texts.findIndex((t) => /Encarrega-la|Encárgala|^\[hora/.test(t)));
+        // Orden vertical: título < horario < aviso (la etiqueta «Només dijous» / «Solo los jueves» ya no está en la tarjeta roja).
+        const iTitle = res.texts.findIndex((t) => /^Paella o fideuà$/.test(t));
+        const iSchedule = res.texts.findIndex((t) => /De dimecres a diumenge|De miércoles a domingo/.test(t));
+        const iNotice = res.texts.findIndex((t) => /Encarrega-la|Encárgala/.test(t));
+        expect(iTitle).toBeGreaterThanOrEqual(0);
+        expect(iSchedule).toBeGreaterThan(iTitle);
+        expect(iNotice).toBeGreaterThan(iSchedule);
+        expect(res.texts.filter((t) => /Només dijous|Solo los jueves/.test(t))).toEqual([]);
+        await expect(card).not.toContainText(/Només dijous|Solo los jueves/);
         await shot(page, `c3-${lang}-${w}-jueves`, card);
       });
 

@@ -57,10 +57,9 @@
     "week": { "title": "Menú de la setmana", "subtitle": "Només dijous" },
     "weekend": { "title": "Menú de cap de setmana", "subtitle": "Dissabtes, diumenges i festius" },
     "thursday": {
-      "label": "Només dijous",
       "title": "Paella o fideuà",
       "text": "De dimecres a diumenge",
-      "notice": "Encarrega-la abans de [hora límit] i la tindràs a punt."
+      "notice": "Encarrega-la un dia abans i la tindràs a punt."
     },
     "pendingItems": ["Primer plat", "Segon plat", "Postres"]
   },

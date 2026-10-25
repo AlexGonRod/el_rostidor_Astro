@@ -18,13 +18,13 @@ const copy = {
   ca: {
     week: { title: 'Menú de la setmana', subtitle: 'Només dijous' },
     weekend: { title: 'Menú de cap de setmana', subtitle: 'Dissabtes, diumenges i festius' },
-    thursday: { label: 'Només dijous', title: 'Paella o fideuà', schedule: 'De dimecres a diumenge', notice: /Encarrega-la abans de/ },
+    thursday: { title: 'Paella o fideuà', schedule: 'De dimecres a diumenge', notice: /Encarrega-la un dia abans/ },
     old: /Reserva la teva/,
   },
   es: {
     week: { title: 'Menú de la semana', subtitle: 'Solo los jueves' },
     weekend: { title: 'Menú de fin de semana', subtitle: 'Sábados, domingos y festivos' },
-    thursday: { label: 'Solo los jueves', title: 'Paella o fideuà', schedule: 'De miércoles a domingo', notice: /Encárgala antes de/ },
+    thursday: { title: 'Paella o fideuà', schedule: 'De miércoles a domingo', notice: /Encárgala un día antes/ },
     old: /Reserva la tuya/,
   },
 } as const;
@@ -103,7 +103,7 @@ for (const { lang, path } of pages) {
     });
   }
 
-  test(`[P8] (${lang}) tarjeta del jueves: etiqueta, título, horario, aviso y un único «Encarrega», en ese orden y sin precio`, async ({ page }) => {
+  test(`[P8] (${lang}) tarjeta del jueves: título, horario, aviso y un único «Encarrega», en ese orden y sin precio`, async ({ page }) => {
     await page.goto(path);
     const t = c.thursday;
     const card = await readCard(page, t.title);
@@ -116,7 +116,7 @@ for (const { lang, path } of pages) {
 
     // Posición vertical (borde superior) del primer nodo de texto que casa, dentro de la tarjeta.
     const tops = await page.evaluate(
-      ({ title, label, schedule, notice }) => {
+      ({ title, schedule, notice }) => {
         const h3 = [...document.querySelectorAll<HTMLElement>('#menus h3')].find((h) => (h.textContent ?? '').trim() === title)!;
         let card: HTMLElement = h3;
         while (!card.querySelector('a[href]')) card = card.parentElement!;
@@ -132,22 +132,19 @@ for (const { lang, path } of pages) {
           return null;
         };
         return {
-          label: topOf((s) => s.trim() === label),
           title: { top: h3.getBoundingClientRect().top, own: title },
           schedule: topOf((s) => s.includes(schedule)),
           notice: topOf((s) => new RegExp(notice).test(s)),
           link: { top: card.querySelector('a[href]')!.getBoundingClientRect().top },
         };
       },
-      { title: t.title, label: t.label, schedule: t.schedule, notice: t.notice.source },
+      { title: t.title, schedule: t.schedule, notice: t.notice.source },
     );
-    expect(tops.label, 'etiqueta').not.toBeNull();
     expect(tops.schedule, 'línea de horario').not.toBeNull();
-    expect(tops.notice, 'aviso de hora límite').not.toBeNull();
+    expect(tops.notice, 'aviso de un día antes').not.toBeNull();
     // El aviso es un bloque propio (pastilla), no la misma frase que el horario.
     expect(tops.notice!.own).not.toContain('10:30');
     expect(tops.schedule!.own).not.toMatch(t.notice);
-    expect(tops.label!.top).toBeLessThan(tops.title.top);
     expect(tops.title.top).toBeLessThan(tops.schedule!.top);
     expect(tops.schedule!.top).toBeLessThan(tops.notice!.top);
     expect(tops.notice!.top).toBeLessThan(tops.link.top);

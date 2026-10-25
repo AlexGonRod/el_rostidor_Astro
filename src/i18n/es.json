@@ -57,10 +57,9 @@
     "week": { "title": "Menú de la semana", "subtitle": "Solo los jueves" },
     "weekend": { "title": "Menú de fin de semana", "subtitle": "Sábados, domingos y festivos" },
     "thursday": {
-      "label": "Solo los jueves",
       "title": "Paella o fideuà",
       "text": "De miércoles a domingo",
-      "notice": "Encárgala antes de [hora límite] y la tendrás lista."
+      "notice": "Encárgala un día antes y la tendrás lista."
     },
     "pendingItems": ["Primer plato", "Segundo plato", "Postre"]
   },
