@@ -59,6 +59,7 @@ npm run contract:verify      # falla si alguien ha tocado el contrato
 ```
 src/
   assets/            # imágenes originales (fotos de platos, familia, hero)
+    dishes/          # fotos de platos que enlaza `carta.json` (`photo`: nombre de fichero)
   components/
     layout/          # Header, Footer, TopBar, MobileActionBar, ClosingCta
     sections/        # Hero, WeeklyMenus, Carta, Celebrations, HowToOrder,
@@ -66,7 +67,7 @@ src/
     ui/              # Button, WhatsAppButton, DishCard, SectionHeading, Placeholder, OpenNow
     HomePage.astro   # compone todas las secciones; recibe `lang` ('ca' | 'es')
   content/
-    carta.json       # un objeto por plato (id → datos); `order`, `featured`, sin campo `price` (el cliente no quiere precios)
+    carta.json       # un objeto por plato (id → datos); `order`, `name` bilingüe (ca/es), `featured`, sin campo `price` (el cliente no quiere precios)
     menus.json       # ids: week, weekend, thursday (platos bilingües; sin precio)
     reviews.json
     faq.json         # preguntas y respuestas bilingües, con `order`
@@ -340,6 +341,8 @@ Criterios: las filas «Tancat»/«Cerrado» se escriben con texto (no solo atenu
 - Pestañas por categoría (Entrants i tapes, Plats principals; ampliable a Postres y Per compartir).
 - Debe funcionar sin JS (todas las categorías visibles) y mejorarse con JS (filtrado). Pestañas como `<button>` con `aria-pressed` o patrón `role="tablist"` completo.
 - Cada plato: foto (o placeholder), nombre, tag opcional, al·lèrgens, marcas "sense gluten" / "vegetarià" cuando se confirmen. **Ningún precio**: ni en la tarjeta de plato ni en la lista «Més plats» (en esa lista cada fila es nombre + tag, sin cifra a la derecha).
+- **Nombre bilingüe:** el campo `name` de `carta.json` es `{ ca, es }` y se pinta el del idioma de la página (tarjeta destacada y lista). Los nombres catalanes son los de siempre; los castellanos son una propuesta editorial pendiente de que el cliente los repase (pendiente 11).
+- **Fotos:** `photo` guarda el nombre de fichero dentro de `src/assets/dishes/` (`DishCard.astro` lo resuelve con `import.meta.glob`); sin `photo`, la tarjeta muestra el `<Placeholder>`. Han entrado las fotos reales de cargols y croquetes (2026-10-25).
 - Orden de la colección controlado por un campo `order`. El campo `price` desaparece del esquema y de `carta.json` (no basta con dejarlo `null`).
 
 ### 7.3 Encargos y WhatsApp
@@ -454,7 +457,7 @@ Mientras no estén resueltos, se mantienen como placeholders (ver 6.3.1).
 **Abiertos**
 
 1. ~~Precios~~ **Cancelado** por decisión del cliente (2026-10-21): no se muestran precios. Si cambiara de opinión, hay que rediseñar tarjetas de plato y menús.
-2. Fotos reales: pollos en el ast (hero), platos estrella, la familia (Pere, Josep y Rosa) en el obrador, safates para celebraciones.
+2. Fotos reales: pollos en el ast (hero), platos estrella, la familia (Pere, Josep y Rosa) en el obrador, safates para celebraciones. Ya han entrado las de cargols y croquetes (2026-10-25); faltan las demás.
 3. Menú de fin de semana (platos, cada semana).
 4. Calendario de festivos y qué hace el local cuando un festivo cae en lunes o martes (hoy se muestra «cerrado»).
 5. **Reseñas de Google: pedir al cliente** (a) que confirme que el enlace a su ficha de Google Business es correcto, (b) la puntuación y el número total de reseñas actuales, y (c) que acepta citar las 3 reseñas de 7.6 (Jose Manuel Mesa Romero, CAROL Hernandez, Raquel Ramírez). Sin (b), la puntuación queda como marcador y bloquea la publicación.
@@ -463,6 +466,7 @@ Mientras no estén resueltos, se mantienen como placeholders (ver 6.3.1).
 8. Textos legales: aviso legal, privacidad y cookies.
 9. Correo con dominio propio (opcional pero recomendado).
 10. Confirmar la suposición de «sin precios en toda la web» (6.4): si solo era para los menús, la carta recupera precio.
+11. **Repasar los nombres en castellano de la carta** (32 platos): son una propuesta editorial del agente (p. ej. «Níscalos a la brasa», «Carrillada al ast», «Manitas de cerdo guisadas», «Bacalao a la lata o con sanfaina»). El cliente debe confirmarlos o corregirlos; se editan sin tocar componentes (`src/content/carta.json`).
 
 **Resueltos (2026-10-21, datos del cliente)**
 
@@ -523,7 +527,7 @@ Una tarea de UI no está terminada hasta que:
 | Brief y bases | Hecho | orquestador | Este documento |
 | Diseño | Hecho para la home; cambio de requisitos del cliente (2026-10-21) diseñado y pendiente de implementar | `ux-ui-designer` | Lienzo "El Rostidor — Nova home" actualizado (sin precios, WhatsApp, horario, premio 2021, versión 9). Escritorio en catalán y primera pantalla móvil en castellano. Sin diseñar: móvil completo, páginas legales y el estado «Tancat avui» del chip (descrito en 7.1, no dibujado) |
 | Contrato de pruebas (TDD) | Ampliado y en **rojo** por el cambio de requisitos del cliente (2026-10-22); QA-001/002/003 siguen en verde | `tdd-test-author` | Candado re-fijado (12 archivos). Nuevos: sin precios, WhatsApp, lunes/martes cerrados (`closedDay`), premio 2021 y reseñas reales; `open-now.test.ts` reescrito (AC-04 y H1..H14). Detalle en la sección 16 |
-| Implementación | Cambio de requisitos del cliente (2026-10-22) implementado (sin precios, WhatsApp, premio 2021, lunes/martes cerrados, reseñas reales); contrato en verde (97 unitarios; e2e de contrato completos), `contract:verify` OK, `check` 0 errores, build OK | `frontend-implementer` | `npx playwright test`: 338 pasan, 8 fallan en `tests/e2e/open-now-browser.spec.ts` (casos obsoletos «lunes sin confirmar» y «martes solo encargos»; los actualiza QA, ver sección 16). 56 datos pendientes visibles por idioma/página en `check:placeholders`, 0 enlaces `href="#"` sin marcar |
+| Implementación | Cambio de requisitos del cliente (2026-10-22) implementado (sin precios, WhatsApp, premio 2021, lunes/martes cerrados, reseñas reales); contrato en verde (97 unitarios; e2e de contrato completos), `contract:verify` OK, `check` 0 errores, build OK. Añadido 2026-10-25: fotos reales de cargols y croquetes y nombres de la carta bilingües | `frontend-implementer` | Histórico: `npx playwright test` daba 338 pasan / 8 fallan en `tests/e2e/open-now-browser.spec.ts` (casos obsoletos, corregidos por QA). Ahora `check:placeholders` marca 42 datos pendientes (eran 56) y 0 enlaces `href="#"` sin marcar. Suite completa del 2026-10-25: 435 pasan, 1 falla en `home-regression.spec.ts` por el iframe de Google Maps (defecto de la prueba de QA, no del producto; reproducido también en el commit anterior) |
 | QA | **Aprobado** (2026-10-22, ciclo 3 de 3, regresión del cambio del cliente) | `qa-e2e-tester` | 0 defectos. Contrato en verde e intacto; suite completa 436 pasan, 0 fallan, 196 omitidas por diseño. Los 56 datos pendientes del cliente siguen bloqueando solo la publicación (`check:release`). Ver «Veredicto de QA» en la sección 16 |
 | Publicación | Pendiente | — | Bloqueada hasta pendientes en 0 (`npm run check:release`), contrato en verde e intacto (`npm run contract:verify`) y QA con veredicto Aprobado |
 
@@ -593,6 +597,8 @@ Flujo estándar: `ux-ui-designer` → puerta de diseño → `tdd-test-author` (r
 | 2026-10-25 | Red card del jueves: se retira la etiqueta «Només dijous» / «Solo los jueves» y el aviso pasa a «Encarrega-la un dia abans i la tindràs a punt.» / «Encárgala un día antes y la tendrás lista.» | Indicación de la persona. El día ya lo dicen el título del bloque y el subtítulo del menú de la semana; el aviso resuelve el pendiente `[hora límit]`. Contrato actualizado (`no-price.spec.ts` `[P8]`, `qa-001-contrast.spec.ts`) y regresión de QA (`client-changes-regression.spec.ts`) con una aserción nueva de que la tarjeta roja no lleva etiqueta; candado re-fijado. Tarea crew `tsk_01M5THASHSR5W1P7GGGBQANKVW` |
 | 2026-10-25 | Postre del menú del jueves: la línea pasa a «Postre» / «Postre» (sin corchetes ni marcador), porque el postre en sí no está definido. La línea de horario de la tarjeta roja («De dimecres a diumenge» / «De miércoles a domingo») se confirma como correcta | Indicación de la persona. `check:placeholders` deja de contar el postre; el contrato `[P10]` ya compara las líneas con `menus.json`, así que no cambia y el candado queda igual |
 | 2026-10-25 | El orquestador no toca código: cualquier cambio en `src/`, `scripts/`, `tests/` o `public/` pasa por una tarea de crew con developer y tester independientes, aunque sea una línea de contenido | Indicación de la persona: el orquestador escribe el brief, revisa, firma y mergea; la escritura directa queda limitada a `AGENTS.md` y a la memoria del proyecto |
+| 2026-10-25 | Carta: la tarjeta destacada de Canelons pasa a Cargols reutilizando la entrada `cargols` (intercambio de `order` 2↔7), Canelons vuelve a «Més plats» y entran las fotos reales de cargols y croquetes en `src/assets/dishes/`. El campo `name` de la colección pasa a bilingüe (`ca`/`es`) para los 32 platos | Petición de la persona (foto equivocada en Canelons). Se reutiliza la entrada existente para no duplicar el plato. Los nombres castellanos son propuesta editorial: quedan como pendiente 11. Contrato y candado no cambian (`[P6]`/`[P10]` no fijan nombres). Tarea crew `tsk_01M5TJP1E100E3K9FJKZZKZ66N` |
+| 2026-10-25 | Observación para QA: `tests/e2e/home-regression.spec.ts` («terceros: solo Google Maps…») falla cuando el iframe de Google Maps carga de verdad, porque el propio mapa pide `fonts.gstatic.com`. Falla igual en el commit anterior al cambio de la carta, así que es un defecto de la prueba, no del producto | El orquestador no toca `tests/`: lo corrige `qa-e2e-tester` (p. ej. excluyendo los requests del iframe de terceros o comprobando solo el documento principal) |
 
 ## 16. Pruebas (TDD y QA)
 
