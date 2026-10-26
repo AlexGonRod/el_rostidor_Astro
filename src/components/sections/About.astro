@@ -1,7 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { dictionaries, withPlaceholders, type Lang } from '../../i18n/utils';
-import Placeholder from '../ui/Placeholder.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
+import aboutPhoto from '../../assets/rostidor_interior.webp';
 
 interface Props {
   lang: Lang;
@@ -12,8 +13,17 @@ const t = dictionaries[lang];
 
 <section id="nosaltres" class="bg-soft" aria-labelledby="about-title">
   <div class="wrap flex flex-wrap items-center gap-12 py-12 lg:py-18">
-    <!-- PENDIENTE: foto real de la familia. Es el mayor diferenciador del negocio. -->
-    <Placeholder label={t.about.photo} class="min-h-80 min-w-0 flex-[1_1_24rem] self-stretch rounded-xl lg:min-h-115" />
+    <!-- PENDIENTE: foto real de la familia (Pere, Josep i Rosa a l'obrador). Es el mayor diferenciador del negocio. -->
+    <div class="relative min-h-80 min-w-0 flex-[1_1_24rem] self-stretch overflow-hidden rounded-xl lg:min-h-115">
+      <Image
+        src={aboutPhoto}
+        alt={t.about.photo}
+        widths={[480, 768, 1024]}
+        sizes="(min-width: 1024px) 536px, 100vw"
+        loading="lazy"
+        class="absolute inset-0 h-full w-full object-cover"
+      />
+    </div>
     <div class="min-w-0 flex-[1_1_28rem]">
       <SectionHeading id="about-title" eyebrow={t.about.eyebrow} title={t.about.title} class="!mb-5" />
       <p class="mb-6 text-lg text-muted">{t.about.text}</p>
