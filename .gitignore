@@ -2,6 +2,7 @@
 dist/
 .netlify/
 
+.crew/ 
 # generated types
 .astro/
 
@@ -23,3 +24,5 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+AGENTS.md
