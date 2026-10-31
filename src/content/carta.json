@@ -110,10 +110,9 @@
     "featured": true
   },
   "galta": {
-    "order": 20,
+    "order": 24,
     "name": { "ca": "Galta a l'ast", "es": "Carrillada al ast" },
-    "category": "principals",
-    "featured": true
+    "category": "principals"
   },
   "pollastre-conill-quart": {
     "order": 21,
@@ -131,9 +130,11 @@
     "category": "principals"
   },
   "peu-porc": {
-    "order": 24,
+    "order": 20,
     "name": { "ca": "Peu de porc guisat", "es": "Manitas de cerdo guisadas" },
-    "category": "principals"
+    "category": "principals",
+    "featured": true,
+    "photo": "peus_porc.webp"
   },
   "fideua": {
     "order": 25,
