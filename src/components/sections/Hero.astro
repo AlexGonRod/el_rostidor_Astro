@@ -8,28 +8,28 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-const t = dictionaries[lang];
+const texts = dictionaries[lang];
 ---
 
 <section id="inici" class="wrap grid items-center gap-10 py-10 lg:grid-cols-2 lg:gap-12 lg:py-16">
   <div class="min-w-0">
-    <p class="mb-3 text-eyebrow font-bold uppercase tracking-[0.12em] text-accent">{t.hero.eyebrow}</p>
+    <p class="mb-3 text-eyebrow font-bold uppercase tracking-[0.12em] text-accent">{texts.hero.eyebrow}</p>
     <h1 class="mb-5 font-display text-4xl leading-[1.05] font-extrabold tracking-tight lg:text-hero lg:leading-[1.02]">
-      {t.hero.title}
+      {texts.hero.title}
     </h1>
-    <p class="mb-8 max-w-xl text-base text-muted lg:text-xl">{t.hero.lead}</p>
+    <p class="mb-8 max-w-xl text-base text-muted lg:text-xl">{texts.hero.lead}</p>
     <div class="mb-9 flex flex-col gap-3 sm:flex-row sm:gap-4">
-      <Button href="#encarrega">{t.cta.orderNow}</Button>
-      <Button href="#carta" variant="secondary">{t.cta.seeCarta}</Button>
+      <Button href="#encarrega">{texts.cta.orderNow}</Button>
+      <Button href="#carta" variant="secondary">{texts.cta.seeCarta}</Button>
     </div>
     <ul class="flex flex-wrap gap-x-8 gap-y-3 text-[0.9375rem] font-medium">
-      {t.hero.badges.map((badge) => <li set:html={withPlaceholders(badge)} />)}
+      {texts.hero.badges.map((badge) => <li set:html={withPlaceholders(badge)} />)}
     </ul>
   </div>
   <div class="relative h-44 overflow-hidden rounded-xl lg:h-auto lg:min-h-130">
     <Image
       src={heroPhoto}
-      alt={t.hero.photo}
+      alt={texts.hero.photo}
       widths={[480, 768, 1024]}
       sizes="(min-width: 1024px) 570px, 100vw"
       loading="eager"

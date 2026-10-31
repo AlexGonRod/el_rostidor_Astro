@@ -8,15 +8,15 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-const t = dictionaries[lang];
+const texts = dictionaries[lang];
 const reviews = await getCollection('reviews');
 ---
 
 <section id="opinions" aria-labelledby="reviews-title">
   <div class="wrap py-12 lg:py-18">
-    <SectionHeading id="reviews-title" eyebrow={t.reviews.eyebrow} title={t.reviews.title} class="!mb-4" />
+    <SectionHeading id="reviews-title" eyebrow={texts.reviews.eyebrow} title={texts.reviews.title} class="!mb-4" />
     <p class="mb-8 text-lg text-muted">
-      <strong class="text-ink" set:html={withPlaceholders(t.reviews.rating)} />
+      <strong class="text-ink" set:html={withPlaceholders(texts.reviews.rating)} />
     </p>
     <ul class="flex flex-wrap gap-6">
       {
@@ -25,14 +25,14 @@ const reviews = await getCollection('reviews');
             <figure class="h-full rounded-[0.625rem] border border-line p-7">
               <blockquote class="mb-5 text-lg leading-normal">{data.text}</blockquote>
               <figcaption class="text-sm text-muted">
-                <strong class="text-ink">{data.author}</strong> · {t.reviews.source}
-                {data.lang !== lang && ` (${t.reviews.originalEs})`}
+                <strong class="text-ink">{data.author}</strong> · {texts.reviews.source}
+                {data.lang !== lang && ` (${texts.reviews.originalEs})`}
               </figcaption>
             </figure>
           </li>
         ))
       }
     </ul>
-    <p class="mt-6"><a href={business.googleListingUrl} rel="noopener" class="inline-flex min-h-11 items-center font-bold text-accent hover:underline">{t.reviews.all}</a></p>
+    <p class="mt-6"><a href={business.googleListingUrl} rel="noopener" class="inline-flex min-h-11 items-center font-bold text-accent hover:underline">{texts.reviews.all}</a></p>
   </div>
 </section>

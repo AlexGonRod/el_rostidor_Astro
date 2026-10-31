@@ -6,14 +6,14 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-const t = dictionaries[lang];
+const texts = dictionaries[lang];
 
 const links = [
-  { href: '#carta', label: t.nav.carta },
-  { href: '#menus', label: t.nav.menus },
-  { href: '#celebracions', label: t.nav.celebrations },
-  { href: '#nosaltres', label: t.nav.about },
-  { href: '#contacte', label: t.nav.contact },
+  { href: '#carta', label: texts.nav.carta },
+  { href: '#menus', label: texts.nav.menus },
+  { href: '#celebracions', label: texts.nav.celebrations },
+  { href: '#nosaltres', label: texts.nav.about },
+  { href: '#contacte', label: texts.nav.contact },
 ];
 ---
 
@@ -23,16 +23,16 @@ const links = [
       El Rostidor
     </a>
 
-    <nav aria-label={t.a11y.mainNav} class="hidden items-center gap-7 lg:flex">
+    <nav aria-label={texts.a11y.mainNav} class="hidden items-center gap-7 lg:flex">
       {links.map((link) => <a href={link.href} class="px-1 py-2 font-medium hover:text-accent">{link.label}</a>)}
-      <Button href="#encarrega" size="sm">{t.nav.order}</Button>
+      <Button href="#encarrega" size="sm">{texts.nav.order}</Button>
     </nav>
 
     <div class="flex items-center gap-2 lg:hidden">
-      <Button href="#encarrega" size="sm">{t.nav.order}</Button>
+      <Button href="#encarrega" size="sm">{texts.nav.order}</Button>
       <details class="relative" data-mobile-menu>
         <summary
-          aria-label={t.a11y.openMenu}
+          aria-label={texts.a11y.openMenu}
           class="flex size-11 cursor-pointer items-center justify-center rounded-md hover:bg-soft"
         >
           <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
@@ -40,7 +40,7 @@ const links = [
           </svg>
         </summary>
         <nav
-          aria-label={t.a11y.mainNav}
+          aria-label={texts.a11y.mainNav}
           class="absolute top-12 right-0 grid w-64 gap-1 rounded-lg border border-line bg-white p-2 shadow-lg"
         >
           {links.map((link) => <a href={link.href} class="rounded-md px-3 py-3 font-medium hover:bg-soft">{link.label}</a>)}

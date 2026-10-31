@@ -8,7 +8,7 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-const t = dictionaries[lang];
+const texts = dictionaries[lang];
 
 const [week, weekend] = await Promise.all([
   getEntry('menus', 'week'),
@@ -17,17 +17,17 @@ const [week, weekend] = await Promise.all([
 
 /** Si el cliente aún no ha cargado los platos, se muestran como [Primer plat] etc. */
 const lines = (items: { ca: string; es: string }[]) =>
-  items.length ? items.map((item) => item[lang]) : t.menus.pendingItems.map((item) => `[${item}]`);
+  items.length ? items.map((item) => item[lang]) : texts.menus.pendingItems.map((item) => `[${item}]`);
 
 const cards = [
-  { key: 'week', copy: t.menus.week, data: week!.data },
-  { key: 'weekend', copy: t.menus.weekend, data: weekend!.data },
+  { key: 'week', copy: texts.menus.week, data: week!.data },
+  { key: 'weekend', copy: texts.menus.weekend, data: weekend!.data },
 ];
 ---
 
 <section id="menus" class="bg-soft" aria-labelledby="menus-title">
   <div class="wrap py-12 lg:py-18">
-    <SectionHeading id="menus-title" eyebrow={t.menus.eyebrow} title={t.menus.title} lead={t.menus.lead} />
+    <SectionHeading id="menus-title" eyebrow={texts.menus.eyebrow} title={texts.menus.title} lead={texts.menus.lead} />
     <div class="flex flex-wrap gap-6">
       {
         cards.map(({ key, copy, data }) => (
@@ -39,7 +39,7 @@ const cards = [
                 <li class="border-b border-line pb-2.5" set:html={withPlaceholders(line)} />
               ))}
             </ul>
-            <Button href="#encarrega" variant="secondary" size="sm">{t.cta.order}</Button>
+            <Button href="#encarrega" variant="secondary" size="sm">{texts.cta.order}</Button>
           </article>
         ))
       }
@@ -49,11 +49,11 @@ const cards = [
         data-menu="thursday"
       >
         <div>
-          <h3 class="mb-3 font-display text-4xl leading-[1.1] font-bold">{t.menus.thursday.title}</h3>
-          <p class="mb-4 text-[1.0625rem]">{t.menus.thursday.text}</p>
-          <p class="rounded-md bg-black/22 px-4 py-3 text-[1.0625rem] font-bold" set:html={withPlaceholders(t.menus.thursday.notice)} />
+          <h3 class="mb-3 font-display text-4xl leading-[1.1] font-bold">{texts.menus.thursday.title}</h3>
+          <p class="mb-4 text-[1.0625rem]">{texts.menus.thursday.text}</p>
+          <p class="rounded-md bg-black/22 px-4 py-3 text-[1.0625rem] font-bold" set:html={withPlaceholders(texts.menus.thursday.notice)} />
         </div>
-        <Button href="#encarrega" variant="light" class="self-start">{t.cta.order}</Button>
+        <Button href="#encarrega" variant="light" class="self-start">{texts.cta.order}</Button>
       </article>
     </div>
   </div>

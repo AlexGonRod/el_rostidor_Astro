@@ -8,14 +8,14 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-const t = dictionaries[lang];
+const texts = dictionaries[lang];
 
 const dishes = (await getCollection('carta')).sort((a, b) => a.data.order - b.data.order);
 const categories = (['entrants', 'principals'] as const).map((key) => {
   const all = dishes.filter((dish) => dish.data.category === key);
   return {
     key,
-    label: t.carta.tabs[key],
+    label: texts.carta.tabs[key],
     featured: all.filter((dish) => dish.data.featured),
     rest: all.filter((dish) => !dish.data.featured),
   };
@@ -24,10 +24,10 @@ const categories = (['entrants', 'principals'] as const).map((key) => {
 
 <section id="carta" aria-labelledby="carta-title" data-carta>
   <div class="wrap py-12 lg:py-18">
-    <SectionHeading id="carta-title" eyebrow={t.carta.eyebrow} title={t.carta.title} lead={t.carta.lead} />
+    <SectionHeading id="carta-title" eyebrow={texts.carta.eyebrow} title={texts.carta.title} lead={texts.carta.lead} />
 
     <!-- Sin JS se ven todas las categorías; con JS el script muestra estas pestañas y filtra. -->
-    <div data-carta-tabs class="mb-8 hidden flex-wrap gap-3" role="group" aria-label={t.carta.title}>
+    <div data-carta-tabs class="mb-8 hidden flex-wrap gap-3" role="group" aria-label={texts.carta.title}>
       {
         categories.map((category) => (
           <button
@@ -62,14 +62,14 @@ const categories = (['entrants', 'principals'] as const).map((key) => {
 
             {category.rest.length > 0 && (
               <>
-                <h4 class="mt-10 mb-2 text-eyebrow font-bold tracking-[0.12em] text-muted uppercase">{t.carta.rest}</h4>
+                <h4 class="mt-10 mb-2 text-eyebrow font-bold tracking-[0.12em] text-muted uppercase">{texts.carta.rest}</h4>
                 <ul class="grid gap-x-10 sm:grid-cols-2">
                   {category.rest.map((dish) => (
                     <li class="border-b border-line py-3">
                       {dish.data.name[lang]}
                       {dish.data.tag && (
                         <span class="ml-2 text-xs font-bold tracking-[0.08em] text-accent uppercase">
-                          {t.carta.tags[dish.data.tag]}
+                          {texts.carta.tags[dish.data.tag]}
                         </span>
                       )}
                     </li>
@@ -82,7 +82,7 @@ const categories = (['entrants', 'principals'] as const).map((key) => {
       }
     </div>
 
-    <p class="mt-7 text-sm text-muted" set:html={withPlaceholders(t.carta.allergens)} />
+    <p class="mt-7 text-sm text-muted" set:html={withPlaceholders(texts.carta.allergens)} />
   </div>
 </section>
 

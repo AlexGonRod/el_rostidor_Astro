@@ -15,7 +15,7 @@ interface Props {
 }
 
 const { lang } = Astro.props;
-const t = dictionaries[lang];
+const texts = dictionaries[lang];
 const site = Astro.site!;
 
 const canonical = new URL(Astro.url.pathname, site).href;
@@ -59,8 +59,8 @@ const jsonLd = {
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>{t.meta.title}</title>
-    <meta name="description" content={t.meta.description} />
+    <title>{texts.meta.title}</title>
+    <meta name="description" content={texts.meta.description} />
     <meta name="theme-color" content="#B8321F" />
     <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
     <link rel="canonical" href={canonical} />
@@ -70,10 +70,10 @@ const jsonLd = {
 
     <meta property="og:type" content="website" />
     <meta property="og:site_name" content={business.name} />
-    <meta property="og:title" content={t.meta.title} />
-    <meta property="og:description" content={t.meta.description} />
+    <meta property="og:title" content={texts.meta.title} />
+    <meta property="og:description" content={texts.meta.description} />
     <meta property="og:url" content={canonical} />
-    <meta property="og:locale" content={t.meta.locale} />
+    <meta property="og:locale" content={texts.meta.locale} />
     <meta name="twitter:card" content="summary_large_image" />
     <!-- PENDIENTE: og:image y twitter:image cuando exista public/og-image.jpg (1200×630) -->
 
@@ -84,7 +84,7 @@ const jsonLd = {
       href="#contingut"
       class="sr-only focus:not-sr-only focus:fixed focus:top-2 focus:left-2 focus:z-50 focus:rounded-md focus:bg-white focus:px-4 focus:py-3 focus:font-bold focus:shadow-lg"
     >
-      {t.a11y.skip}
+      {texts.a11y.skip}
     </a>
     <slot />
   </body>

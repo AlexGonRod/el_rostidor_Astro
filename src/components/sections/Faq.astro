@@ -7,13 +7,13 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-const t = dictionaries[lang];
+const texts = dictionaries[lang];
 const items = (await getCollection('faq')).sort((a, b) => a.data.order - b.data.order);
 ---
 
 <section id="faq" class="bg-soft" aria-labelledby="faq-title">
   <div class="mx-auto max-w-215 px-4 py-12 lg:px-10 lg:py-18">
-    <SectionHeading id="faq-title" eyebrow={t.faq.eyebrow} title={t.faq.title} />
+    <SectionHeading id="faq-title" eyebrow={texts.faq.eyebrow} title={texts.faq.title} />
     {
       items.map(({ data }, index) => (
         <details class="border-b border-line first:border-t" open={index === 0}>

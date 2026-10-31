@@ -8,7 +8,7 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-const t = dictionaries[lang];
+const texts = dictionaries[lang];
 ---
 
 <section id="nosaltres" class="bg-soft" aria-labelledby="about-title">
@@ -17,7 +17,7 @@ const t = dictionaries[lang];
     <div class="relative min-h-80 min-w-0 flex-[1_1_24rem] self-stretch overflow-hidden rounded-xl lg:min-h-115">
       <Image
         src={aboutPhoto}
-        alt={t.about.photo}
+        alt={texts.about.photo}
         widths={[480, 768, 1024]}
         sizes="(min-width: 1024px) 536px, 100vw"
         loading="lazy"
@@ -25,11 +25,11 @@ const t = dictionaries[lang];
       />
     </div>
     <div class="min-w-0 flex-[1_1_28rem]">
-      <SectionHeading id="about-title" eyebrow={t.about.eyebrow} title={t.about.title} class="!mb-5" />
-      <p class="mb-6 text-lg text-muted">{t.about.text}</p>
+      <SectionHeading id="about-title" eyebrow={texts.about.eyebrow} title={texts.about.title} class="!mb-5" />
+      <p class="mb-6 text-lg text-muted">{texts.about.text}</p>
       <dl class="flex flex-wrap gap-6 border-t border-on-dark-muted pt-6">
         {
-          t.about.milestones.map((item) => (
+          texts.about.milestones.map((item) => (
             <div class="min-w-28 flex-[1_1_7.5rem]">
               <dt class="font-display text-3xl font-bold" set:html={withPlaceholders(item.value)} />
               <dd class="text-[0.9375rem] text-muted">{item.label}</dd>

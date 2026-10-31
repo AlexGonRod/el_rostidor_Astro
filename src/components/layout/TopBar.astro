@@ -7,17 +7,17 @@ interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
-const t = dictionaries[lang];
+const texts = dictionaries[lang];
 ---
 
 <div class="on-dark bg-ink text-sm text-on-dark">
   <div class="wrap flex flex-wrap items-center justify-between gap-x-7 gap-y-2 py-0">
     <div class="flex flex-wrap items-center gap-x-6 gap-y-2">
       <OpenNow lang={lang} />
-      <span class="hidden md:inline">{t.topbar.address}</span>
+      <span class="hidden md:inline">{texts.topbar.address}</span>
       <a href={`tel:${business.phone}`} class="hidden font-bold md:inline">{business.phoneDisplay}</a>
     </div>
-    <nav aria-label={t.a11y.language} class="flex items-center gap-3 font-bold">
+    <nav aria-label={texts.a11y.language} class="flex items-center gap-3 font-bold">
       {
         langs.map((code, index) => (
           <>
