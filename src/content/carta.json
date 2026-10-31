@@ -15,16 +15,14 @@
     "photo": "cargols.webp"
   },
   "patates-braves": {
-    "order": 3,
+    "order": 7,
     "name": { "ca": "Patates braves", "es": "Patatas bravas" },
-    "category": "entrants",
-    "featured": true
+    "category": "entrants"
   },
   "esqueixada": {
-    "order": 4,
+    "order": 6,
     "name": { "ca": "Esqueixada", "es": "Esqueixada" },
-    "category": "entrants",
-    "featured": true
+    "category": "entrants"
   },
   "ensaladilla": {
     "order": 5,
@@ -32,16 +30,20 @@
     "category": "entrants"
   },
   "rovellons": {
-    "order": 6,
+    "order": 4,
     "name": { "ca": "Rovellons a la brasa", "es": "Níscalos a la brasa" },
     "category": "entrants",
-    "tag": "seasonal"
+    "tag": "seasonal",
+    "featured": true,
+    "photo": "rovellons.webp"
   },
   "canelons": {
-    "order": 7,
+    "order": 3,
     "name": { "ca": "Canelons", "es": "Canelones" },
     "category": "entrants",
-    "tag": "popular"
+    "tag": "popular",
+    "featured": true,
+    "photo": "canalons_rovellons.webp"
   },
   "salpico": {
     "order": 8,
