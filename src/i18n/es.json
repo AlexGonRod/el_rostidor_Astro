@@ -62,12 +62,8 @@
 	"hero": {
 		"eyebrow": "Comida para llevar · Arenys de Munt",
 		"title": "Cocina casera de Arenys, para llevar.",
-		"lead": "Pollo al ast, paella y platos de siempre, hechos con producto fresco y de km 0. Encárgalo hoy y pasa a recogerlo.",
-		"badges": [
-			"Desde 2002",
-			"Producto de km 0",
-			"Mejor tienda de comida para llevar 2021"
-		],
+		"lead": "Desde 2002 cocinando pollo al ast, paella y platos de siempre, hechos con producto fresco y de km 0. Encárgalo hoy y pasa a recogerlo.",
+		"badges": ["Mejor tienda de comida para llevar 2021"],
 		"photo": "Fachada de la tienda El Rostidor en Arenys de Munt"
 	},
 	"menus": {
@@ -160,7 +156,7 @@
 	},
 	"closing": {
 		"title": "Encarga la comida de hoy",
-		"text": "Llámanos o escríbenos y lo tendrás listo para recoger a la hora que te venga bien."
+		"text": "Llámanos y lo tendrás listo para recoger a la hora que te venga bien."
 	},
 	"footer": {
 		"tagline": "Cocina casera para llevar en Arenys de Munt, desde 2002.",

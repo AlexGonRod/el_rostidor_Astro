@@ -1,182 +1,290 @@
 {
-  "croquetes": {
-    "order": 1,
-    "name": { "ca": "Croquetes", "es": "Croquetas" },
-    "category": "entrants",
-    "tag": "popular",
-    "featured": true,
-    "photo": "croquetes.webp"
-  },
-  "cargols": {
-    "order": 2,
-    "name": { "ca": "Cargols", "es": "Caracoles" },
-    "category": "entrants",
-    "featured": true,
-    "photo": "cargols.webp"
-  },
-  "patates-braves": {
-    "order": 7,
-    "name": { "ca": "Patates braves", "es": "Patatas bravas" },
-    "category": "entrants"
-  },
-  "esqueixada": {
-    "order": 6,
-    "name": { "ca": "Esqueixada", "es": "Esqueixada" },
-    "category": "entrants"
-  },
-  "ensaladilla": {
-    "order": 5,
-    "name": { "ca": "Ensaladilla", "es": "Ensaladilla" },
-    "category": "entrants"
-  },
-  "rovellons": {
-    "order": 4,
-    "name": { "ca": "Rovellons a la brasa", "es": "Níscalos a la brasa" },
-    "category": "entrants",
-    "tag": "seasonal",
-    "featured": true,
-    "photo": "rovellons.webp"
-  },
-  "canelons": {
-    "order": 3,
-    "name": { "ca": "Canelons", "es": "Canelones" },
-    "category": "entrants",
-    "tag": "popular",
-    "featured": true,
-    "photo": "canalons_rovellons.webp"
-  },
-  "salpico": {
-    "order": 8,
-    "name": { "ca": "Salpicó de marisc", "es": "Salpicón de marisco" },
-    "category": "entrants"
-  },
-  "bunyols": {
-    "order": 9,
-    "name": { "ca": "Bunyols de bacallà", "es": "Buñuelos de bacalao" },
-    "category": "entrants"
-  },
-  "alberginies": {
-    "order": 10,
-    "name": { "ca": "Albergínies farcides", "es": "Berenjenas rellenas" },
-    "category": "entrants"
-  },
-  "truites": {
-    "order": 11,
-    "name": { "ca": "Truites variades", "es": "Tortillas variadas" },
-    "category": "entrants"
-  },
-  "macarrons": {
-    "order": 12,
-    "name": { "ca": "Macarrons", "es": "Macarrones" },
-    "category": "entrants"
-  },
-  "lasanya": {
-    "order": 13,
-    "name": { "ca": "Lasanya", "es": "Lasaña" },
-    "category": "entrants"
-  },
-  "callos": {
-    "order": 14,
-    "name": { "ca": "Callos", "es": "Callos" },
-    "category": "entrants"
-  },
-  "calamar": {
-    "order": 15,
-    "name": { "ca": "Calamar a la romana", "es": "Calamar a la romana" },
-    "category": "entrants"
-  },
-  "musclos": {
-    "order": 16,
-    "name": { "ca": "Musclos a la marinera", "es": "Mejillones a la marinera" },
-    "category": "entrants"
-  },
-  "pollastre-ast": {
-    "order": 17,
-    "name": { "ca": "Pollastre a l'ast", "es": "Pollo al ast" },
-    "category": "principals",
-    "tag": "specialty",
-    "featured": true
-  },
-  "paella": {
-    "order": 18,
-    "name": { "ca": "Paella", "es": "Paella" },
-    "category": "principals",
-    "tag": "popular",
-    "featured": true,
-    "photo": "paella.webp"
-  },
-  "fricando": {
-    "order": 19,
-    "name": { "ca": "Fricandó", "es": "Fricandó" },
-    "category": "principals",
-    "tag": "popular",
-    "featured": true
-  },
-  "galta": {
-    "order": 24,
-    "name": { "ca": "Galta a l'ast", "es": "Carrillada al ast" },
-    "category": "principals"
-  },
-  "pollastre-conill-quart": {
-    "order": 21,
-    "name": { "ca": "Pollastre i conill rostit 1/4", "es": "Pollo y conejo asado 1/4" },
-    "category": "principals"
-  },
-  "mar-i-muntanya": {
-    "order": 22,
-    "name": { "ca": "Mar i muntanya", "es": "Mar y montaña" },
-    "category": "principals"
-  },
-  "sarsuela": {
-    "order": 23,
-    "name": { "ca": "Sarsuela", "es": "Zarzuela" },
-    "category": "principals"
-  },
-  "peu-porc": {
-    "order": 20,
-    "name": { "ca": "Peu de porc guisat", "es": "Manitas de cerdo guisadas" },
-    "category": "principals",
-    "featured": true,
-    "photo": "peus_porc.webp"
-  },
-  "fideua": {
-    "order": 25,
-    "name": { "ca": "Fideuà", "es": "Fideuá" },
-    "category": "principals"
-  },
-  "calamars-farcits": {
-    "order": 26,
-    "name": { "ca": "Calamars farcits", "es": "Calamares rellenos" },
-    "category": "principals"
-  },
-  "bacalla": {
-    "order": 27,
-    "name": { "ca": "Bacallà a la llauna o amb samfaina", "es": "Bacalao a la lata o con sanfaina" },
-    "category": "principals"
-  },
-  "mandonguilles-sepia": {
-    "order": 28,
-    "name": { "ca": "Mandonguilles amb sípia", "es": "Albóndigas con sepia" },
-    "category": "principals"
-  },
-  "mandonguilles": {
-    "order": 29,
-    "name": { "ca": "Mandonguilles", "es": "Albóndigas" },
-    "category": "principals"
-  },
-  "conill-ast": {
-    "order": 30,
-    "name": { "ca": "Conill a l'ast", "es": "Conejo al ast" },
-    "category": "principals"
-  },
-  "melos": {
-    "order": 31,
-    "name": { "ca": "Melós de vedella", "es": "Meloso de ternera" },
-    "category": "principals"
-  },
-  "secret": {
-    "order": 32,
-    "name": { "ca": "Secret ibèric", "es": "Secreto ibérico" },
-    "category": "principals"
-  }
+	"croquetes": {
+		"order": 1,
+		"name": {
+			"ca": "Croquetes",
+			"es": "Croquetas"
+		},
+		"category": "entrants",
+		"tag": "popular",
+		"featured": true,
+		"photo": "croquetes.webp"
+	},
+	"cargols": {
+		"order": 2,
+		"name": {
+			"ca": "Cargols",
+			"es": "Caracoles"
+		},
+		"category": "entrants",
+		"featured": true,
+		"photo": "cargols.webp"
+	},
+	"patates-braves": {
+		"order": 7,
+		"name": {
+			"ca": "Patates braves",
+			"es": "Patatas bravas"
+		},
+		"category": "entrants"
+	},
+	"esqueixada": {
+		"order": 6,
+		"name": {
+			"ca": "Esqueixada",
+			"es": "Esqueixada"
+		},
+		"category": "entrants"
+	},
+	"ensaladilla": {
+		"order": 5,
+		"name": {
+			"ca": "Ensaladilla",
+			"es": "Ensaladilla"
+		},
+		"category": "entrants"
+	},
+	"rovellons": {
+		"order": 4,
+		"name": {
+			"ca": "Rovellons a la brasa",
+			"es": "Níscalos a la brasa"
+		},
+		"category": "entrants",
+		"tag": "seasonal",
+		"featured": true,
+		"photo": "rovellons.webp"
+	},
+	"canelons": {
+		"order": 3,
+		"name": {
+			"ca": "Canelons",
+			"es": "Canelones"
+		},
+		"category": "entrants",
+		"tag": "popular",
+		"featured": true,
+		"photo": "canalons_rovellons.webp"
+	},
+	"salpico": {
+		"order": 8,
+		"name": {
+			"ca": "Salpicó de marisc",
+			"es": "Salpicón de marisco"
+		},
+		"category": "entrants"
+	},
+	"bunyols": {
+		"order": 9,
+		"name": {
+			"ca": "Bunyols de bacallà",
+			"es": "Buñuelos de bacalao"
+		},
+		"category": "entrants"
+	},
+	"alberginies": {
+		"order": 10,
+		"name": {
+			"ca": "Albergínies farcides",
+			"es": "Berenjenas rellenas"
+		},
+		"category": "entrants"
+	},
+	"truites": {
+		"order": 11,
+		"name": {
+			"ca": "Truites variades",
+			"es": "Tortillas variadas"
+		},
+		"category": "entrants"
+	},
+	"macarrons": {
+		"order": 12,
+		"name": {
+			"ca": "Macarrons",
+			"es": "Macarrones"
+		},
+		"category": "entrants"
+	},
+	"lasanya": {
+		"order": 13,
+		"name": {
+			"ca": "Lasanya",
+			"es": "Lasaña"
+		},
+		"category": "entrants"
+	},
+	"callos": {
+		"order": 14,
+		"name": {
+			"ca": "Callos",
+			"es": "Callos"
+		},
+		"category": "entrants"
+	},
+	"calamar": {
+		"order": 15,
+		"name": {
+			"ca": "Calamar a la romana",
+			"es": "Calamar a la romana"
+		},
+		"category": "entrants"
+	},
+	"musclos": {
+		"order": 16,
+		"name": {
+			"ca": "Musclos a la marinera",
+			"es": "Mejillones a la marinera"
+		},
+		"category": "entrants"
+	},
+	"pollastre-ast": {
+		"order": 17,
+		"name": {
+			"ca": "Pollastre a l'ast",
+			"es": "Pollo al ast"
+		},
+		"category": "principals",
+		"tag": "specialty",
+		"featured": true
+	},
+	"paella": {
+		"order": 18,
+		"name": {
+			"ca": "Paella",
+			"es": "Paella"
+		},
+		"category": "principals",
+		"tag": "popular",
+		"featured": true,
+		"photo": "paella.webp"
+	},
+	"calamar farcit": {
+		"order": 19,
+		"name": {
+			"ca": "Calamars farcits",
+			"es": "Calamares rellenos"
+		},
+		"category": "principals",
+		"tag": "popular",
+		"featured": true,
+		"photo": "calamars.webp"
+	},
+	"galta": {
+		"order": 24,
+		"name": {
+			"ca": "Galta a l'ast",
+			"es": "Carrillada al ast"
+		},
+		"category": "principals"
+	},
+	"pollastre-conill-quart": {
+		"order": 21,
+		"name": {
+			"ca": "Pollastre i conill rostit 1/4",
+			"es": "Pollo y conejo asado 1/4"
+		},
+		"category": "principals"
+	},
+	"mar-i-muntanya": {
+		"order": 22,
+		"name": {
+			"ca": "Mar i muntanya",
+			"es": "Mar y montaña"
+		},
+		"category": "principals"
+	},
+	"sarsuela": {
+		"order": 23,
+		"name": {
+			"ca": "Sarsuela",
+			"es": "Zarzuela"
+		},
+		"category": "principals"
+	},
+	"peu-porc": {
+		"order": 20,
+		"name": {
+			"ca": "Peu de porc guisat",
+			"es": "Manitas de cerdo guisadas"
+		},
+		"category": "principals",
+		"featured": true,
+		"photo": "peus_porc.webp"
+	},
+	"fideua": {
+		"order": 25,
+		"name": {
+			"ca": "Fideuà",
+			"es": "Fideuá"
+		},
+		"category": "principals"
+	},
+	"calamars-farcits": {
+		"order": 26,
+		"name": {
+			"ca": "Calamars farcits",
+			"es": "Calamares rellenos"
+		},
+		"category": "principals"
+	},
+	"bacalla": {
+		"order": 27,
+		"name": {
+			"ca": "Bacallà a la llauna o amb samfaina",
+			"es": "Bacalao a la lata o con sanfaina"
+		},
+		"category": "principals"
+	},
+	"mandonguilles-sepia": {
+		"order": 28,
+		"name": {
+			"ca": "Mandonguilles amb sípia",
+			"es": "Albóndigas con sepia"
+		},
+		"category": "principals"
+	},
+	"mandonguilles": {
+		"order": 29,
+		"name": {
+			"ca": "Mandonguilles",
+			"es": "Albóndigas"
+		},
+		"category": "principals"
+	},
+	"conill-ast": {
+		"order": 30,
+		"name": {
+			"ca": "Conill a l'ast",
+			"es": "Conejo al ast"
+		},
+		"category": "principals"
+	},
+	"melos": {
+		"order": 31,
+		"name": {
+			"ca": "Melós de vedella",
+			"es": "Meloso de ternera"
+		},
+		"category": "principals"
+	},
+	"secret": {
+		"order": 32,
+		"name": {
+			"ca": "Secret ibèric",
+			"es": "Secreto ibérico"
+		},
+		"category": "principals"
+	},
+	"pomas-relleno": {
+		"order": 33,
+		"name": {
+			"ca": "Pomes de relleno",
+			"es": "Manzanas de 'relleno'"
+		},
+		"featured": true,
+		"category": "especials",
+		"tag": "seasonal",
+		"photo": "pomes-relleno.webp"
+	}
 }

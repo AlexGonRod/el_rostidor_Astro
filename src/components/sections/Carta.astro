@@ -11,7 +11,7 @@ const { lang } = Astro.props;
 const texts = dictionaries[lang];
 
 const dishes = (await getCollection('carta')).sort((a, b) => a.data.order - b.data.order);
-const categories = (['entrants', 'principals'] as const).map((key) => {
+const categories = (['entrants', 'principals', 'especials'] as const).map((key) => {
   const all = dishes.filter((dish) => dish.data.category === key);
   return {
     key,

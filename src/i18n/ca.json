@@ -62,12 +62,8 @@
 	"hero": {
 		"eyebrow": "Menjar per emportar · Arenys de Munt",
 		"title": "Cuina casolana d'Arenys, per emportar.",
-		"lead": "Pollastre a l'ast, paella i plats de sempre, fets amb producte fresc i de km 0. Encarrega'l avui i passa a recollir-lo.",
-		"badges": [
-			"Des del 2002",
-			"Producte de km 0",
-			"Millor botiga de menjar per emportar 2021"
-		],
+		"lead": "Des de 2002 fent pollastre a l'ast, paella i plats de sempre, fets amb producte fresc i de km 0. Encarrega'l avui i passa a recollir-lo.",
+		"badges": ["Millor botiga de menjar per emportar 2021"],
 		"photo": "Façana de la botiga El Rostidor a Arenys de Munt"
 	},
 	"menus": {
@@ -92,7 +88,8 @@
 		"lead": "Tria per categories. Si busques alguna cosa que no hi és, pregunta: sovint ho podem preparar.",
 		"tabs": {
 			"entrants": "Entrants i tapes",
-			"principals": "Plats principals"
+			"principals": "Plats principals",
+			"especials": "Plats especials"
 		},
 		"rest": "Més plats",
 		"allergens": "Informació d'al·lèrgens disponible al mostrador. [Afegir icones: sense gluten · vegetarià]",
@@ -160,7 +157,7 @@
 	},
 	"closing": {
 		"title": "Encarrega el dinar d'avui",
-		"text": "Truca'ns o escriu-nos i ho tindràs a punt per recollir a l'hora que et vagi bé."
+		"text": "Truca'ns i ho tindràs a punt per recollir a l'hora que et vagi bé."
 	},
 	"footer": {
 		"tagline": "Cuina casolana per emportar a Arenys de Munt, des del 2002.",
