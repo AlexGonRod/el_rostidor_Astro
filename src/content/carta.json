@@ -26,7 +26,8 @@
 			"ca": "Patates braves",
 			"es": "Patatas bravas"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"esqueixada": {
 		"order": 6,
@@ -34,7 +35,8 @@
 			"ca": "Esqueixada",
 			"es": "Esqueixada"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"ensaladilla": {
 		"order": 5,
@@ -42,7 +44,8 @@
 			"ca": "Ensaladilla",
 			"es": "Ensaladilla"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"rovellons": {
 		"order": 4,
@@ -72,7 +75,8 @@
 			"ca": "Salpicó de marisc",
 			"es": "Salpicón de marisco"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"bunyols": {
 		"order": 9,
@@ -80,7 +84,8 @@
 			"ca": "Bunyols de bacallà",
 			"es": "Buñuelos de bacalao"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"alberginies": {
 		"order": 10,
@@ -88,7 +93,8 @@
 			"ca": "Albergínies farcides",
 			"es": "Berenjenas rellenas"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"truites": {
 		"order": 11,
@@ -96,7 +102,8 @@
 			"ca": "Truites variades",
 			"es": "Tortillas variadas"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"macarrons": {
 		"order": 12,
@@ -104,7 +111,8 @@
 			"ca": "Macarrons",
 			"es": "Macarrones"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"lasanya": {
 		"order": 13,
@@ -112,7 +120,8 @@
 			"ca": "Lasanya",
 			"es": "Lasaña"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"callos": {
 		"order": 14,
@@ -120,7 +129,8 @@
 			"ca": "Callos",
 			"es": "Callos"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"calamar": {
 		"order": 15,
@@ -128,7 +138,8 @@
 			"ca": "Calamar a la romana",
 			"es": "Calamar a la romana"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"musclos": {
 		"order": 16,
@@ -136,7 +147,8 @@
 			"ca": "Musclos a la marinera",
 			"es": "Mejillones a la marinera"
 		},
-		"category": "entrants"
+		"category": "entrants",
+		"allergens": []
 	},
 	"pollastre-ast": {
 		"order": 17,
@@ -146,7 +158,8 @@
 		},
 		"category": "principals",
 		"tag": "specialty",
-		"featured": true
+		"featured": true,
+		"allergens": []
 	},
 	"paella": {
 		"order": 18,
@@ -176,7 +189,8 @@
 			"ca": "Galta a l'ast",
 			"es": "Carrillada al ast"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"pollastre-conill-quart": {
 		"order": 21,
@@ -184,7 +198,8 @@
 			"ca": "Pollastre i conill rostit 1/4",
 			"es": "Pollo y conejo asado 1/4"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"mar-i-muntanya": {
 		"order": 22,
@@ -192,7 +207,8 @@
 			"ca": "Mar i muntanya",
 			"es": "Mar y montaña"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"sarsuela": {
 		"order": 23,
@@ -200,7 +216,8 @@
 			"ca": "Sarsuela",
 			"es": "Zarzuela"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"peu-porc": {
 		"order": 20,
@@ -218,7 +235,8 @@
 			"ca": "Fideuà",
 			"es": "Fideuá"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"calamars-farcits": {
 		"order": 26,
@@ -226,7 +244,8 @@
 			"ca": "Calamars farcits",
 			"es": "Calamares rellenos"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"bacalla": {
 		"order": 27,
@@ -234,7 +253,8 @@
 			"ca": "Bacallà a la llauna o amb samfaina",
 			"es": "Bacalao a la lata o con sanfaina"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"mandonguilles-sepia": {
 		"order": 28,
@@ -242,7 +262,8 @@
 			"ca": "Mandonguilles amb sípia",
 			"es": "Albóndigas con sepia"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"mandonguilles": {
 		"order": 29,
@@ -250,7 +271,8 @@
 			"ca": "Mandonguilles",
 			"es": "Albóndigas"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"conill-ast": {
 		"order": 30,
@@ -258,7 +280,8 @@
 			"ca": "Conill a l'ast",
 			"es": "Conejo al ast"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"melos": {
 		"order": 31,
@@ -266,7 +289,8 @@
 			"ca": "Melós de vedella",
 			"es": "Meloso de ternera"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"secret": {
 		"order": 32,
@@ -274,7 +298,8 @@
 			"ca": "Secret ibèric",
 			"es": "Secreto ibérico"
 		},
-		"category": "principals"
+		"category": "principals",
+		"allergens": []
 	},
 	"pomas-relleno": {
 		"order": 33,

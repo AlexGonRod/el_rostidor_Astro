@@ -1,6 +1,7 @@
 import { defineCollection } from "astro:content";
 import { file } from "astro/loaders";
 import { z } from "astro/zod";
+import { ALLERGEN_KEYS } from "./lib/allergens";
 
 const bilingual = z.object({ ca: z.string(), es: z.string() });
 
@@ -20,6 +21,8 @@ const carta = defineCollection({
 		photo: z.string().optional(),
 		glutenFree: z.boolean().default(false),
 		vegetarian: z.boolean().default(false),
+		/** Alérgenos del plato: los 8 con icono en src/assets/icons/. El dato lo aporta el cliente; no se rellena por suposición. */
+		allergens: z.array(z.enum(ALLERGEN_KEYS)).default([]),
 	}),
 });
 

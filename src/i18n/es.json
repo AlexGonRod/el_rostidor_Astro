@@ -88,9 +88,21 @@
 		"lead": "Elige por categorías. Si buscas algo que no está, pregunta: a menudo podemos prepararlo.",
 		"tabs": {
 			"entrants": "Entrantes y tapas",
-			"principals": "Platos principales"
+			"principals": "Platos principales",
+			"especials": "Platos especiales"
 		},
 		"rest": "Más platos",
+		"allergensList": "Alérgenos",
+		"allergenLabels": {
+			"altramuz": "altramuces",
+			"cacahuetes": "cacahuetes",
+			"cereal-con-gluten": "cereales con gluten",
+			"frutos-secos": "frutos secos",
+			"huevos": "huevos",
+			"lacteos": "lácteos",
+			"moluscos": "moluscos",
+			"pescado": "pescado"
+		},
 		"allergens": "Información de alérgenos disponible en el mostrador. [Añadir iconos: sin gluten · vegetariano]",
 		"tags": {
 			"popular": "Más pedido",

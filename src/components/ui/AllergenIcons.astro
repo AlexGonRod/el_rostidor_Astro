@@ -1,0 +1,47 @@
+---
+import { Image } from 'astro:assets';
+import { dictionaries, type Lang } from '../../i18n/utils';
+import { ALLERGEN_FILES, type AllergenKey } from '../../lib/allergens';
+
+interface Props {
+	lang: Lang;
+	allergens: AllergenKey[];
+	class?: string;
+}
+const { lang, allergens, class: className } = Astro.props;
+const texts = dictionaries[lang];
+
+/** Los PNG de alérgenos viven en src/assets/icons/ (import.meta.glob los resuelve al build). */
+const icons = import.meta.glob<{ default: ImageMetadata }>('/src/assets/icons/Alergeno-*.png', {
+	eager: true,
+});
+
+const withIcons = allergens
+	.map((key) => ({
+		key,
+		label: texts.carta.allergenLabels[key],
+		icon: icons[`/src/assets/icons/${ALLERGEN_FILES[key]}`]?.default,
+	}))
+	.filter((entry) => entry.icon);
+
+if (withIcons.length === 0) return;
+---
+
+<ul class:list={['flex flex-wrap items-center justify-end gap-1.5', className]} aria-label={texts.carta.allergensList}>
+	{
+		withIcons.map(({ key, label, icon }) => (
+			<li>
+				<Image
+					src={icon!}
+					alt={label}
+					width={24}
+					height={24}
+					loading="lazy"
+					class="shrink-0 object-contain"
+					// Tailwind no tiene tamaño en em: 1.25em escala con la fuente del nombre del plato.
+					style="width: 1.25em; height: 1.25em;"
+				/>
+			</li>
+		))
+	}
+</ul>

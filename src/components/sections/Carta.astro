@@ -2,6 +2,7 @@
 import { getCollection } from 'astro:content';
 import { dictionaries, withPlaceholders, type Lang } from '../../i18n/utils';
 import DishCard from '../ui/DishCard.astro';
+import AllergenIcons from '../ui/AllergenIcons.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
 
 interface Props {
@@ -56,6 +57,7 @@ const categories = (['entrants', 'principals', 'especials'] as const).map((key) 
                   name={dish.data.name[lang]}
                   tag={dish.data.tag}
                   photo={dish.data.photo}
+                  allergens={dish.data.allergens}
                 />
               ))}
             </div>
@@ -65,13 +67,16 @@ const categories = (['entrants', 'principals', 'especials'] as const).map((key) 
                 <h4 class="mt-10 mb-2 text-eyebrow font-bold tracking-[0.12em] text-muted uppercase">{texts.carta.rest}</h4>
                 <ul class="grid gap-x-10 sm:grid-cols-2">
                   {category.rest.map((dish) => (
-                    <li class="border-b border-line py-3">
-                      {dish.data.name[lang]}
-                      {dish.data.tag && (
-                        <span class="ml-2 text-xs font-bold tracking-[0.08em] text-accent uppercase">
-                          {texts.carta.tags[dish.data.tag]}
-                        </span>
-                      )}
+                    <li class="flex flex-wrap items-center gap-x-3 border-b border-line py-3">
+                      <span class="min-w-0">
+                        {dish.data.name[lang]}
+                        {dish.data.tag && (
+                          <span class="ml-2 text-xs font-bold tracking-[0.08em] text-accent uppercase">
+                            {texts.carta.tags[dish.data.tag]}
+                          </span>
+                        )}
+                      </span>
+                      <AllergenIcons lang={lang} allergens={dish.data.allergens} class="ml-auto" />
                     </li>
                   ))}
                 </ul>

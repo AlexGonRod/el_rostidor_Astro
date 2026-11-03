@@ -92,6 +92,17 @@
 			"especials": "Plats especials"
 		},
 		"rest": "Més plats",
+		"allergensList": "Al·lèrgens",
+		"allergenLabels": {
+			"altramuz": "altramussos",
+			"cacahuetes": "cacauets",
+			"cereal-con-gluten": "cereals amb gluten",
+			"frutos-secos": "fruits secs",
+			"huevos": "ous",
+			"lacteos": "làctics",
+			"moluscos": "mol·luscs",
+			"pescado": "peix"
+		},
 		"allergens": "Informació d'al·lèrgens disponible al mostrador. [Afegir icones: sense gluten · vegetarià]",
 		"tags": {
 			"popular": "Més demanat",

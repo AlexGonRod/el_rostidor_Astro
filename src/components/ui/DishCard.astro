@@ -1,6 +1,8 @@
 ---
 import { Image } from 'astro:assets';
 import { dictionaries, type Lang } from '../../i18n/utils';
+import type { AllergenKey } from '../../lib/allergens';
+import AllergenIcons from './AllergenIcons.astro';
 import Placeholder from './Placeholder.astro';
 
 interface Props {
@@ -8,8 +10,9 @@ interface Props {
   name: string;
   tag?: 'popular' | 'specialty' | 'seasonal';
   photo?: string;
+  allergens?: AllergenKey[];
 }
-const { lang, name, tag, photo } = Astro.props;
+const { lang, name, tag, photo, allergens = [] } = Astro.props;
 const texts = dictionaries[lang];
 
 // Las fotos reales van en src/assets/dishes/ y se enlazan con el campo `photo` del plato.
@@ -31,6 +34,11 @@ const image = photo ? photos[`/src/assets/dishes/${photo}`]?.default : undefined
     <p class="mb-1.5 min-h-[1.125rem] text-xs font-bold tracking-[0.08em] text-accent uppercase">
       {tag ? texts.carta.tags[tag] : ''}
     </p>
-    <h4 class="font-display text-xl font-bold">{name}</h4>
+    {/* El tamaño del nombre (text-xl) fija también el em de los iconos: 1.25em respecto al nombre. */}
+    <div class="flex flex-wrap items-center gap-x-3 gap-y-1 text-xl">
+    <h4 class="min-w-0 font-display font-bold">{name}</h4>
+    {/* Los iconos de alérgenos solo en tarjetas sin foto; las que ya tienen imagen no cambian. */}
+    {!image && <AllergenIcons lang={lang} allergens={allergens} class="ml-auto" />}
+  </div>
   </div>
 </div>
