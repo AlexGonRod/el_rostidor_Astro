@@ -10,6 +10,7 @@ interface Props {
 }
 const { lang } = Astro.props;
 const texts = dictionaries[lang];
+const allergensTypes = ["moluscos", "huevos", "cereal-con-gluten", "lacteos", "pescado", "cacahuetes", "altramuz", "frutos-secos"]; 
 
 const dishes = (await getCollection('carta')).sort((a, b) => a.data.order - b.data.order);
 const categories = (['entrants', 'principals', 'especials'] as const).map((key) => {
@@ -86,8 +87,10 @@ const categories = (['entrants', 'principals', 'especials'] as const).map((key) 
         ))
       }
     </div>
-
-    <p class="mt-7 text-sm text-muted" set:html={withPlaceholders(texts.carta.allergens)} />
+    <div class="flex flex-wrap content-left">
+    <p class="mt-7 text-sm text-muted" set:html={withPlaceholders(texts.carta.allergens)} /> 
+    <AllergenIcons lang={lang} allergens={allergensTypes} class="ml-2 mt-7" />
+    </div>
   </div>
 </section>
 
