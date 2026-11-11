@@ -4,6 +4,7 @@ import { dictionaries, withPlaceholders, type Lang } from '../../i18n/utils';
 import DishCard from '../ui/DishCard.astro';
 import AllergenIcons from '../ui/AllergenIcons.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
+import { ALLERGEN_KEYS } from '../../lib/allergens';
 
 interface Props {
   lang: Lang;
@@ -87,7 +88,11 @@ const categories = (['entrants', 'principals', 'especials'] as const).map((key) 
       }
     </div>
 
-    <p class="mt-7 text-sm text-muted" set:html={withPlaceholders(texts.carta.allergens)} />
+    <div class="mt-7 flex flex-wrap items-center gap-x-4 gap-y-3">
+      <p class="text-sm text-muted" set:html={withPlaceholders(texts.carta.allergens)} />
+      {/* Leyenda de referencia: los 8 alérgenos con su nombre, para que se entiendan los iconos. */}
+      <AllergenIcons lang={lang} allergens={[...ALLERGEN_KEYS]} size={26} showLabels />
+    </div>
   </div>
 </section>
 
