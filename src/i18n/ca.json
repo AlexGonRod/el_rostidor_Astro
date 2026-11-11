@@ -103,7 +103,7 @@
 			"moluscos": "mol·luscs",
 			"pescado": "peix"
 		},
-		"allergens": "Informació d'al·lèrgens disponible al mostrador. [Afegir icones: sense gluten · vegetarià]",
+		"allergens": "Informació d'al·lèrgens disponible al mostrador.",
 		"tags": {
 			"popular": "Més demanat",
 			"specialty": "Especialitat",
@@ -150,7 +150,7 @@
 	"reviews": {
 		"eyebrow": "Opinions",
 		"title": "Això diuen els qui ja ens coneixen",
-		"rating": "[4,X] ★ · [N] ressenyes a Google",
+		"rating": "[4,8] ★ · [253] ressenyes a Google",
 		"source": "Ressenya de Google",
 		"originalEs": "original en castellà",
 		"all": "Llegir totes les ressenyes a Google →"

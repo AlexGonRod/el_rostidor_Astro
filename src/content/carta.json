@@ -27,7 +27,7 @@
 			"es": "Patatas bravas"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["huevos", "lacteos", "cereal-con-gluten"]
 	},
 	"esqueixada": {
 		"order": 6,
@@ -45,7 +45,7 @@
 			"es": "Ensaladilla"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["huevos", "lacteos", "pescado"]
 	},
 	"rovellons": {
 		"order": 4,
@@ -76,7 +76,13 @@
 			"es": "Salpicón de marisco"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": [
+			"moluscos",
+			"pescado",
+			"cereal-con-gluten",
+			"lacteos",
+			"huevos"
+		]
 	},
 	"bunyols": {
 		"order": 9,
@@ -85,7 +91,7 @@
 			"es": "Buñuelos de bacalao"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["pescado", "lacteos", "cereal-con-gluten", "huevos"]
 	},
 	"alberginies": {
 		"order": 10,
@@ -94,7 +100,7 @@
 			"es": "Berenjenas rellenas"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["huevos", "pescado", "lacteos", "cereal-con-gluten"]
 	},
 	"truites": {
 		"order": 11,
@@ -103,7 +109,7 @@
 			"es": "Tortillas variadas"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["huevos", "lacteos", "cereal-con-gluten"]
 	},
 	"macarrons": {
 		"order": 12,
@@ -112,7 +118,7 @@
 			"es": "Macarrones"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["huevos", "lacteos", "cereal-con-gluten"]
 	},
 	"lasanya": {
 		"order": 13,
@@ -121,7 +127,7 @@
 			"es": "Lasaña"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["huevos", "lacteos", "cereal-con-gluten"]
 	},
 	"callos": {
 		"order": 14,
@@ -130,7 +136,7 @@
 			"es": "Callos"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["lacteos", "cereal-con-gluten"]
 	},
 	"calamar": {
 		"order": 15,
@@ -139,7 +145,7 @@
 			"es": "Calamar a la romana"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["moluscos", "huevos", "lacteos", "cereal-con-gluten"]
 	},
 	"musclos": {
 		"order": 16,
@@ -148,7 +154,7 @@
 			"es": "Mejillones a la marinera"
 		},
 		"category": "entrants",
-		"allergens": []
+		"allergens": ["moluscos", "cereal-con-gluten"]
 	},
 	"pollastre-ast": {
 		"order": 17,
@@ -236,7 +242,7 @@
 			"es": "Fideuá"
 		},
 		"category": "principals",
-		"allergens": []
+		"allergens": ["moluscos", "moluscos", "cereal-con-gluten"]
 	},
 	"calamars-farcits": {
 		"order": 26,
@@ -245,7 +251,7 @@
 			"es": "Calamares rellenos"
 		},
 		"category": "principals",
-		"allergens": []
+		"allergens": ["moluscos", "cereal-con-gluten"]
 	},
 	"bacalla": {
 		"order": 27,
@@ -254,7 +260,7 @@
 			"es": "Bacalao a la lata o con sanfaina"
 		},
 		"category": "principals",
-		"allergens": []
+		"allergens": ["pescado", "cereal-con-gluten"]
 	},
 	"mandonguilles-sepia": {
 		"order": 28,
@@ -263,7 +269,13 @@
 			"es": "Albóndigas con sepia"
 		},
 		"category": "principals",
-		"allergens": []
+		"allergens": [
+			"moluscos",
+			"cereal-con-gluten",
+			"lacteos",
+			"huevos",
+			"frutos-secos"
+		]
 	},
 	"mandonguilles": {
 		"order": 29,
@@ -272,7 +284,7 @@
 			"es": "Albóndigas"
 		},
 		"category": "principals",
-		"allergens": []
+		"allergens": ["lacteos", "huevos", "frutos-secos", "cereal-con-gluten"]
 	},
 	"conill-ast": {
 		"order": 30,
@@ -290,7 +302,7 @@
 			"es": "Meloso de ternera"
 		},
 		"category": "principals",
-		"allergens": []
+		"allergens": ["lacteos", "cereal-con-gluten"]
 	},
 	"secret": {
 		"order": 32,
