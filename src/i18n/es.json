@@ -103,7 +103,7 @@
 			"moluscos": "moluscos",
 			"pescado": "pescado"
 		},
-		"allergens": "Información de alérgenos disponible en el mostrador. [Añadir iconos: sin gluten · vegetariano]",
+		"allergens": "Información de alérgenos disponible en el mostrador.",
 		"tags": {
 			"popular": "Más pedido",
 			"specialty": "Especialidad",
