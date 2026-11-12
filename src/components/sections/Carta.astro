@@ -4,14 +4,13 @@ import { dictionaries, withPlaceholders, type Lang } from '../../i18n/utils';
 import DishCard from '../ui/DishCard.astro';
 import AllergenIcons from '../ui/AllergenIcons.astro';
 import SectionHeading from '../ui/SectionHeading.astro';
+import { ALLERGEN_KEYS } from '../../lib/allergens';
 
 interface Props {
   lang: Lang;
 }
 const { lang } = Astro.props;
 const texts = dictionaries[lang];
-const allergensTypes = ["moluscos", "huevos", "cereal-con-gluten", "lacteos", "pescado", "cacahuetes", "altramuz", "frutos-secos"]; 
-
 const dishes = (await getCollection('carta')).sort((a, b) => a.data.order - b.data.order);
 const categories = (['entrants', 'principals', 'especials'] as const).map((key) => {
   const all = dishes.filter((dish) => dish.data.category === key);
@@ -87,9 +86,10 @@ const categories = (['entrants', 'principals', 'especials'] as const).map((key) 
         ))
       }
     </div>
-    <div class="flex flex-wrap content-left">
-    <p class="mt-7 text-sm text-muted" set:html={withPlaceholders(texts.carta.allergens)} /> 
-    <AllergenIcons lang={lang} allergens={allergensTypes} class="ml-2 mt-7" />
+    <div class="mt-7 flex flex-wrap items-center gap-x-4 gap-y-3">
+      <p class="text-sm text-muted" set:html={withPlaceholders(texts.carta.allergens)} />
+      {/* Leyenda de referencia: los 8 alérgenos con su nombre, para que se entiendan los iconos. */}
+      <AllergenIcons lang={lang} allergens={[...ALLERGEN_KEYS]} size={26} showLabels />
     </div>
   </div>
 </section>

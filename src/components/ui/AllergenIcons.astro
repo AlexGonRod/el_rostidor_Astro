@@ -7,8 +7,12 @@ interface Props {
 	lang: Lang;
 	allergens: AllergenKey[];
 	class?: string;
+	/** Tamaño del icono en px. Sin él, 1.25em respecto a la fuente heredada (filas y tarjetas). */
+	size?: number;
+	/** Leyenda: escribe el nombre del alérgeno junto al icono. */
+	showLabels?: boolean;
 }
-const { lang, allergens, class: className } = Astro.props;
+const { lang, allergens, class: className, size, showLabels = false } = Astro.props;
 const texts = dictionaries[lang];
 
 /** Los PNG de alérgenos viven en src/assets/icons/ (import.meta.glob los resuelve al build). */
@@ -24,23 +28,34 @@ const withIcons = allergens
 	}))
 	.filter((entry) => entry.icon);
 
+// Tailwind no tiene tamaño en em: 1.25em escala con la fuente del nombre del plato.
+const iconStyle = size ? `width: ${size}px; height: ${size}px;` : 'width: 1.25em; height: 1.25em;';
+// El PNG se pide al doble de su tamaño en pantalla para que no se vea borroso en 2x.
+const imgSize = size ? size * 2 : 24;
+// La leyenda crece hacia la derecha; las filas de platos alinean los iconos a la derecha.
+const layout = showLabels ? 'justify-start gap-x-4 gap-y-2' : 'justify-end gap-1.5';
+
 if (withIcons.length === 0) return;
 ---
 
-<ul class:list={['flex flex-wrap items-center justify-end gap-1.5', className]} aria-label={texts.carta.allergensList}>
+<ul
+	class:list={['flex flex-wrap items-center', layout, className]}
+	aria-label={texts.carta.allergensList}
+	data-allergen-legend={showLabels ? '' : undefined}
+>
 	{
-		withIcons.map(({ key, label, icon }) => (
-			<li>
+		withIcons.map(({ label, icon }) => (
+			<li class:list={[showLabels && 'flex items-center gap-1.5']}>
 				<Image
 					src={icon!}
-					alt={label}
-					width={24}
-					height={24}
+					alt={showLabels ? '' : label}
+					width={imgSize}
+					height={imgSize}
 					loading="lazy"
 					class="shrink-0 object-contain"
-					// Tailwind no tiene tamaño en em: 1.25em escala con la fuente del nombre del plato.
-					style="width: 1.25em; height: 1.25em;"
+					style={iconStyle}
 				/>
+				{showLabels && <span class="text-sm leading-tight text-muted" data-allergen-label>{label}</span>}
 			</li>
 		))
 	}
